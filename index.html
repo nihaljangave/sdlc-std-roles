@@ -249,6 +249,102 @@
       margin-top: 1rem;
     }
 
+    /* Buttons & Controls */
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.45rem 0.95rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .action-btn:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+    .action-btn.primary {
+      background: rgba(99, 102, 241, 0.25);
+      border-color: rgba(99, 102, 241, 0.45);
+      color: #a5b4fc;
+    }
+    .action-btn.primary:hover {
+      background: rgba(99, 102, 241, 0.45);
+      color: #fff;
+    }
+
+    /* Template Library */
+    .lib-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 0.85rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 12px var(--primary-glow); }
+    .filter-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .pill:hover, .pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+    .template-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      transition: all 0.2s ease;
+    }
+    .template-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+    .t-cat {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+    }
+    .t-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+    .t-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 1rem; }
+    .t-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .t-path { font-family: var(--mono); font-size: 0.75rem; color: #94a3b8; }
+
     footer {
       text-align: center;
       margin-top: 4rem;
@@ -273,7 +369,7 @@
         <div class="lbl">SDLC Stages</div>
       </div>
       <div class="stat-card">
-        <div class="num">23</div>
+        <div class="num">25</div>
         <div class="lbl">Standard Templates</div>
       </div>
       <div class="stat-card">
@@ -294,6 +390,7 @@
       <button class="tab-btn active" onclick="switchTab('stages')">Lifecycle Stages</button>
       <button class="tab-btn" onclick="switchTab('auditor')">Live Gate Checklist Auditor</button>
       <button class="tab-btn" onclick="switchTab('raci')">RACI Governance Matrix</button>
+      <button class="tab-btn" onclick="switchTab('templates')">Deliverables & Templates (25)</button>
       <button class="tab-btn" onclick="switchTab('cli')">CLI & Automation</button>
     </div>
 
@@ -395,6 +492,12 @@
             <p style="color: var(--text-muted); font-size: 0.9rem;">Check off completed items to calculate production release readiness.</p>
           </div>
           <div class="score-meter" id="scoreMeter">0% Ready</div>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <button class="action-btn" onclick="selectAll(true)">Select All</button>
+          <button class="action-btn" onclick="selectAll(false)">Reset All</button>
+          <button class="action-btn primary" onclick="exportAuditReport()">⬇️ Export Audit Report (.md)</button>
         </div>
 
         <div class="gate-section">
@@ -520,6 +623,335 @@
       </div>
     </div>
 
+    <!-- TAB 4: TEMPLATES LIBRARY -->
+    <div id="tab-templates" class="tab-content">
+      <div class="auditor-box" style="margin-bottom: 2rem;">
+        <h2>Deliverables & Templates Library</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+          Instant search and copy paths for all 25 production-ready Markdown templates in <code style="color: #818cf8;">templates/</code>:
+        </p>
+
+        <div class="lib-controls" style="margin-top: 1.25rem;">
+          <input type="text" id="tplSearch" class="search-input" placeholder="🔍 Search templates by title, gate, keyword, or filename..." oninput="searchTemplates()">
+          <div class="filter-pills">
+            <button class="pill active" onclick="filterTemplates('all', this)">All (25)</button>
+            <button class="pill" onclick="filterTemplates('discovery', this)">Discovery & Scope</button>
+            <button class="pill" onclick="filterTemplates('architecture', this)">Architecture & AI</button>
+            <button class="pill" onclick="filterTemplates('security', this)">Security & Compliance</button>
+            <button class="pill" onclick="filterTemplates('qa', this)">QA & Client UAT</button>
+            <button class="pill" onclick="filterTemplates('ops', this)">Operations & SRE</button>
+          </div>
+        </div>
+
+        <div class="template-grid" id="templateGrid">
+          <!-- Discovery -->
+          <div class="template-card" data-cat="discovery">
+            <div>
+              <div class="t-cat">Discovery &bull; Gate 0</div>
+              <div class="t-title">Product Requirements Document (PRD)</div>
+              <div class="t-desc">MoSCoW prioritized functional requirements, user personas, success metrics, and out-of-scope boundaries.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/PRD_TEMPLATE.md</span>
+              <button class="action-btn" onclick="copyPath('templates/PRD_TEMPLATE.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="discovery">
+            <div>
+              <div class="t-cat">Discovery &bull; Gate 0</div>
+              <div class="t-title">Project Charter & SOW</div>
+              <div class="t-desc">Commercial Statement of Work, milestones, billing gates, and delivery governance charter.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/PROJECT_CHARTER_AND_SOW.md</span>
+              <button class="action-btn" onclick="copyPath('templates/PROJECT_CHARTER_AND_SOW.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="discovery">
+            <div>
+              <div class="t-cat">Governance &bull; All Gates</div>
+              <div class="t-title">Change Request Form</div>
+              <div class="t-desc">Formal change control board document for logging client scope alterations and architectural revisions.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/CHANGE_REQUEST_FORM.md</span>
+              <button class="action-btn" onclick="copyPath('templates/CHANGE_REQUEST_FORM.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="discovery">
+            <div>
+              <div class="t-cat">Governance &bull; Commercial</div>
+              <div class="t-title">Change Order Estimation Worksheet</div>
+              <div class="t-desc">Commercial impact calculator, engineering hours breakdown, and launch date adjustment model.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/CHANGE_ORDER_ESTIMATION_WORKSHEET.md</span>
+              <button class="action-btn" onclick="copyPath('templates/CHANGE_ORDER_ESTIMATION_WORKSHEET.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="discovery">
+            <div>
+              <div class="t-cat">Governance &bull; Executive</div>
+              <div class="t-title">Weekly Steering Committee Slides</div>
+              <div class="t-desc">5-slide Marp presentation covering health, velocity, budget burn, blocker escalation, and lookahead.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/WEEKLY_STEERING_COMMITTEE_SLIDES.md</span>
+              <button class="action-btn" onclick="copyPath('templates/WEEKLY_STEERING_COMMITTEE_SLIDES.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <!-- Architecture -->
+          <div class="template-card" data-cat="architecture">
+            <div>
+              <div class="t-cat">Architecture &bull; Gate 1</div>
+              <div class="t-title">System Architecture Document (SAD)</div>
+              <div class="t-desc">High & Low Level Design, C4 architecture diagrams, event schemas, and data store topologies.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md</span>
+              <button class="action-btn" onclick="copyPath('templates/SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="architecture">
+            <div>
+              <div class="t-cat">Architecture &bull; Gate 1</div>
+              <div class="t-title">Infrastructure Design Document (IDD)</div>
+              <div class="t-desc">Cloud VPC topology, multi-AZ CIDR subnet planning, compute sizing, and disaster recovery SLA targets.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/INFRASTRUCTURE_DESIGN_DOCUMENT_IDD.md</span>
+              <button class="action-btn" onclick="copyPath('templates/INFRASTRUCTURE_DESIGN_DOCUMENT_IDD.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="architecture">
+            <div>
+              <div class="t-cat">Architecture &bull; Gate 1</div>
+              <div class="t-title">Architecture Decision Record (ADR)</div>
+              <div class="t-desc">Standard lightweight template for recording architectural choices, trade-offs, and consequences.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/ARCHITECTURE_DECISION_RECORD_ADR.md</span>
+              <button class="action-btn" onclick="copyPath('templates/ARCHITECTURE_DECISION_RECORD_ADR.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="architecture">
+            <div>
+              <div class="t-cat">Architecture &bull; Gate 1</div>
+              <div class="t-title">API Contract & Integration Spec</div>
+              <div class="t-desc">Contract-first OpenAPI 3.0 specification, authentication schemes, rate limits, and error payloads.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/API_CONTRACT_AND_INTEGRATION_SPEC.md</span>
+              <button class="action-btn" onclick="copyPath('templates/API_CONTRACT_AND_INTEGRATION_SPEC.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="architecture">
+            <div>
+              <div class="t-cat">AI / ML &bull; Gate 1</div>
+              <div class="t-title">Model Card & AI Risk Assessment</div>
+              <div class="t-desc">Data lineage, RAG Triad benchmark metrics, bias mitigation, cost projections, and CISO sign-off.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/MODEL_CARD_AND_AI_RISK_ASSESSMENT.md</span>
+              <button class="action-btn" onclick="copyPath('templates/MODEL_CARD_AND_AI_RISK_ASSESSMENT.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <!-- Security -->
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Security &bull; Gate 1</div>
+              <div class="t-title">STRIDE Threat Model Template</div>
+              <div class="t-desc">Structured threat modeling across Spoofing, Tampering, Repudiation, Information Disclosure, DoS, and Elevation.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/STRIDE_THREAT_MODEL_TEMPLATE.md</span>
+              <button class="action-btn" onclick="copyPath('templates/STRIDE_THREAT_MODEL_TEMPLATE.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Security &bull; Gate 1</div>
+              <div class="t-title">Security & Data Privacy Checklist</div>
+              <div class="t-desc">Pre-development security assessment verifying encryption, authentication, RBAC, and data sanitization.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md</span>
+              <button class="action-btn" onclick="copyPath('templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Security &bull; Gate 3</div>
+              <div class="t-title">Security Audit Executive Summary</div>
+              <div class="t-desc">CISO-ready executive assurance memo summarizing SAST, DAST, penetration testing, and third-party scans.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/SECURITY_AUDIT_REPORT_EXECUTIVE_SUMMARY.md</span>
+              <button class="action-btn" onclick="copyPath('templates/SECURITY_AUDIT_REPORT_EXECUTIVE_SUMMARY.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Security &bull; Continuous</div>
+              <div class="t-title">Vulnerability Assessment & Remediation Log</div>
+              <div class="t-desc">CVSS 3.1 severity tracker, statutory SLA countdowns, compensating controls, and exception registry.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/VULNERABILITY_ASSESSMENT_AND_REMEDIATION_LOG.md</span>
+              <button class="action-btn" onclick="copyPath('templates/VULNERABILITY_ASSESSMENT_AND_REMEDIATION_LOG.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Compliance &bull; GDPR / SOC2</div>
+              <div class="t-title">Data Classification & Inventory Matrix</div>
+              <div class="t-desc">GDPR Article 30 processing inventory, data classification tiers (Tier 1-4), and DPIA assessment triggers.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md</span>
+              <button class="action-btn" onclick="copyPath('templates/DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <!-- QA & UAT -->
+          <div class="template-card" data-cat="qa">
+            <div>
+              <div class="t-cat">Quality &bull; Gate 2</div>
+              <div class="t-title">Definition of Done & Code Review</div>
+              <div class="t-desc">Developer quality guardrails, test coverage standards, peer review checklists, and CI status checks.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/DEFINITION_OF_DONE_AND_CODE_REVIEW.md</span>
+              <button class="action-btn" onclick="copyPath('templates/DEFINITION_OF_DONE_AND_CODE_REVIEW.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="qa">
+            <div>
+              <div class="t-cat">Quality &bull; Gate 3</div>
+              <div class="t-title">Test Plan & Client UAT Sign-off</div>
+              <div class="t-desc">Acceptance criteria test matrix, severity defect classifications, and formal client acceptance certificate.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/TEST_PLAN_AND_UAT_SIGNOFF.md</span>
+              <button class="action-btn" onclick="copyPath('templates/TEST_PLAN_AND_UAT_SIGNOFF.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="qa">
+            <div>
+              <div class="t-cat">Quality &bull; Gate 3</div>
+              <div class="t-title">API Integration Test Report</div>
+              <div class="t-desc">Third-party and vendor integration verification log, payload conformance, and error handling proofs.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/API_INTEGRATION_TEST_REPORT.md</span>
+              <button class="action-btn" onclick="copyPath('templates/API_INTEGRATION_TEST_REPORT.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="qa">
+            <div>
+              <div class="t-cat">Accessibility &bull; Gate 3</div>
+              <div class="t-title">VPAT Accessibility Conformance Report</div>
+              <div class="t-desc">Universal VPAT Version 2.4 WCAG Edition report evaluating WCAG 2.2 Level A and AA criteria for procurement.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md</span>
+              <button class="action-btn" onclick="copyPath('templates/VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="qa">
+            <div>
+              <div class="t-cat">Governance &bull; Milestones</div>
+              <div class="t-title">Deliverables Sign-Off Matrix</div>
+              <div class="t-desc">Master approval registry across milestones 1–6, IP transfer terms, and source code handover declarations.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/DELIVERABLES_SIGN_OFF_MATRIX.md</span>
+              <button class="action-btn" onclick="copyPath('templates/DELIVERABLES_SIGN_OFF_MATRIX.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <!-- Operations -->
+          <div class="template-card" data-cat="ops">
+            <div>
+              <div class="t-cat">Operations &bull; Gate 4</div>
+              <div class="t-title">Operations Runbook (Day-2 Playbook)</div>
+              <div class="t-desc">Service topology, health check endpoints, alert triage SOPs, failover procedures, and backup recovery.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/OPERATIONS_RUNBOOK.md</span>
+              <button class="action-btn" onclick="copyPath('templates/OPERATIONS_RUNBOOK.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="ops">
+            <div>
+              <div class="t-cat">Operations &bull; Gate 4</div>
+              <div class="t-title">Deployment & Rollback Guide</div>
+              <div class="t-desc">Zero-downtime blue/green & canary release steps, automated database migration, and rollback triggers.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/DEPLOYMENT_AND_ROLLBACK_GUIDE.md</span>
+              <button class="action-btn" onclick="copyPath('templates/DEPLOYMENT_AND_ROLLBACK_GUIDE.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="ops">
+            <div>
+              <div class="t-cat">Operations &bull; Gate 4</div>
+              <div class="t-title">Service Transition Checklist</div>
+              <div class="t-desc">Formal legal handover gate from development to Day-2 operations with sign-offs and key transfers.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/SERVICE_TRANSITION_CHECKLIST.md</span>
+              <button class="action-btn" onclick="copyPath('templates/SERVICE_TRANSITION_CHECKLIST.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="ops">
+            <div>
+              <div class="t-cat">Operations &bull; Gate 4</div>
+              <div class="t-title">Go-Live Readiness Review (GLRR)</div>
+              <div class="t-desc">Formal multi-stakeholder voting record (GO / NO-GO) and emergency abort authorization table.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/GO_LIVE_READINESS_REVIEW_GLRR.md</span>
+              <button class="action-btn" onclick="copyPath('templates/GO_LIVE_READINESS_REVIEW_GLRR.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="ops">
+            <div>
+              <div class="t-cat">Operations &bull; Gate 5</div>
+              <div class="t-title">Incident Management & SLA Matrix</div>
+              <div class="t-desc">Severity 1–4 response & resolution SLAs, on-call escalation trees, and client status communication intervals.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md</span>
+              <button class="action-btn" onclick="copyPath('templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md', this)">Copy Path</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- TAB 4: CLI & AUTOMATION -->
     <div id="tab-cli" class="tab-content">
       <div class="auditor-box">
@@ -594,6 +1026,84 @@
         meter.style.borderColor = 'rgba(99, 102, 241, 0.4)';
         meter.style.background = 'rgba(99, 102, 241, 0.15)';
       }
+    }
+
+    function selectAll(state) {
+      document.querySelectorAll('#tab-auditor input[type="checkbox"]').forEach(b => b.checked = state);
+      calcScore();
+    }
+
+    function exportAuditReport() {
+      const boxes = document.querySelectorAll('#tab-auditor input[type="checkbox"]');
+      let checked = 0;
+      let md = `# SDLC Stage-Gate Readiness Audit Report\n\n`;
+      md += `**Generated Date:** ${new Date().toISOString()}\n`;
+      md += `**Tool:** Lean-Enterprise SDLC Operating System\n\n`;
+      md += `| Gate / Checkpoint | Status |\n| :--- | :---: |\n`;
+
+      boxes.forEach(b => {
+        const label = b.parentElement.querySelector('label').innerText;
+        const status = b.checked ? '✅ PASS' : '❌ PENDING';
+        if (b.checked) checked++;
+        md += `| ${label} | ${status} |\n`;
+      });
+
+      const pct = Math.round((checked / boxes.length) * 100);
+      md += `\n**Overall Gate Readiness:** ${pct}% (${checked}/${boxes.length} checks satisfied)\n\n`;
+      if (pct === 100) {
+        md += `**Clearance Status:** 🎉 APPROVED FOR NEXT LIFECYCLE GATE\n`;
+      } else {
+        md += `**Clearance Status:** ⚠️ GATE CLEARANCE BLOCKED (Resolve pending items prior to gate cutover)\n`;
+      }
+
+      const blob = new Blob([md], { type: 'text/markdown' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `Stage_Gate_Readiness_Report_${new Date().toISOString().slice(0,10)}.md`;
+      a.click();
+    }
+
+    let activeFilter = 'all';
+
+    function filterTemplates(cat, btn) {
+      activeFilter = cat;
+      document.querySelectorAll('.filter-pills .pill').forEach(p => p.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      searchTemplates();
+    }
+
+    function searchTemplates() {
+      const query = document.getElementById('tplSearch').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#templateGrid .template-card');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const text = card.innerText.toLowerCase();
+        const matchesCat = (activeFilter === 'all' || cat === activeFilter);
+        const matchesQuery = (!query || text.includes(query));
+
+        if (matchesCat && matchesQuery) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function copyPath(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.borderColor = '#10b981';
+        btn.style.color = '#10b981';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.borderColor = '';
+          btn.style.color = '';
+        }, 1500);
+      }).catch(() => {
+        prompt('Template Path:', text);
+      });
     }
   </script>
 </body>
