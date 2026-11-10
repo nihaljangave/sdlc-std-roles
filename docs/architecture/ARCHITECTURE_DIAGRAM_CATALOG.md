@@ -92,3 +92,4 @@ sequenceDiagram
     App->>API: GET /api/v1/profile (Authorization: Bearer <JWT>)
     API-->>App: 200 OK Profile Data
 ```
+

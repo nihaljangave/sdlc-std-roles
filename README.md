@@ -71,6 +71,7 @@ flowchart LR
   * [`architecture/ARCHITECTURE_DIAGRAM_CATALOG.md`](./docs/architecture/ARCHITECTURE_DIAGRAM_CATALOG.md): Copy-paste Mermaid visual patterns (BFF, Event-Driven, Multi-Tenant SaaS, OAuth2).
   * [`ops/TELEMETRY_AND_MONITORING_STANDARDS.md`](./docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md): JSON logging schemas, RED/USE metrics, health checks, and tracing headers.
   * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
+  * [`ops/ON_CALL_OPERATING_PROCEDURE.md`](./docs/ops/ON_CALL_OPERATING_PROCEDURE.md): Sustainable 24/7 on-call rotations, shift handoffs, and rest policies.
   * [`ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md`](./docs/ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md): Cloud cost governance, auto-shutdowns, and resource tagging.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
@@ -78,6 +79,7 @@ flowchart LR
   * `PROJECT_CHARTER_AND_SOW.md`: Scope, milestone, and commercial alignment.
   * `SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md`: Combined HLD & LLD.
   * `ARCHITECTURE_DECISION_RECORD_ADR.md`: Lightweight decision tracking.
+  * `STRIDE_THREAT_MODEL_TEMPLATE.md`: Architecture-level STRIDE threat assessment.
   * `SECURITY_AND_DATA_PRIVACY_CHECKLIST.md`: Threat assessment and vulnerability posture.
   * `API_CONTRACT_AND_INTEGRATION_SPEC.md`: Client & partner integration interface.
   * `DEFINITION_OF_DONE_AND_CODE_REVIEW.md`: Developer quality guardrails.
@@ -100,8 +102,11 @@ flowchart LR
 * [`checklists/`](./checklists/): Quick-reference gate review checklists and standards.
   * [`STAGE_GATES_QUICK_REFERENCE.md`](./checklists/STAGE_GATES_QUICK_REFERENCE.md): 15-minute stage gate checklists (Gate 0 to Gate 5).
   * [`NFR_STANDARDS_CATALOG.md`](./checklists/NFR_STANDARDS_CATALOG.md): Non-functional requirements benchmarks for Prototype vs MVP vs Enterprise.
-* [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks.
+* [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks and testing scaffolds.
   * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
+  * [`testing/playwright.config.ts`](./automation-and-tooling/testing/playwright.config.ts): CI-ready Playwright end-to-end testing configuration.
+  * [`testing/smoke.spec.ts`](./automation-and-tooling/testing/smoke.spec.ts): Synthetic Production Verification Test (PVT) smoke test suite.
+  * [`testing/k6-load-test.js`](./automation-and-tooling/testing/k6-load-test.js): k6 load and stress test benchmark script.
 * [`scripts/`](./scripts/): Project scaffolding and automation tooling.
   * [`sdlc-cli.sh`](./scripts/sdlc-cli.sh): Unified master CLI runner (scaffold, audit, release, hooks, portal).
   * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.

@@ -95,3 +95,4 @@ Before any Pull Request containing a database migration is approved:
   ```
 - [ ] Migration runtime dry-run tested against staging replica (< 60 seconds).
 - [ ] Backward compatibility verified: previous container version still functions against the expanded schema.
+
