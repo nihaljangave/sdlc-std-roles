@@ -40,3 +40,4 @@ npx license-checker --summary --failOn 'GPL;AGPL'
 During Stage 4 (Operations & Client Handover), the delivery team provides:
 1. Complete `sbom.json` listing all direct and transitive third-party dependencies.
 2. License compliance attestation letter certifying zero viral copyleft contaminations.
+

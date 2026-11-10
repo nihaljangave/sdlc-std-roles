@@ -46,3 +46,4 @@ When an endpoint is marked for deprecation:
    - **Enterprise Production Phase:** 90 calendar days minimum notice before shutdown.
 3. **Telemetry Tracking:**
    Operations tracks remaining callers via Datadog/CloudWatch logs filtered by `http_path` and `tenant_id` to proactively reach out to lagging clients.
+

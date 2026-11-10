@@ -52,3 +52,4 @@ By signing below, the Client authorizes the implementation of the changes detail
 Signature: ____________________________________  
 Name: [Client Signatory Name]  
 Date: ________________________  
+

@@ -59,3 +59,4 @@ flowchart TD
 **Resolution:** The incident is fully resolved as of [HH:MM UTC]. All services are operating normally.
 **Follow-Up:** A formal Blameless Root Cause Analysis (RCA) and preventative action plan will be published within 48 hours.
 ```
+

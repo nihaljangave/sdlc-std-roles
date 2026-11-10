@@ -68,6 +68,7 @@ flowchart LR
   * [`06_Post_Production_and_Maintenance.md`](./docs/06_Post_Production_and_Maintenance.md)
   * [`PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md`](./docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md): Architectural roadmap for transitioning prototypes into enterprise production.
   * [`architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md`](./docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md): The Expand/Contract database migration pattern for zero downtime.
+  * [`architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md`](./docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md): GDPR/CCPA erasure workflows and staging data sanitization.
   * [`architecture/ARCHITECTURE_DIAGRAM_CATALOG.md`](./docs/architecture/ARCHITECTURE_DIAGRAM_CATALOG.md): Copy-paste Mermaid visual patterns (BFF, Event-Driven, Multi-Tenant SaaS, OAuth2).
   * [`ops/TELEMETRY_AND_MONITORING_STANDARDS.md`](./docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md): JSON logging schemas, RED/USE metrics, health checks, and tracing headers.
   * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
@@ -83,6 +84,7 @@ flowchart LR
   * `SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md`: Combined HLD & LLD.
   * `ARCHITECTURE_DECISION_RECORD_ADR.md`: Lightweight decision tracking.
   * `STRIDE_THREAT_MODEL_TEMPLATE.md`: Architecture-level STRIDE threat assessment.
+  * `SECURITY_AUDIT_REPORT_EXECUTIVE_SUMMARY.md`: Client CISO executive security audit assurance report.
   * `SECURITY_AND_DATA_PRIVACY_CHECKLIST.md`: Threat assessment and vulnerability posture.
   * `API_CONTRACT_AND_INTEGRATION_SPEC.md`: Client & partner integration interface.
   * `DEFINITION_OF_DONE_AND_CODE_REVIEW.md`: Developer quality guardrails.
@@ -124,6 +126,7 @@ flowchart LR
   * [`UAT_KICKOFF_PRESENTATION_KIT.md`](./client-collateral/UAT_KICKOFF_PRESENTATION_KIT.md): Day-1 Client UAT briefing slides and defect logging rules.
   * [`CLIENT_HANDOVER_WORKSHOP_AGENDA.md`](./client-collateral/CLIENT_HANDOVER_WORKSHOP_AGENDA.md): 2-hour formal operational and client service transition workshop agenda.
   * [`STEERING_COMMITTEE_AND_REPORTING_CHARTER.md`](./client-collateral/STEERING_COMMITTEE_AND_REPORTING_CHARTER.md): Executive reporting charter and 1-page weekly flash report template.
+  * [`CLIENT_FEEDBACK_AND_NPS_SURVEY.md`](./client-collateral/CLIENT_FEEDBACK_AND_NPS_SURVEY.md): Post-launch client satisfaction and NPS evaluation survey.
 * [`mkdocs.yml`](./mkdocs.yml): Interactive documentation portal configuration (Material for MkDocs).
 * [`.github/`](./.github/): GitHub Native PR templates, issue templates, and CI compliance workflows.
   * `pull_request_template.md`: Definition of Done PR checklist.

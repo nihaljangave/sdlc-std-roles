@@ -49,3 +49,4 @@ Every Monday at 10:00 AM, outgoing and incoming engineers conduct a formal hando
   - The engineer is **relieved of normal sprint duties until 13:00** the following day.
   - The Secondary on-call covers active daytime monitoring.
 - **Alert Fatigue Cap:** If an on-call engineer receives **> 3 false alarms in a 24-hour window**, the alert threshold is immediately raised, or the alert is downgraded to business-hours Slack notification pending review.
+
