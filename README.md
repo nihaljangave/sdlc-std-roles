@@ -74,6 +74,7 @@ flowchart LR
   * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
   * [`ops/ON_CALL_OPERATING_PROCEDURE.md`](./docs/ops/ON_CALL_OPERATING_PROCEDURE.md): Sustainable 24/7 on-call rotations, shift handoffs, and rest policies.
   * [`ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md`](./docs/ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md): Cloud cost governance, auto-shutdowns, and resource tagging.
+  * [`ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md`](./docs/ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md): Controlled fault injection, pod termination, and failover verification.
   * [`ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md`](./docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md): War room roles, client broadcast templates, and status updates.
   * [`api/API_VERSIONING_AND_SUNSET_POLICY.md`](./docs/api/API_VERSIONING_AND_SUNSET_POLICY.md): URI versioning, breaking change prevention, and RFC 8594 sunset headers.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
@@ -87,6 +88,7 @@ flowchart LR
   * `SECURITY_AUDIT_REPORT_EXECUTIVE_SUMMARY.md`: Client CISO executive security audit assurance report.
   * `SECURITY_AND_DATA_PRIVACY_CHECKLIST.md`: Threat assessment and vulnerability posture.
   * `API_CONTRACT_AND_INTEGRATION_SPEC.md`: Client & partner integration interface.
+  * `API_INTEGRATION_TEST_REPORT.md`: Third-party and vendor integration verification report.
   * `DEFINITION_OF_DONE_AND_CODE_REVIEW.md`: Developer quality guardrails.
   * `TEST_PLAN_AND_UAT_SIGNOFF.md`: Client acceptance test matrix and sign-off document.
   * `OPERATIONS_RUNBOOK.md`: Day-2 operations, failover, disaster recovery, and monitoring.
@@ -114,13 +116,12 @@ flowchart LR
   * [`testing/smoke.spec.ts`](./automation-and-tooling/testing/smoke.spec.ts): Synthetic Production Verification Test (PVT) smoke test suite.
   * [`testing/k6-load-test.js`](./automation-and-tooling/testing/k6-load-test.js): k6 load and stress test benchmark script.
 * [`scripts/`](./scripts/): Project scaffolding and automation tooling.
-  * [`sdlc-cli.sh`](./scripts/sdlc-cli.sh): Unified master CLI runner (scaffold, audit, release, hooks, portal).
+  * [`sdlc-cli.sh`](./scripts/sdlc-cli.sh): Unified master CLI runner (scaffold, audit, release, hooks, portal, package).
   * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.
   * [`verify-stage-gate.sh`](./scripts/verify-stage-gate.sh): Automated audit script to verify whether a project satisfies gate requirements.
   * [`generate-release-notes.sh`](./scripts/generate-release-notes.sh): Automatic release notes generator from Conventional Commits.
   * [`setup-git-hooks.sh`](./scripts/setup-git-hooks.sh): Local Git hook installer for secret scanning and Conventional Commits.
-* [`examples/`](./examples/): End-to-end reference projects illustrating completed documentation.
-  * [`b2b-ordering-mvp/`](./examples/b2b-ordering-mvp/): Fully scaffolded reference project with active OpenAPI 3.0 spec.
+  * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
   * [`UAT_KICKOFF_PRESENTATION_KIT.md`](./client-collateral/UAT_KICKOFF_PRESENTATION_KIT.md): Day-1 Client UAT briefing slides and defect logging rules.

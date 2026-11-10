@@ -28,6 +28,9 @@ Commands:
   release [from] [to] [tag] Generate structured, client-facing and ops-ready
                             release notes from Conventional Commits.
                             
+  package [path] [out] [v]  Bundle all formal project artifacts into a
+                            compressed, client-ready handover archive.
+                            
   hooks                     Install local git hooks (commit-msg and pre-commit)
                             for secret leak prevention and Conventional Commits.
                             
@@ -39,8 +42,9 @@ Commands:
 Examples:
   ./scripts/sdlc-cli.sh scaffold ../my-new-client-mvp
   ./scripts/sdlc-cli.sh audit 1 .
-  ./scripts/sdlc-cli.sh audit all examples/b2b-ordering-mvp
+  ./scripts/sdlc-cli.sh audit all .
   ./scripts/sdlc-cli.sh release v0.9.0 HEAD v1.0.0
+  ./scripts/sdlc-cli.sh package . ./dist v1.0.0
   ./scripts/sdlc-cli.sh hooks
 ================================================================================
 EOF
@@ -67,6 +71,12 @@ case "$CMD" in
         TO="${3:-HEAD}"
         VERSION="${4:-Release}"
         "$FRAMEWORK_ROOT/scripts/generate-release-notes.sh" "$FROM" "$TO" "$VERSION"
+        ;;
+    package)
+        PROJ="${2:-.}"
+        OUT="${3:-./dist}"
+        VER="${4:-v1.0.0}"
+        "$FRAMEWORK_ROOT/scripts/package-client-handover.sh" "$PROJ" "$OUT" "$VER"
         ;;
     hooks)
         "$FRAMEWORK_ROOT/scripts/setup-git-hooks.sh"
