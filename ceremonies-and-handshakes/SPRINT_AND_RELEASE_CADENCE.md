@@ -76,3 +76,4 @@ Week 6: Sprint 3 (Hardening, Load Testing, Client UAT) -> Gate 3
 Week 7: Stage 4 (Production Deployment & Operations Handover) -> Gate 4
 Weeks 8–10: Stage 5 (Hypercare Warranty, Telemetry, Steady-State Transition) -> Gate 5
 ```
+

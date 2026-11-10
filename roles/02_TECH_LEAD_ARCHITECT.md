@@ -69,3 +69,4 @@ The Tech Lead / Architect designs the blueprint of the system and guarantees its
 - **API Contract Drift:** Zero breaking schema changes without backward-compatible versioning.
 - **CI Build Reliability:** CI pipeline pass rate > 95% on `main`.
 - **System SLO Compliance:** p95 latency < 300ms, availability >= 99.9%.
+

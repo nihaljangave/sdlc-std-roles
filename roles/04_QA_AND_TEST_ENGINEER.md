@@ -63,3 +63,4 @@ The QA & Test Automation Engineer ensures that zero critical or high-severity de
 - **Automated Regression Coverage:** >= 85% of critical user journeys covered by automated E2E tests.
 - **Client UAT Pass Rate:** >= 95% of client-executed test scripts passing on first run.
 - **PVT Execution Time:** Production verification completed within 15 minutes post-deployment.
+

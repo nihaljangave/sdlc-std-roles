@@ -68,3 +68,4 @@ To maintain prototype velocity without documentation delays:
 | **Client UAT Sign-off Certificate** | Formally Sign | Stage 3 |
 | **Release Notes & User Manual** | Receive & Distribute to Users | Stage 4 |
 | **Warranty Completion Certificate** | Formally Sign | Stage 5 |
+

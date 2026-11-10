@@ -70,3 +70,4 @@ The Product Owner / PM ensures that the team builds the *right product* with max
 - **Client UAT Turnaround:** UAT completed within 5 business days.
 - **Story Readiness:** Backlog groomed 2 sprints ahead with 100% acceptance criteria.
 - **First-Time Acceptance Rate:** >= 90% of user stories accepted without re-work.
+

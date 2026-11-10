@@ -100,3 +100,4 @@ In fast-paced product development, delays and quality failures almost always occ
   - [ ] Corrective and Preventative Actions (CAPA) converted to backlog tickets.
   - [ ] Error budgets respected; feature work paused if budget is exhausted.
   - [ ] Final **Warranty Acceptance Sign-Off** executed to transition to steady-state.
+

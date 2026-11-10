@@ -92,4 +92,12 @@ flowchart LR
   * [`STAGE_GATES_QUICK_REFERENCE.md`](./checklists/STAGE_GATES_QUICK_REFERENCE.md): 15-minute stage gate checklists (Gate 0 to Gate 5).
 * [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks.
   * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
+* [`scripts/`](./scripts/): Project scaffolding and automation tooling.
+  * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.
+* [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
+  * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
+* [`.github/`](./.github/): GitHub Native PR templates, issue templates, and CI compliance workflows.
+  * `pull_request_template.md`: Definition of Done PR checklist.
+  * `ISSUE_TEMPLATE/`: Standardized feature request and defect triage issue forms.
+  * `workflows/ci-compliance.yml`: Production GitHub Actions CI/CD compliance workflow.
 

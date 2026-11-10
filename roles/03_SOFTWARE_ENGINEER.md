@@ -61,3 +61,4 @@ Every engineer runs through this checklist before submitting code:
 - **Code Coverage:** >= 80% statement and branch coverage on core domain logic.
 - **Defect Leakage:** <= 1 defect escaping to QA per 5 user stories.
 - **PR Review SLA:** Peer PRs reviewed within 4 business hours.
+
