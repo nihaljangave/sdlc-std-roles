@@ -82,6 +82,7 @@ nav:
       - SOC 2 Type II Readiness: docs/compliance/SOC2_TYPE_II_READINESS_GUIDE.md
       - HIPAA & ePHI Protection: docs/compliance/HIPAA_COMPLIANCE_PLAYBOOK.md
       - PCI DSS v4.0 Checklist: docs/compliance/PCI_DSS_SAQ_D_CHECKLIST.md
+      - Vendor Risk & Sub-processors: docs/compliance/VENDOR_RISK_MANAGEMENT_AND_SUBPROCESSOR_POLICY.md
   - Accessibility & Inclusion:
       - WCAG 2.2 AA Standards: docs/accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md
   - AI & Machine Learning:
@@ -127,6 +128,7 @@ nav:
       - Vulnerability Remediation Log: templates/VULNERABILITY_ASSESSMENT_AND_REMEDIATION_LOG.md
       - Data Classification & Inventory: templates/DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md
       - Cryptographic Inventory & Key Plan: templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md
+      - Vendor Risk Assessment: templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md
   - Client Collateral & Commercial Governance:
       - Scope & Budget Management: docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md
