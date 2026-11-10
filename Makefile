@@ -63,6 +63,10 @@ dr-drill: ## Execute Disaster Recovery PITR drill simulation (usage: make dr-dri
 sbom: ## Generate CycloneDX JSON SBOM manifest from dependencies (usage: make sbom [DIR=.] [OUT=./dist/sbom.cyclonedx.json])
 	@./scripts/sdlc-cli.sh sbom $(or $(DIR),.) $(or $(OUT),./dist/sbom.cyclonedx.json)
 
+.PHONY: doctor
+doctor: ## Run workstation healthcheck & pre-flight diagnostics (usage: make doctor)
+	@./scripts/sdlc-cli.sh doctor
+
 .PHONY: test-links
 test-links: ## Verify relative markdown link integrity across all files
 	@python3 -c "\

@@ -186,3 +186,4 @@ chmod +x "$OUTPUT_FILE" 2>/dev/null || true
 echo "✅ CycloneDX v1.5 SBOM generated successfully!"
 echo "📁 Archive Location: $OUTPUT_FILE"
 echo "================================================================================"
+

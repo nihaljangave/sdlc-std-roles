@@ -163,6 +163,7 @@ flowchart LR
   * [`demo-walkthrough.sh`](./scripts/demo-walkthrough.sh): Interactive 30-second live simulation of the full SDLC in an ephemeral sandbox.
   * [`simulate-dr-drill.sh`](./scripts/simulate-dr-drill.sh): Automated Disaster Recovery PITR drill simulator and audit certificate generator.
   * [`generate-sbom.sh`](./scripts/generate-sbom.sh): CycloneDX v1.5 JSON Software Bill of Materials (SBOM) generator from dependency manifests.
+  * [`doctor.sh`](./scripts/doctor.sh): Workstation pre-flight healthcheck and toolchain diagnostics runner.
   * [`build-docs-portal.sh`](./scripts/build-docs-portal.sh): Static HTML documentation portal compiler.
 * [`Makefile`](./Makefile): Master developer automation shortcut menu (`make audit`, `make scaffold`, `make signoff`, etc.).
 * [`Brewfile`](./Brewfile): macOS Homebrew bundle for developer workstation toolchain setup.

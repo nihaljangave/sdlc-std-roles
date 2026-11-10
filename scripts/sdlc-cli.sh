@@ -58,6 +58,9 @@ Commands:
   sbom [path] [out] [fmt]   Generate CycloneDX v1.5 JSON SBOM manifest from
                             dependency manifests (package.json, requirements, etc).
                             
+  doctor                    Execute developer workstation healthcheck & pre-flight
+                            diagnostics (verifies tools, git, and runtimes).
+                            
   help                      Show this help message.
 
 Examples:
@@ -142,6 +145,9 @@ case "$CMD" in
         OUT="${3:-./dist/sbom.cyclonedx.json}"
         FMT="${4:-cyclonedx}"
         "$FRAMEWORK_ROOT/scripts/generate-sbom.sh" "$TARGET" "$OUT" "$FMT"
+        ;;
+    doctor)
+        "$FRAMEWORK_ROOT/scripts/doctor.sh"
         ;;
     help|--help|-h)
         show_help
