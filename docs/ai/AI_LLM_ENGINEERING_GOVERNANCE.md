@@ -101,3 +101,4 @@ Before promoting any AI/LLM feature to production (Gate 3 & 4):
 - [ ] **Structured Output Validation:** 100% of API responses adhere strictly to JSON Schema (no free-form markdown responses when JSON is expected).
 - [ ] **Observability & Tracing:** OpenTelemetry instrumentation enabled for all LLM calls (logging prompt tokens, completion tokens, latency, cost per call).
 - [ ] **Human-in-the-Loop (HITL):** High-impact actions (financial transfers, data deletion, contract execution) require explicit user confirmation.
+

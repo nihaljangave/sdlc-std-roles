@@ -83,6 +83,8 @@ flowchart LR
   * [`ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md`](./docs/ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md): Controlled fault injection, pod termination, and failover verification.
   * [`ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md`](./docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md): War room roles, client broadcast templates, and status updates.
   * [`ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md`](./docs/ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md): Blameless root cause analysis, 5-Whys, and CAPA lifecycle tracking.
+  * [`ops/SLO_AND_ERROR_BUDGET_POLICY.md`](./docs/ops/SLO_AND_ERROR_BUDGET_POLICY.md): SLI/SLO/SLA definitions, error budget burn rate alerting, and automated feature freeze rules.
+  * [`governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md`](./docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md): Triple constraint control, 1-in 1-out scope trade-offs, and commercial change guardrails.
   * [`api/API_VERSIONING_AND_SUNSET_POLICY.md`](./docs/api/API_VERSIONING_AND_SUNSET_POLICY.md): URI versioning, breaking change prevention, and RFC 8594 sunset headers.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
   * [`security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md`](./docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md): Software Bill of Materials (SBOM) and open-source license governance.
@@ -109,6 +111,7 @@ flowchart LR
   * `CHANGE_ORDER_ESTIMATION_WORKSHEET.md`: Commercial impact and timeline worksheet for change requests.
   * `DELIVERABLES_SIGN_OFF_MATRIX.md`: Master milestone approval matrix, sign-off registry, and IP transfer terms.
   * `MODEL_CARD_AND_AI_RISK_ASSESSMENT.md`: AI model evaluation benchmarks, data lineage, ethical safeguards, and token budget worksheet.
+  * `WEEKLY_STEERING_COMMITTEE_SLIDES.md`: 5-slide Marp executive presentation for weekly client steering committees and blocker escalations.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
