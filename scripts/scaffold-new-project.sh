@@ -8,16 +8,17 @@
 set -euo pipefail
 
 TARGET_DIR="${1:-}"
+MODE="${2:-standard}"
 
 if [ -z "$TARGET_DIR" ]; then
-    echo "Usage: $0 <target-project-directory>"
-    echo "Example: $0 ../my-new-product"
+    echo "Usage: $0 <target-project-directory> [--standard|--enterprise|--ai|--all]"
+    echo "Example: $0 ../my-new-product --enterprise"
     exit 1
 fi
 
 FRAMEWORK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-echo "🚀 Initializing Fast-Track SDLC in: $TARGET_DIR"
+echo "🚀 Initializing Fast-Track SDLC in: $TARGET_DIR (Profile: $MODE)"
 
 mkdir -p "$TARGET_DIR/docs/architecture"
 mkdir -p "$TARGET_DIR/docs/adr"
@@ -47,6 +48,21 @@ cp "$FRAMEWORK_ROOT/.github/pull_request_template.md" "$TARGET_DIR/.github/pull_
 cp -r "$FRAMEWORK_ROOT/.github/ISSUE_TEMPLATE/"* "$TARGET_DIR/.github/ISSUE_TEMPLATE/"
 cp "$FRAMEWORK_ROOT/.github/workflows/ci-compliance.yml" "$TARGET_DIR/.github/workflows/ci-compliance.yml"
 cp "$FRAMEWORK_ROOT/.gitignore" "$TARGET_DIR/.gitignore"
+
+# Extended profiles
+if [[ "$MODE" == *"--enterprise"* ]] || [[ "$MODE" == *"--all"* ]]; then
+    echo "🏢 Including Enterprise Governance & Regulatory Sign-Off Pack..."
+    cp "$FRAMEWORK_ROOT/templates/STRIDE_THREAT_MODEL_TEMPLATE.md" "$TARGET_DIR/docs/security/THREAT_MODEL.md"
+    cp "$FRAMEWORK_ROOT/templates/VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md" "$TARGET_DIR/docs/testing/VPAT.md"
+    cp "$FRAMEWORK_ROOT/templates/GO_LIVE_READINESS_REVIEW_GLRR.md" "$TARGET_DIR/docs/ops/GLRR.md"
+    cp "$FRAMEWORK_ROOT/templates/DELIVERABLES_SIGN_OFF_MATRIX.md" "$TARGET_DIR/docs/DELIVERABLES_MATRIX.md"
+fi
+
+if [[ "$MODE" == *"--ai"* ]] || [[ "$MODE" == *"--all"* ]]; then
+    echo "🤖 Including AI / LLM Governance & Model Card Pack..."
+    mkdir -p "$TARGET_DIR/docs/ai"
+    cp "$FRAMEWORK_ROOT/templates/MODEL_CARD_AND_AI_RISK_ASSESSMENT.md" "$TARGET_DIR/docs/ai/MODEL_CARD.md"
+fi
 
 echo "✅ Project scaffolded successfully!"
 echo "📁 All documentation templates are pre-populated under: $TARGET_DIR/docs/"

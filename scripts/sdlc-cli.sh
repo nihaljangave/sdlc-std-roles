@@ -18,8 +18,10 @@ show_help() {
 Usage: ./scripts/sdlc-cli.sh <command> [arguments]
 
 Commands:
-  scaffold <target-dir>     Scaffold a new project repository with all SDLC
-                            governance templates and GitHub CI compliance gates.
+  scaffold <target-dir> [p] Scaffold a new project repository with SDLC templates.
+                            Optional profile [p]: --standard (default),
+                            --enterprise (VPAT, GLRR, Sign-off Matrix, STRIDE),
+                            --ai (Model Card & Risk Assessment), or --all.
                             
   audit <gate> [path]       Run compliance audit on a project.
                             <gate>: 0 | 1 | 2 | 3 | 4 | 5 | all
@@ -46,7 +48,7 @@ Commands:
   help                      Show this help message.
 
 Examples:
-  ./scripts/sdlc-cli.sh scaffold ../my-new-client-mvp
+  ./scripts/sdlc-cli.sh scaffold ../my-new-client-mvp --enterprise
   ./scripts/sdlc-cli.sh audit 1 .
   ./scripts/sdlc-cli.sh audit all .
   ./scripts/sdlc-cli.sh release v0.9.0 HEAD v1.0.0
@@ -61,11 +63,12 @@ CMD="${1:-help}"
 case "$CMD" in
     scaffold)
         TARGET="${2:-}"
+        PROFILE="${3:---standard}"
         if [ -z "$TARGET" ]; then
-            echo "❌ Error: Target directory required. Example: $0 scaffold ../my-app"
+            echo "❌ Error: Target directory required. Example: $0 scaffold ../my-app --enterprise"
             exit 1
         fi
-        "$FRAMEWORK_ROOT/scripts/scaffold-new-project.sh" "$TARGET"
+        "$FRAMEWORK_ROOT/scripts/scaffold-new-project.sh" "$TARGET" "$PROFILE"
         ;;
     audit|verify)
         GATE="${2:-all}"

@@ -129,3 +129,4 @@ spec:
 ```
 
 Any untrusted, unsigned, or tampered image is immediately rejected at the Kubernetes API level with an explicit admission error.
+

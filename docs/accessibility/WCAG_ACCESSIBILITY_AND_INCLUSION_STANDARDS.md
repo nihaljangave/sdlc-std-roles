@@ -104,3 +104,4 @@ Automated tools detect ~40%–57% of accessibility barriers. A manual audit usin
 ## 5. Client Handover & Legal Assurance
 
 Upon completing the audit, compile the verified results into the [VPAT Accessibility Conformance Report](../../templates/VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md) to serve as legal proof of compliance for client procurement.
+

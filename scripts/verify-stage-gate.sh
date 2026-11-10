@@ -60,6 +60,12 @@ audit_gate_1() {
     if [ -f "$PROJECT_ROOT/docs/architecture/IDD.md" ]; then
         check_file "Infrastructure Design Document (IDD)" "docs/architecture/IDD.md"
     fi
+    if [ -f "$PROJECT_ROOT/docs/ai/MODEL_CARD.md" ]; then
+        check_file "AI Model Card & Risk Assessment" "docs/ai/MODEL_CARD.md"
+    fi
+    if [ -f "$PROJECT_ROOT/docs/security/THREAT_MODEL.md" ]; then
+        check_file "STRIDE Threat Model" "docs/security/THREAT_MODEL.md"
+    fi
     check_dir_has_files "Architecture Decision Records (ADRs)" "docs/adr"
     check_dir_has_files "API Contract / Specifications" "docs/api"
     check_file "Security & Data Privacy Checklist" "docs/security/SECURITY_REVIEW.md"
@@ -77,6 +83,9 @@ audit_gate_3() {
     echo ""
     echo "📋 Gate 3: QA Verification & Client UAT Sign-off"
     check_file "Master Test Plan & Client UAT Register" "docs/testing/TEST_PLAN_AND_UAT.md"
+    if [ -f "$PROJECT_ROOT/docs/testing/VPAT.md" ]; then
+        check_file "VPAT Accessibility Report" "docs/testing/VPAT.md"
+    fi
 }
 
 audit_gate_4() {
@@ -85,6 +94,12 @@ audit_gate_4() {
     check_file "Operations Runbook (Day-2 Playbook)" "docs/ops/OPERATIONS_RUNBOOK.md"
     check_file "Deployment & Rollback Guide" "docs/ops/DEPLOYMENT_GUIDE.md"
     check_file "Service Transition Checklist" "docs/ops/SERVICE_TRANSITION.md"
+    if [ -f "$PROJECT_ROOT/docs/ops/GLRR.md" ]; then
+        check_file "Go-Live Readiness Review (GLRR)" "docs/ops/GLRR.md"
+    fi
+    if [ -f "$PROJECT_ROOT/docs/DELIVERABLES_MATRIX.md" ]; then
+        check_file "Master Deliverables Sign-off Matrix" "docs/DELIVERABLES_MATRIX.md"
+    fi
 }
 
 audit_gate_5() {
