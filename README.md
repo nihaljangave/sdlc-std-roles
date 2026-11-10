@@ -129,6 +129,7 @@ flowchart LR
   * `THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md`: Standardized vendor risk assessment questionnaire, sub-processor security controls audit, and CISO sign-off.
   * `BUSINESS_IMPACT_ANALYSIS_BIA.md`: Critical business functions register, financial outage loss schedule, and RTO/RPO/MTD justification.
   * `CLIENT_SECURITY_ASSURANCE_PACK.md`: Consolidated customer security attestation, sub-processor disclosure, and compliance crosswalk.
+  * `SERVICE_LEVEL_AGREEMENT_SPECIFICATION.md`: Availability commitments (99.9%–99.99%), monthly service credit schedule, and maintenance exclusions.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.

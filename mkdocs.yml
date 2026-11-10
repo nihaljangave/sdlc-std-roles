@@ -133,6 +133,7 @@ nav:
       - Vendor Risk Assessment: templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md
       - Business Impact Analysis (BIA): templates/BUSINESS_IMPACT_ANALYSIS_BIA.md
       - Client Security Assurance Pack: templates/CLIENT_SECURITY_ASSURANCE_PACK.md
+      - SLA Specification & Service Credits: templates/SERVICE_LEVEL_AGREEMENT_SPECIFICATION.md
   - Client Collateral & Commercial Governance:
       - Scope & Budget Management: docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md

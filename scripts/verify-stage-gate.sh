@@ -129,6 +129,9 @@ audit_gate_5() {
     log_msg ""
     log_msg "📋 Gate 5: Steady-State Transition & Warranty Exit"
     check_file "Incident Management & SLA Escalation Matrix" "docs/ops/SLA_MATRIX.md" "templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md"
+    if [ -f "$PROJECT_ROOT/docs/ops/SLA_SPECIFICATION.md" ]; then
+        check_file "SLA & Service Credit Specification" "docs/ops/SLA_SPECIFICATION.md"
+    fi
 }
 
 case "$GATE" in

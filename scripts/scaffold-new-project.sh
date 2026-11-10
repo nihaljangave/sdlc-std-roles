@@ -60,6 +60,7 @@ if [[ "$MODE" == *"--enterprise"* ]] || [[ "$MODE" == *"--all"* ]]; then
     cp "$FRAMEWORK_ROOT/templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md" "$TARGET_DIR/docs/security/VENDOR_ASSESSMENT.md"
     cp "$FRAMEWORK_ROOT/templates/BUSINESS_IMPACT_ANALYSIS_BIA.md" "$TARGET_DIR/docs/ops/BIA.md"
     cp "$FRAMEWORK_ROOT/templates/CLIENT_SECURITY_ASSURANCE_PACK.md" "$TARGET_DIR/docs/security/SECURITY_ASSURANCE_PACK.md"
+    cp "$FRAMEWORK_ROOT/templates/SERVICE_LEVEL_AGREEMENT_SPECIFICATION.md" "$TARGET_DIR/docs/ops/SLA_SPECIFICATION.md"
 fi
 
 if [[ "$MODE" == *"--ai"* ]] || [[ "$MODE" == *"--all"* ]]; then
