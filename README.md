@@ -114,6 +114,7 @@ flowchart LR
   * [`HANDSHAKE_PROTOCOLS.md`](./ceremonies-and-handshakes/HANDSHAKE_PROTOCOLS.md): The 6 explicit transition protocols between teams.
 * [`checklists/`](./checklists/): Quick-reference gate review checklists and standards.
   * [`STAGE_GATES_QUICK_REFERENCE.md`](./checklists/STAGE_GATES_QUICK_REFERENCE.md): 15-minute stage gate checklists (Gate 0 to Gate 5).
+  * [`SDLC_FRAMEWORK_ONE_PAGE_CHEAT_SHEET.md`](./checklists/SDLC_FRAMEWORK_ONE_PAGE_CHEAT_SHEET.md): 1-page printable desk reference for developers and leads.
   * [`NFR_STANDARDS_CATALOG.md`](./checklists/NFR_STANDARDS_CATALOG.md): Non-functional requirements benchmarks for Prototype vs MVP vs Enterprise.
 * [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks and testing scaffolds.
   * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
@@ -130,8 +131,10 @@ flowchart LR
   * [`setup-git-hooks.sh`](./scripts/setup-git-hooks.sh): Local Git hook installer for secret scanning and Conventional Commits.
   * [`run-smoke-tests.sh`](./scripts/run-smoke-tests.sh): Synthetic PVT smoke test runner against target endpoints.
   * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
+  * [`build-docs-portal.sh`](./scripts/build-docs-portal.sh): Static HTML documentation portal compiler.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
+  * [`EXECUTIVE_HANDOVER_SLIDE_DECK.md`](./client-collateral/EXECUTIVE_HANDOVER_SLIDE_DECK.md): Marp-compatible 16:9 executive presentation slide deck for Gate 4 cutover.
   * [`UAT_KICKOFF_PRESENTATION_KIT.md`](./client-collateral/UAT_KICKOFF_PRESENTATION_KIT.md): Day-1 Client UAT briefing slides and defect logging rules.
   * [`CLIENT_HANDOVER_WORKSHOP_AGENDA.md`](./client-collateral/CLIENT_HANDOVER_WORKSHOP_AGENDA.md): 2-hour formal operational and client service transition workshop agenda.
   * [`STEERING_COMMITTEE_AND_REPORTING_CHARTER.md`](./client-collateral/STEERING_COMMITTEE_AND_REPORTING_CHARTER.md): Executive reporting charter and 1-page weekly flash report template.
