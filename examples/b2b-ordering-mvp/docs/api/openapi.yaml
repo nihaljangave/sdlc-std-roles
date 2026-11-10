@@ -131,3 +131,4 @@ components:
             message:
               type: string
               example: Requested SKU does not exist in active catalog.
+

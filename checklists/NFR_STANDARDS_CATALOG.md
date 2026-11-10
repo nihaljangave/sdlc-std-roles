@@ -49,3 +49,4 @@ Use this benchmark catalog to select the appropriate NFR tier during **Stage 0 (
 - [ ] **Configuration as Code:** 100% of runtime configuration injected via environment variables (12-Factor App methodology).
 - [ ] **Zero-Downtime Deployment:** Rolling updates or blue/green deployments supported without terminating active user sessions.
 - [ ] **Health Checks:** Liveness (`/health/live`) and readiness (`/health/ready`) probes responding with HTTP 200 within 50ms.
+

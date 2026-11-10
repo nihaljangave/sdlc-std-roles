@@ -123,3 +123,4 @@ else
     echo "⚠️  GATE CLEARANCE BLOCKED! Resolve the missing items above before proceeding."
     exit 1
 fi
+
