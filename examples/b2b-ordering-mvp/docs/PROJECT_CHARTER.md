@@ -2,21 +2,17 @@
 
 | Document Details | Value |
 |---|---|
-| **Project Title** | [Client / Prototype Project Name] |
-| **Document Version** | 1.0 (Final) |
-| **Effective Date** | YYYY-MM-DD |
-| **Client Organization** | [Client Company Name] |
-| **Delivery Organization** | [Delivery Team / Company Name] |
-| **Target Completion Date** | YYYY-MM-DD |
+| **Project Title** | QuickDistro - B2B Wholesale Portal MVP |
+| **Document Version** | 1.0 (Final Executed) |
+| **Effective Date** | 2026-11-10 |
+| **Client Organization** | Metro Wholesale Distribution Network, Inc. |
+| **Delivery Organization** | Agile Enterprise Engineering Services |
+| **Target Go-Live Date** | 2026-12-15 |
 
 ---
 
-## 1. Project Background & Business Objectives
-- **Context:** Brief narrative of why this engagement is taking place.
-- **Strategic Objectives:**
-  1. Validate product-market fit via high-fidelity MVP within [X] weeks.
-  2. Integrate with client's existing [ERP/CRM/Data Warehouse].
-  3. Deliver fully documented production-ready system with operational handover.
+## 1. Project Background & Strategic Objectives
+Metro Wholesale is digitizing wholesale purchasing for 2,500 retail supermarket partners. The purpose of this engagement is to deliver a high-velocity, production-ready Minimum Viable Product (MVP) within 5 weeks, complete with operational runbooks, automated regression test suites, and turnkey handover to Metro's internal IT operations team.
 
 ---
 
@@ -24,58 +20,33 @@
 
 | Milestone # | Phase Description | Target Delivery Date | Key Deliverables & Client Artifacts | Gate Sign-Off Required |
 |---|---|---|---|---|
-| **M1** | Discovery & Architectural Alignment | Week 2 | PRD, Architecture Spec (SAD), Security Checklist | Gate 0 & 1 Sign-Off |
-| **M2** | Core MVP Build & Sprint Demos | Week 5 | Staging Environment, Live Feature Demos, API Docs | Bi-weekly Demo Notes |
-| **M3** | QA, Hardening & Client UAT | Week 7 | Master Test Summary, UAT Execution Scripts, Security Scan | Gate 3 / UAT Sign-Off |
-| **M4** | Production Release & Ops Handover | Week 8 | Production Deployment, Runbook, Service Transition | Gate 4 / Ops Handover |
-| **M5** | Post-Launch Warranty (Hypercare) | Week 10-12 | Incident Reports, Final Warranty Acceptance Certificate | Gate 5 / Project Closeout |
+| **M1** | Discovery & Architectural Alignment | Week 1 (Nov 15) | PRD, Architecture Spec (SAD), OpenAPI 3.0 Mock Sandbox | Gate 0 & 1 Sign-Off |
+| **M2** | Core Wholesale Ordering Build | Week 3 (Nov 29) | Staging Environment, Live Demo, SKU Bulk Order Grid | Bi-weekly Demo Notes |
+| **M3** | QA Hardening & Client UAT | Week 4 (Dec 08) | Master Test Summary, UAT Scripts, Security Audit Report | Gate 3 / UAT Sign-Off |
+| **M4** | Production Release & Ops Handover | Week 5 (Dec 15) | Production Deployment, Runbook, Service Transition | Gate 4 / Ops Handover |
+| **M5** | Post-Launch Hypercare Warranty | Weeks 6-8 (Jan 10) | Weekly SLA Reports, Final Warranty Acceptance Certificate | Gate 5 / Project Closeout |
 
 ---
 
-## 3. Out-of-Scope (Boundaries of Agreement)
-The following items are explicitly **excluded** from this Statement of Work. Any request to include them requires a formal Change Request (CR):
-1. Migration of legacy data prior to year 2024.
-2. Integration with custom un-documented client internal services.
-3. Native mobile apps (iOS/Android) — only Responsive Web is scoped.
+## 3. Explicit Out-of-Scope Boundaries
+1. Retail consumer credit card transactions (B2B Net-30 credit lines only).
+2. Native mobile apps (Responsive web application only).
+3. Modifications to Metro's legacy warehouse mainframe database internals.
 
 ---
 
-## 4. Change Management Procedure
-If either party identifies a need to modify scope, timeline, or architecture:
-1. A written **Change Request Form** detailing impact on timeline, cost, and architecture is submitted.
-2. Both Technical Leads evaluate feasibility within 48 hours.
-3. Work does not commence on changes until client executive sign-off is received.
+## 4. Acceptance Criteria & Commercial Sign-Off
+- Production deployment occurs upon written execution of the **UAT Sign-Off Certificate** by Metro's VP of Operations.
+- Turnkey operational handover occurs upon execution of the **Service Transition Checklist** by Metro's IT Operations Lead.
 
 ---
 
-## 5. Client Obligations & Critical Dependencies
-The client agrees to provide the following items by the dates indicated:
-- Access to client API sandboxes and VPN credentials by [Date].
-- Designated Client Product Owner available for weekly sprint reviews and decision-making within 24 hours.
-- UAT testing team available to execute test scenarios during Milestone 3 within 5 business days.
+## 5. Authorizing Signatures
 
----
+**For Metro Wholesale Distribution Network, Inc.:**  
+Signature: *[Signed]* &nbsp;&nbsp;&nbsp;&nbsp; Date: 2026-11-10  
+Name: David Chen &nbsp;&nbsp;&nbsp;&nbsp; Title: Vice President of Operations  
 
-## 6. Formal Acceptance Criteria & Sign-Off Clause
-The project will be considered accepted upon the occurrence of:
-1. Written execution of the **UAT Sign-off Certificate** by the Client Authorized Representative.
-2. Execution of the **Service Transition Checklist** by the Operations/Hosting Team.
-
----
-
-## 7. Signatures & Authorization
-
-IN WITNESS WHEREOF, the parties hereto have executed this Project Charter & SOW as of the date first written above.
-
-**For Client Organization:**
-Signature: ____________________________________  
-Name: [Client Signatory Name]  
-Title: [Client Signatory Title]  
-Date: ________________________  
-
-**For Delivery Organization:**
-Signature: ____________________________________  
-Name: [Delivery Signatory Name]  
-Title: [Delivery Project Director]  
-Date: ________________________  
-
+**For Agile Enterprise Engineering Services:**  
+Signature: *[Signed]* &nbsp;&nbsp;&nbsp;&nbsp; Date: 2026-11-10  
+Name: Marcus Reynolds &nbsp;&nbsp;&nbsp;&nbsp; Title: Project Delivery Director  

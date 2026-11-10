@@ -2,121 +2,116 @@
 
 | Metadata | Details |
 |---|---|
-| **Project Name** | [Project / Prototype Name] |
-| **Product Owner** | [Name / Email] |
-| **Technical Lead** | [Name / Email] |
-| **Client / Stakeholder** | [Client Name / Organization] |
-| **Status** | `Draft` \| `In Review` \| `Approved` \| `Deprecated` |
-| **Target Release Date** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| **Project Name** | QuickDistro - B2B Wholesale Portal |
+| **Product Owner** | Sarah Jenkins (s.jenkins@distrocorp.com) |
+| **Technical Lead** | Alex Rivera (a.rivera@engineering.io) |
+| **Client / Stakeholder** | Metro Wholesale Distribution Network |
+| **Status** | `Approved (Signed Off)` |
+| **Target Release Date** | 2026-12-15 |
+| **Last Updated** | 2026-11-10 |
 
 ---
 
 ## 1. Executive Summary & Problem Statement
-- **Problem Statement:** What specific problem or pain point does this product/prototype solve?
-- **Target Audience / Personas:** Who is using this product (e.g., End-Consumer, Operations Admin, Corporate Analyst)?
-- **Value Proposition & Business Goals:** What measurable business outcome is expected (e.g., reduce manual effort by 60%, achieve 5,000 monthly active users)?
+- **Problem Statement:** Metro Wholesale's 2,500 retail partners currently place weekly stock replenishment orders via phone calls, fragmented emails, and manual PDF order forms. This manual process causes a 12% order entry error rate, delays warehouse fulfillment by up to 36 hours, and costs over $18,000/month in manual order clerical labor.
+- **Target Audience / Personas:**
+  1. *Retail Store Purchasing Managers:* Ordering bulk stock weekly under tight schedule constraints.
+  2. *Metro Warehouse Dispatchers:* Approving fulfillment batches and generating pick-lists.
+- **Value Proposition & Business Goals:**
+  - Reduce average order placement time from 25 minutes to under 3 minutes via rapid CSV/SKU quick-order entry.
+  - Eliminate clerical data-entry errors by integrating directly with Metro's warehouse inventory database.
+  - Achieve 90% digital order adoption across the top 500 retail partners within 60 days of launch.
 
 ---
 
 ## 2. Project Scope (MoSCoW Framework)
 
-### 2.1 Must-Have (P0 - Prototype / MVP Minimum Scope)
-*Features required for product to function and receive client sign-off:*
-- [ ] **REQ-001:** [Feature description with expected user journey]
-- [ ] **REQ-002:** [Feature description with expected user journey]
+### 2.1 Must-Have (P0 - MVP Scope for Dec 15 Release)
+- [x] **REQ-001 (Wholesale SKU Quick-Order):** Bulk SKU-and-quantity entry grid allowing purchasers to add up to 50 items simultaneously with real-time stock availability verification.
+- [x] **REQ-002 (Idempotent Checkout & Credit Terms):** Net-30 enterprise credit line checkout with idempotency key protection against duplicate order submission.
+- [x] **REQ-003 (Warehouse Webhook Dispatch):** Outbound HMAC-signed webhook event sent to Metro's legacy ERP upon order confirmation.
+- [x] **REQ-004 (CSV Order Import):** Upload standard distributor CSV template with auto-column matching and instant line-item error validation.
 
-### 2.2 Should-Have (P1 - High Value for Fast Follow-Up)
-*Important features that can be worked around if time is constrained:*
-- [ ] **REQ-003:** [Feature description]
+### 2.2 Should-Have (P1 - Fast Follow v1.1)
+- [ ] **REQ-005 (Back-In-Stock SMS Alerts):** Automated Twilio SMS trigger when an out-of-stock SKU replenishes.
+- [ ] **REQ-006 (One-Click Reorder):** Re-populate cart directly from prior month's invoice.
 
-### 2.3 Could-Have (P2 - Nice to Have)
-*Features to include only if time and budget permit:*
-- [ ] **REQ-004:** [Feature description]
+### 2.3 Could-Have (P2 - Backlog)
+- [ ] **REQ-007 (Custom Volume Discounts):** Dynamic tier pricing rules configured per distributor contract tier.
 
-### 2.4 Out of Scope (Won't Have in this Milestone)
-*Explicitly excluded to protect timeline and prevent scope creep:*
-- [Feature X: e.g., Multi-currency support, custom theme builder]
+### 2.4 Out of Scope (Explicitly Excluded from MVP)
+- Consumer retail credit card checkout (Net-30 invoiced accounts only).
+- Native iOS/Android mobile apps (Responsive web application only).
+- Direct courier dispatch label printing (Handled by existing warehouse WMS).
 
 ---
 
 ## 3. User Personas & Core User Journeys
 
-### Persona A: [e.g., Store Manager]
-- **Role & Goals:** Needs to see inventory in real time and fulfill orders rapidly.
-- **Pain Points:** Current manual entry causes 15% error rate.
+### Persona: Marcus Vance (Independent Supermarket Purchasing Lead)
+- **Context:** Places weekly inventory orders worth $15,000–$35,000 every Monday morning across 80+ distinct SKUs.
+- **Goal:** Rapid bulk SKU entry without clicking through multiple catalog product pages.
 
 ### Primary User Flow (Step-by-Step)
 ```mermaid
 sequenceDiagram
-    actor User as Store Manager
-    participant App as Web Frontend
-    participant API as Backend Service
-    participant DB as Database
+    actor User as Purchasing Manager
+    participant App as QuickDistro Portal
+    participant API as Wholesale API
+    participant DB as Postgres Inventory DB
+    participant ERP as Metro Warehouse ERP
 
-    User->>App: Log in with SSO
-    App->>API: Authenticate & Request Inventory
-    API->>DB: Query current stock
-    DB-->>API: Return stock levels
-    API-->>App: Display Real-Time Dashboard
-    User->>App: Click 'Fulfill Order'
-    App->>API: Trigger fulfillment workflow
-    API-->>User: Instant Confirmation Notification
+    User->>App: Paste 20 SKUs into Quick-Order Grid
+    App->>API: POST /v1/orders/validate-batch
+    API->>DB: Check stock levels & wholesale pricing
+    DB-->>API: Return confirmed pricing & stock availability
+    API-->>App: Display validated line items (Instant < 200ms)
+    User->>App: Click 'Submit Net-30 Order'
+    App->>API: POST /v1/orders (with Idempotency-Key)
+    API->>DB: Commit Order (Status: CONFIRMED)
+    API->>ERP: Dispatch HMAC-signed 'order.created' Webhook
+    API-->>App: Display Order Confirmation #ORD-88291
+    App-->>User: Immediate PDF Invoice Download
 ```
 
 ---
 
 ## 4. Functional Requirements & Acceptance Criteria (Gherkin Format)
 
-### Feature 1: [Feature Title]
-**Description:** As a `[Persona]`, I want to `[Action]`, so that `[Benefit]`.
-
-**Acceptance Criteria:**
+### Feature 1: Bulk SKU Quick-Order Entry
 ```gherkin
-Scenario: Successful login and dashboard retrieval
-  Given a user with role "Store Manager" has valid credentials
-  When the user submits the login form
-  Then the system issues a secure JWT token
-  And redirects the user to the "/dashboard" route
-  And displays the inventory summary within 1.5 seconds
+Scenario: Successful bulk SKU addition
+  Given an authenticated retail distributor with credit status "ACTIVE"
+  When the user pastes 10 valid SKUs with quantities into the quick-order grid
+  And clicks "Validate Order Items"
+  Then the system displays the unit price, line totals, and stock status for all 10 items
+  And calculates the aggregate wholesale invoice total within 500 milliseconds
 
-Scenario: Invalid credentials
-  Given a user enters an incorrect password
-  When the user submits the login form
-  Then an error message "Invalid credentials provided" is shown
-  And the account is locked after 5 consecutive failed attempts
+Scenario: Out of stock SKU validation
+  Given a SKU has zero remaining inventory in the warehouse
+  When the user adds this SKU to the quick-order grid
+  Then the line item displays an amber warning "Backorder Available (Ships in 5 Days)"
+  And prevents submission unless the user toggles "Allow Split Shipment"
 ```
 
 ---
 
 ## 5. Non-Functional Requirements (NFRs)
 
-| Category | Requirement Specification | Measurement Metric |
+| Attribute | Specification | Measurement Target |
 |---|---|---|
-| **Performance** | API endpoint response time | 95% of requests < 300ms under 500 concurrent users |
-| **Availability** | Production uptime | >= 99.9% excluding scheduled maintenance |
-| **Security** | Authentication & Encryption | OAuth 2.0 / OIDC, TLS 1.3 in-transit, AES-256 at-rest |
-| **Compliance** | Data protection | GDPR / SOC 2 Type II compliance |
-| **Scalability** | Peak load handling | System automatically scales up at 70% CPU/Memory threshold |
-| **Observability** | Centralized logging & tracing | All logs exported as structured JSON with correlation IDs |
+| **API Latency** | Bulk SKU validation (50 items) | p95 < 250ms under 200 concurrent users |
+| **Availability** | Production uptime | >= 99.5% during business hours (06:00 - 20:00 EST) |
+| **Security** | Authentication & Encryption | JWT RS256, TLS 1.3 in-transit, AES-256 at-rest |
+| **Compliance** | Accounting Auditability | Immutable append-only audit trail for all order state transitions |
+| **Disaster Recovery** | Point-in-Time Recovery | RTO < 30 mins, RPO < 5 mins |
 
 ---
 
-## 6. Assumptions, Risks & Dependencies
-- **Assumptions:** Client will provide test API credentials for Third-Party Service X by Week 2.
-- **Risks & Mitigation:**
-  - *Risk:* External SMS gateway rate limiting during peak hours.
-  - *Mitigation:* Implement asynchronous queue (SQS / RabbitMQ) with exponential backoff.
-- **Dependencies:** Integration with client's Active Directory (Azure AD).
+## 6. Approvals & Stage Gate 0 Sign-Off
 
----
-
-## 7. Sign-Off & Approvals
-
-| Stakeholder Role | Name | Signature / Approval Status | Date |
+| Stakeholder Role | Name | Status | Date |
 |---|---|---|---|
-| **Product Manager** | | [Approved / Pending] | YYYY-MM-DD |
-| **Technical Lead** | | [Approved / Pending] | YYYY-MM-DD |
-| **Client Sponsor** | | [Approved / Pending] | YYYY-MM-DD |
-| **Operations Lead** | | [Approved / Pending] | YYYY-MM-DD |
-
+| **Product Owner** | Sarah Jenkins | Approved | 2026-11-10 |
+| **Technical Lead** | Alex Rivera | Approved | 2026-11-10 |
+| **Client Executive Sponsor** | David Chen (VP Operations, Metro Wholesale) | Approved (Signed SOW attached) | 2026-11-10 |
