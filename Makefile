@@ -59,6 +59,10 @@ demo: ## Run 30-second interactive SDLC simulation in ephemeral sandbox
 dr-drill: ## Execute Disaster Recovery PITR drill simulation (usage: make dr-drill SYSTEM="Core-DB")
 	@./scripts/sdlc-cli.sh dr-drill "$(or $(SYSTEM),Core-Transactional-DB)"
 
+.PHONY: sbom
+sbom: ## Generate CycloneDX JSON SBOM manifest from dependencies (usage: make sbom [DIR=.] [OUT=./dist/sbom.cyclonedx.json])
+	@./scripts/sdlc-cli.sh sbom $(or $(DIR),.) $(or $(OUT),./dist/sbom.cyclonedx.json)
+
 .PHONY: test-links
 test-links: ## Verify relative markdown link integrity across all files
 	@python3 -c "\

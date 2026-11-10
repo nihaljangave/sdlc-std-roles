@@ -42,15 +42,27 @@ copy_if_exists "docs/api/openapi.yaml" "02-architecture"
 
 # 3. Security & Compliance
 copy_if_exists "docs/security/SECURITY_REVIEW.md" "03-security"
+copy_if_exists "docs/security/THREAT_MODEL.md" "03-security"
+copy_if_exists "docs/security/KEY_MANAGEMENT_PLAN.md" "03-security"
+copy_if_exists "docs/security/VENDOR_ASSESSMENT.md" "03-security"
 copy_if_exists "docs/security/sbom.json" "03-security"
+if [ -f "$PROJECT_DIR/dist/sbom.cyclonedx.json" ]; then
+    mkdir -p "$BUNDLE_DIR/03-security"
+    cp "$PROJECT_DIR/dist/sbom.cyclonedx.json" "$BUNDLE_DIR/03-security/"
+    echo "  📄 Included: dist/sbom.cyclonedx.json"
+fi
 
 # 4. QA, Test Plan & UAT Sign-off
 copy_if_exists "docs/testing/TEST_PLAN_AND_UAT.md" "04-testing-and-uat"
+copy_if_exists "docs/testing/VPAT.md" "04-testing-and-uat"
 
 # 5. Operations Runbook & Service Transition
 copy_if_exists "docs/ops/OPERATIONS_RUNBOOK.md" "05-operations"
 copy_if_exists "docs/ops/DEPLOYMENT_GUIDE.md" "05-operations"
 copy_if_exists "docs/ops/SERVICE_TRANSITION.md" "05-operations"
+copy_if_exists "docs/ops/BIA.md" "05-operations"
+copy_if_exists "docs/ops/GLRR.md" "05-operations"
+copy_if_exists "docs/DELIVERABLES_MATRIX.md" "05-operations"
 copy_if_exists "docs/ops/SLA_MATRIX.md" "05-operations"
 
 # Generate Table of Contents Index

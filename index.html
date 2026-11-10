@@ -1022,7 +1022,16 @@
 ./scripts/sdlc-cli.sh hooks
 
 # 9. Launch the searchable interactive documentation portal:
-./scripts/sdlc-cli.sh portal</code></pre>
+./scripts/sdlc-cli.sh portal
+
+# 10. Execute Disaster Recovery PITR drill simulation and generate audit certificate:
+./scripts/sdlc-cli.sh dr-drill "Core-Transactional-DB"
+
+# 11. Generate CycloneDX v1.5 JSON SBOM manifest from dependencies:
+./scripts/sdlc-cli.sh sbom . ./dist/sbom.cyclonedx.json
+
+# 12. Run 30-second live SDLC simulation in ephemeral sandbox:
+./scripts/sdlc-cli.sh demo</code></pre>
       </div>
     </div>
 

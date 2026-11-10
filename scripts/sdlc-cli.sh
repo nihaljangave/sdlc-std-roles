@@ -55,6 +55,9 @@ Commands:
   dr-drill [sys] [lead]     Execute Disaster Recovery Point-in-Time Recovery
                             drill simulation and generate audit certificate.
                             
+  sbom [path] [out] [fmt]   Generate CycloneDX v1.5 JSON SBOM manifest from
+                            dependency manifests (package.json, requirements, etc).
+                            
   help                      Show this help message.
 
 Examples:
@@ -133,6 +136,12 @@ case "$CMD" in
         SYSTEM="${2:-Core-Transactional-DB}"
         LEAD="${3:-DevOps / SRE Lead}"
         "$FRAMEWORK_ROOT/scripts/simulate-dr-drill.sh" "$SYSTEM" "$LEAD"
+        ;;
+    sbom)
+        TARGET="${2:-.}"
+        OUT="${3:-./dist/sbom.cyclonedx.json}"
+        FMT="${4:-cyclonedx}"
+        "$FRAMEWORK_ROOT/scripts/generate-sbom.sh" "$TARGET" "$OUT" "$FMT"
         ;;
     help|--help|-h)
         show_help
