@@ -273,7 +273,7 @@
         <div class="lbl">SDLC Stages</div>
       </div>
       <div class="stat-card">
-        <div class="num">24</div>
+        <div class="num">23</div>
         <div class="lbl">Standard Templates</div>
       </div>
       <div class="stat-card">
@@ -544,13 +544,16 @@
 # 5. Package all formal deliverables into a signed client handover archive (.tar.gz):
 ./scripts/sdlc-cli.sh package . ./dist v1.0.0
 
-# 6. Execute synthetic post-verification (PVT) smoke test against deployment:
+# 6. Generate signed client milestone acceptance certificate stamped with Git SHA:
+./scripts/sdlc-cli.sh signoff M4-Go-Live "Global Corp" "Core-Platform"
+
+# 7. Execute synthetic post-verification (PVT) smoke test against deployment:
 ./scripts/sdlc-cli.sh smoke http://localhost:8000 15
 
-# 7. Install local git hooks (blocks secret leaks & enforces Conventional Commits):
+# 8. Install local git hooks (blocks secret leaks & enforces Conventional Commits):
 ./scripts/sdlc-cli.sh hooks
 
-# 8. Launch the searchable interactive documentation portal:
+# 9. Launch the searchable interactive documentation portal:
 ./scripts/sdlc-cli.sh portal</code></pre>
       </div>
     </div>

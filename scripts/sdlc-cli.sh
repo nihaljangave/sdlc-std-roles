@@ -36,6 +36,9 @@ Commands:
   package [path] [out] [v]  Bundle all formal project artifacts into a
                             compressed, client-ready handover archive.
                             
+  signoff [m] [c] [p]       Generate formal client milestone acceptance &
+                            sign-off certificate stamped with Git SHA.
+                            
   smoke [url] [timeout]     Execute synthetic PVT smoke test against target
                             endpoint (verifies health probes and doc ingress).
                             
@@ -91,6 +94,12 @@ case "$CMD" in
         OUT="${3:-./dist}"
         VER="${4:-v1.0.0}"
         "$FRAMEWORK_ROOT/scripts/package-client-handover.sh" "$PROJ" "$OUT" "$VER"
+        ;;
+    signoff)
+        MILESTONE="${2:-M3-Client-UAT}"
+        CLIENT="${3:-Enterprise Client}"
+        PROJ="${4:-$(basename "$(pwd)")}"
+        "$FRAMEWORK_ROOT/scripts/generate-signoff-cert.sh" "$MILESTONE" "$CLIENT" "$PROJ"
         ;;
     smoke)
         TARGET_URL="${2:-http://localhost:8000}"

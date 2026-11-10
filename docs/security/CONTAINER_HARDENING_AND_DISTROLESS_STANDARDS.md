@@ -145,3 +145,4 @@ jobs:
 - [ ] All Linux kernel capabilities dropped (`drop: ["ALL"]`).
 - [ ] Privilege escalation disabled (`allowPrivilegeEscalation: false`).
 - [ ] Trivy vulnerability scan passes with zero unpatched Criticals.
+

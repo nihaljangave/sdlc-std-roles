@@ -72,6 +72,7 @@ flowchart LR
   * [`architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md`](./docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md): GDPR/CCPA erasure workflows and staging data sanitization.
   * [`architecture/ARCHITECTURE_DIAGRAM_CATALOG.md`](./docs/architecture/ARCHITECTURE_DIAGRAM_CATALOG.md): Copy-paste Mermaid visual patterns (BFF, Event-Driven, Multi-Tenant SaaS, OAuth2).
   * [`architecture/MULTI_TENANT_SAAS_DATA_ISOLATION_STANDARDS.md`](./docs/architecture/MULTI_TENANT_SAAS_DATA_ISOLATION_STANDARDS.md): Multi-tenant SaaS data isolation, PostgreSQL Row-Level Security (RLS), and cross-tenant leak prevention.
+  * [`architecture/TWELVE_FACTOR_APP_AND_CONFIG_STANDARDS.md`](./docs/architecture/TWELVE_FACTOR_APP_AND_CONFIG_STANDARDS.md): Cloud-native Twelve-Factor App methodology, stateless architecture, and graceful shutdown standards.
   * [`architecture/IAC_AND_GITOPS_STANDARDS.md`](./docs/architecture/IAC_AND_GITOPS_STANDARDS.md): Infrastructure as Code (Terraform/OpenTofu) and GitOps (ArgoCD) state management standards.
   * [`adr/README.md`](./docs/adr/README.md): Architecture Decision Record (ADR) living registry and lifecycle index.
   * [`compliance/SOC2_TYPE_II_READINESS_GUIDE.md`](./docs/compliance/SOC2_TYPE_II_READINESS_GUIDE.md): Continuous SOC 2 Type II compliance controls, evidence collection, and PR audits.
@@ -149,6 +150,7 @@ flowchart LR
   * [`setup-git-hooks.sh`](./scripts/setup-git-hooks.sh): Local Git hook installer for secret scanning and Conventional Commits.
   * [`run-smoke-tests.sh`](./scripts/run-smoke-tests.sh): Synthetic PVT smoke test runner against target endpoints.
   * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
+  * [`generate-signoff-cert.sh`](./scripts/generate-signoff-cert.sh): Client milestone acceptance & sign-off certificate generator.
   * [`build-docs-portal.sh`](./scripts/build-docs-portal.sh): Static HTML documentation portal compiler.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
@@ -163,6 +165,9 @@ flowchart LR
   * `ISSUE_TEMPLATE/`: Standardized feature request and defect triage issue forms.
   * `workflows/ci-compliance.yml`: Production GitHub Actions CI/CD compliance workflow.
   * `workflows/pr-labeler.yml`: Automated PR labeling and reviewer assignment based on modified paths.
+  * `workflows/stage-gate-audit.yml`: Automated Stage-Gate compliance auditing and PR comment bot.
+* [`CONTRIBUTING.md`](./CONTRIBUTING.md): Standards contribution, Conventional Commits, and PR governance.
+* [`LICENSE`](./LICENSE): Apache 2.0 Open Source & Enterprise License.
   * `workflows/stage-gate-audit.yml`: Automated Stage-Gate compliance auditing and PR comment bot.
 * [`CONTRIBUTING.md`](./CONTRIBUTING.md): Standards contribution, Conventional Commits, and PR governance.
 * [`LICENSE`](./LICENSE): Apache 2.0 Open Source & Enterprise License.

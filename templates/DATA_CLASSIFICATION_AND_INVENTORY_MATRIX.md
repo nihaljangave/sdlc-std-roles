@@ -46,3 +46,4 @@ A formal Data Protection Impact Assessment (DPIA) is mandatory before deploying 
 | **Data Protection Officer (DPO)** | [Name] | [Signed] | YYYY-MM-DD |
 | **Lead System Architect** | [Name] | [Signed] | YYYY-MM-DD |
 | **Client Compliance Sponsor** | [Name] | [Signed] | YYYY-MM-DD |
+

@@ -69,3 +69,4 @@ When opening a Pull Request:
 - [ ] All shell scripts have executable permissions (`chmod +x scripts/*.sh`).
 - [ ] Any newly introduced templates are indexed in [`README.md`](./README.md), [`mkdocs.yml`](./mkdocs.yml), and [`index.html`](./index.html).
 - [ ] GitHub Actions CI compliance status checks pass with green status.
+

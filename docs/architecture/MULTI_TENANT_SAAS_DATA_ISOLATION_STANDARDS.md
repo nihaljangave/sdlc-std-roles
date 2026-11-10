@@ -131,3 +131,4 @@ test('Tenant A must never access Tenant B resources', async () => {
 1. **Per-Tenant Rate Limiting:** Enforce a sliding-window rate limit (e.g. 500 requests/minute per tenant) using Redis token buckets.
 2. **Database Query Timeout:** Set `statement_timeout = '15s'` to prevent a single runaway tenant query from starving shared database resources.
 3. **Dedicated Read Replicas:** High-volume analytics or batch export queries are routed to dedicated read replicas, keeping the primary writer available for transactional traffic.
+
