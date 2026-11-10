@@ -1,0 +1,89 @@
+site_name: Lean-Enterprise SDLC Operating System
+site_description: Fast-Paced Prototype & Product Delivery with Embedded Compliance, Client Deliverables, and Operational Readiness
+site_author: Engineering & Architecture Standards Team
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Framework Overview: README.md
+  - SDLC Stages:
+      - 0. Discovery & Scoping: docs/01_Discovery_and_Scoping.md
+      - 1. Architecture & Security: docs/02_Architecture_and_Design.md
+      - 2. Development & Build: docs/03_Development_and_Build.md
+      - 3. QA & Client UAT: docs/04_Verification_and_UAT.md
+      - 4. Release & Operations Handover: docs/05_Release_and_Operations_Handover.md
+      - 5. Post-Production & Support: docs/06_Post_Production_and_Maintenance.md
+      - Prototype Evolution: docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md
+      - Telemetry Standards: docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md
+      - Security SOP: docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md
+  - Standard Roles:
+      - Product Owner / PM: roles/01_PRODUCT_OWNER_PM.md
+      - Tech Lead / Architect: roles/02_TECH_LEAD_ARCHITECT.md
+      - Software Engineer: roles/03_SOFTWARE_ENGINEER.md
+      - QA Automation Engineer: roles/04_QA_AND_TEST_ENGINEER.md
+      - DevOps & SRE Lead: roles/05_DEVOPS_SRE_AND_OPS_LEAD.md
+      - Client Sponsor: roles/06_CLIENT_SPONSOR_AND_STAKEHOLDER.md
+  - Agile Handshakes & Cadence:
+      - Sprint Cadence: ceremonies-and-handshakes/SPRINT_AND_RELEASE_CADENCE.md
+      - Handshake Protocols: ceremonies-and-handshakes/HANDSHAKE_PROTOCOLS.md
+  - Checklists & Standards:
+      - Stage Gate Quick Reference: checklists/STAGE_GATES_QUICK_REFERENCE.md
+      - NFR Catalog: checklists/NFR_STANDARDS_CATALOG.md
+  - Deliverable Templates:
+      - Product Requirements (PRD): templates/PRD_TEMPLATE.md
+      - Project Charter & SOW: templates/PROJECT_CHARTER_AND_SOW.md
+      - System Architecture (SAD): templates/SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md
+      - Architecture Decisions (ADR): templates/ARCHITECTURE_DECISION_RECORD_ADR.md
+      - API Contract Spec: templates/API_CONTRACT_AND_INTEGRATION_SPEC.md
+      - Definition of Done (DoD): templates/DEFINITION_OF_DONE_AND_CODE_REVIEW.md
+      - QA Plan & UAT Sign-off: templates/TEST_PLAN_AND_UAT_SIGNOFF.md
+      - Operations Runbook: templates/OPERATIONS_RUNBOOK.md
+      - Deployment & Rollback Guide: templates/DEPLOYMENT_AND_ROLLBACK_GUIDE.md
+      - Service Transition Checklist: templates/SERVICE_TRANSITION_CHECKLIST.md
+      - Incident SLA Matrix: templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md
+      - Change Request Form: templates/CHANGE_REQUEST_FORM.md
+      - Security & Privacy Review: templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md
+  - Client Governance:
+      - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md
+      - Handover Workshop Agenda: client-collateral/CLIENT_HANDOVER_WORKSHOP_AGENDA.md
+      - Steering Committee Charter: client-collateral/STEERING_COMMITTEE_AND_REPORTING_CHARTER.md
+  - Automation & Tooling:
+      - Automation Playbook: automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md

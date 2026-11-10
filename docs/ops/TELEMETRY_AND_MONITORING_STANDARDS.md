@@ -84,3 +84,4 @@ Every service must expose two distinct HTTP endpoints:
 - **Purpose:** Verifies whether the service can actively serve traffic.
 - **Rules:** Checks connectivity to primary PostgreSQL database and Redis cluster.
 - **Behavior:** If DB pool is down, return HTTP `503 Service Unavailable`. Traffic is automatically routed away from this container until recovered.
+

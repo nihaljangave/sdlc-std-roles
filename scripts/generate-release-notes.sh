@@ -55,3 +55,4 @@ echo ""
 
 echo "---"
 echo "Generated automatically via \`scripts/generate-release-notes.sh\`"
+

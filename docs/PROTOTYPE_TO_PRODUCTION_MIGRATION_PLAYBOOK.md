@@ -60,3 +60,4 @@ Before promoting an MVP to full enterprise production:
 3. **Load & Stress Certification:** Validate that system handles 3x peak anticipated volume while maintaining p95 latency < 300ms.
 4. **Operations Runbook Verification:** Ops team must successfully resolve a simulated high-CPU and DB connection exhaustion incident using the Runbook SOPs.
 5. **Formal Handover Sign-Off:** Execute the **Service Transition Checklist** signed by Dev and Ops leadership.
+

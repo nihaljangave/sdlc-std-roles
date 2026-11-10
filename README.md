@@ -67,6 +67,7 @@ flowchart LR
   * [`06_Post_Production_and_Maintenance.md`](./docs/06_Post_Production_and_Maintenance.md)
   * [`PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md`](./docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md): Architectural roadmap for transitioning prototypes into enterprise production.
   * [`ops/TELEMETRY_AND_MONITORING_STANDARDS.md`](./docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md): JSON logging schemas, RED/USE metrics, health checks, and tracing headers.
+  * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
   * `PRD_TEMPLATE.md`: Product Requirement Document.
   * `PROJECT_CHARTER_AND_SOW.md`: Scope, milestone, and commercial alignment.
@@ -100,11 +101,14 @@ flowchart LR
   * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.
   * [`verify-stage-gate.sh`](./scripts/verify-stage-gate.sh): Automated audit script to verify whether a project satisfies gate requirements.
   * [`generate-release-notes.sh`](./scripts/generate-release-notes.sh): Automatic release notes generator from Conventional Commits.
+  * [`setup-git-hooks.sh`](./scripts/setup-git-hooks.sh): Local Git hook installer for secret scanning and Conventional Commits.
 * [`examples/`](./examples/): End-to-end reference projects illustrating completed documentation.
   * [`b2b-ordering-mvp/`](./examples/b2b-ordering-mvp/): Fully scaffolded reference project with active OpenAPI 3.0 spec.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
   * [`CLIENT_HANDOVER_WORKSHOP_AGENDA.md`](./client-collateral/CLIENT_HANDOVER_WORKSHOP_AGENDA.md): 2-hour formal operational and client service transition workshop agenda.
+  * [`STEERING_COMMITTEE_AND_REPORTING_CHARTER.md`](./client-collateral/STEERING_COMMITTEE_AND_REPORTING_CHARTER.md): Executive reporting charter and 1-page weekly flash report template.
+* [`mkdocs.yml`](./mkdocs.yml): Interactive documentation portal configuration (Material for MkDocs).
 * [`.github/`](./.github/): GitHub Native PR templates, issue templates, and CI compliance workflows.
   * `pull_request_template.md`: Definition of Done PR checklist.
   * `ISSUE_TEMPLATE/`: Standardized feature request and defect triage issue forms.
