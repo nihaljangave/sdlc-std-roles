@@ -1,149 +1,123 @@
 # Production Operations Runbook (Day-2 Playbook)
+## QuickDistro B2B Wholesale Portal - Operational Runbook
 
 | Service Metadata | Details |
 |---|---|
-| **System / Service Name** | [System / Service Name] |
-| **Tier / Criticality** | Tier 1 (Business Critical) |
-| **Owner Team** | [SRE / Cloud Operations Team] |
-| **Escalation Email / Slack** | `#ops-alerts` \| `ops-oncall@company.com` |
-| **Primary Cloud Provider** | AWS (us-east-1) / Kubernetes |
-| **Last Updated** | YYYY-MM-DD |
+| **System / Service Name** | QuickDistro Wholesale Platform |
+| **Tier / Criticality** | Tier 1 (Mission-Critical B2B Ingress) |
+| **Owner Team** | Metro Cloud SRE & Operations Team |
+| **Escalation Channel** | Slack `#quickdistro-ops` \| `ops-oncall@metrowholesale.com` |
+| **Primary Cloud Provider** | AWS (us-east-1) / ECS Fargate Containers |
+| **Last Updated** | 2026-11-10 |
 
 ---
 
-## 1. System Topology & Service Dependencies
+## 1. System Topology & Critical Service Dependencies
 
 ```mermaid
 graph LR
     subgraph Ingress
-        DNS["Route 53"] --> CDN["CloudFront"]
-        CDN --> WAF["AWS WAF"]
-        WAF --> ALB["Application Load Balancer"]
+        DNS["Route 53 (api.distrocorp.com)"] --> CDN["CloudFront + AWS WAF"]
+        CDN --> ALB["Application Load Balancer"]
     end
 
-    subgraph Compute
-        ALB --> API_Pods["API Service (EKS / ECS)"]
-        API_Pods --> Worker_Pods["Worker Service"]
-    end
-
-    subgraph Data Stores
-        API_Pods --> Aurora[("RDS PostgreSQL Primary")]
-        Aurora -.-> AuroraReplica[("RDS Read Replica")]
-        API_Pods --> RedisCluster[("ElastiCache Redis")]
+    subgraph Compute (VPC Private Subnet)
+        ALB --> API_Tasks["Wholesale API Service (ECS Fargate)"]
+        API_Tasks --> RedisCluster[("ElastiCache Redis 7 (Idempotency & Sessions)")]
+        API_Tasks --> RDS_Master[("RDS Aurora PostgreSQL 16 (Primary)")]
+        RDS_Master -.-> RDS_Replica[("RDS Read Replica (Catalog Queries)")]
+        API_Tasks --> SQS_Queue["AWS SQS (ERP Dispatch Queue)"]
+        SQS_Queue --> Worker_Tasks["Webhook Dispatch Workers (ECS)"]
     end
 
     subgraph External Dependencies
-        Worker_Pods --> PaymentGW["Stripe / Razorpay API"]
-        Worker_Pods --> EmailSvc["SendGrid / SES"]
+        Worker_Tasks --> MetroERP["Metro Legacy Mainframe ERP (HTTPS)"]
+        Worker_Tasks --> SendGrid["SendGrid (Order Confirmation Emails)"]
     end
 ```
 
-### Key Service Contacts & Repositories:
-- **Application Repo:** `https://github.com/organization/core-api`
-- **Infrastructure as Code (Terraform):** `https://github.com/organization/infra-terraform`
-- **Secrets Store:** AWS Secrets Manager (`prod/core-api/credentials`)
-- **Container Registry:** Amazon ECR (`123456789.dkr.ecr.us-east-1.amazonaws.com/core-api`)
+### Operational Asset Registry:
+- **Application Repository:** `https://github.com/metrowholesale/quickdistro-api`
+- **Infrastructure as Code (Terraform):** `https://github.com/metrowholesale/quickdistro-infra`
+- **Secrets Store:** AWS Secrets Manager (`prod/quickdistro/credentials`)
+- **Container Registry:** Amazon ECR (`123456789.dkr.ecr.us-east-1.amazonaws.com/quickdistro-api:v1.0.0`)
 
 ---
 
-## 2. Health Check, Monitoring & Observability Endpoints
+## 2. Health Checks, Dashboards & Telemetry
 
-| Purpose | URL / Tool | Access Method | Expected Response / Status |
+| Purpose | URL / Tool | Access Method | Expected Response / Baseline |
 |---|---|---|---|
-| **Liveness Check** | `GET https://api.domain.com/health/live` | Public / Pingdom | HTTP 200 `{"status": "ok"}` |
-| **Readiness Check** | `GET https://api.domain.com/health/ready` | Internal VPC only | HTTP 200 `{"db": "connected", "redis": "connected"}` |
-| **Central Dashboard** | `https://app.datadoghq.com/dashboard/xyz` | SSO Required | Real-time traffic, error rate, p95 latency |
-| **Log Search** | `https://kibana.internal.net` / Datadog Logs | Cloud VPN | Structured logs filtered by `service:core-api` |
-| **APM & Tracing** | `https://grafana.internal.net/explore` | Cloud VPN | OpenTelemetry distributed traces |
+| **Liveness Check** | `GET https://api.distrocorp.com/health/live` | Public / Pingdom | HTTP 200 `{"status": "ok"}` (< 30ms) |
+| **Readiness Check** | `GET https://api.distrocorp.com/health/ready` | Internal VPC only | HTTP 200 `{"database": "connected", "redis": "connected"}` |
+| **APM Dashboard** | `https://app.datadoghq.com/dashboard/quickdistro-prod` | SSO Login | Real-time throughput, p95 latency, 5xx error rate |
+| **Log Search** | `https://app.datadoghq.com/logs?query=service:quickdistro-api` | SSO Login | Structured JSON logs with `trace_id` and `distributor_id` |
+| **Webhook DLQ Monitor**| AWS SQS Console -> `quickdistro-erp-webhooks-dlq` | Cloud VPN | Approximate message count must remain 0 |
 
 ---
 
 ## 3. High-Priority Alert Thresholds & Automatic Triggers
 
-| Alert Name | Condition | Severity | Notification Channel | Auto-Remediation |
+| Alert Identifier | Condition | Severity | Notification Channel | Auto-Remediation Behavior |
 |---|---|---|---|---|
-| **HighErrorRate5xx** | HTTP 5xx > 1% of total traffic for 3 mins | P1 (Critical) | PagerDuty On-Call (Voice/SMS) | None (Requires investigation) |
-| **HighP95Latency** | Latency p95 > 1000ms for 5 mins | P2 (Major) | Slack `#ops-alerts` + PagerDuty | Auto-scales +2 container tasks |
-| **DBConnectionExhaustion**| Active DB pool > 85% capacity for 3 mins | P1 (Critical) | PagerDuty On-Call | None (Inspect slow queries) |
-| **QueueBacklogGrowing** | Worker Queue Depth > 10,000 items | P2 (Major) | Slack `#ops-alerts` | Auto-scale worker pods to max 10 |
-| **DiskUsageHigh** | EBS Volume usage > 80% | P3 (Minor) | Slack `#ops-alerts` | Terraform auto-expand volume |
+| **HighOrderErrorRate** | HTTP 5xx > 1% of total traffic for 2 mins | P1 (Critical) | PagerDuty On-Call (Voice/SMS) | None (Requires immediate war room) |
+| **DBConnectionSaturation** | Active DB connection pool > 80% for 3 mins | P1 (Critical) | PagerDuty On-Call | None (Investigate un-indexed queries) |
+| **RedisMemorySpike** | Redis memory utilization > 80% | P2 (Major) | Slack `#quickdistro-ops` | Auto-evict least recently used cache items |
+| **WebhookQueueBacklog** | SQS queue depth > 500 messages for 5 mins | P2 (Major) | Slack `#quickdistro-ops` | Auto-scale worker tasks from 2 to 6 |
 
 ---
 
-## 4. Routine Maintenance & Standard Operating Procedures (SOPs)
+## 4. Routine Maintenance Standard Operating Procedures (SOPs)
 
-### SOP-01: Rotating Application Secrets & API Keys
-1. Generate new API secret in Third-Party Provider portal.
-2. Update key in AWS Secrets Manager:
-   ```bash
-   aws secretsmanager update-secret --secret-id prod/core-api/credentials \
-       --secret-string file://new_secrets.json
-   ```
-3. Trigger rolling restart of API container tasks to load new values:
-   ```bash
-   aws ecs update-service --cluster prod-cluster --service api-service --force-new-deployment
-   ```
-4. Verify `/health/ready` returns 200 and application logs confirm successful initialization.
-
-### SOP-02: Flushing Application Cache Safely
-*Do NOT execute `FLUSHALL` on production Redis as it causes a cache-stampede database spike.*
-Instead, run targeted namespace invalidation:
+### SOP-01: Rotating Webhook HMAC Secret
 ```bash
-redis-cli -h prod-redis.internal -p 6379 --scan --pattern "cache:v1:*" | xargs -L 100 redis-cli -h prod-redis.internal -p 6379 del
+# 1. Generate new 32-byte secret
+NEW_SECRET=$(openssl rand -hex 32)
+
+# 2. Update secret in AWS Secrets Manager
+aws secretsmanager update-secret \
+    --secret-id prod/quickdistro/credentials \
+    --secret-string "{\"WEBHOOK_SECRET\":\"$NEW_SECRET\"}"
+
+# 3. Trigger rolling restart of background workers
+aws ecs update-service \
+    --cluster quickdistro-prod-cluster \
+    --service webhook-dispatcher \
+    --force-new-deployment
+```
+
+### SOP-02: Flushing Outdated Catalog Cache Safely
+```bash
+# Targeted namespace invalidation (prevents cache stampede):
+redis-cli -h prod-redis.internal -p 6379 --scan --pattern "catalog:v1:*" | xargs -L 100 redis-cli -h prod-redis.internal -p 6379 del
 ```
 
 ---
 
-## 5. Backup, Restore & Disaster Recovery (DR)
+## 5. Emergency Incident Troubleshooting Playbooks
 
-### 5.1 Backup Policies
-- **Database (RDS):** Automated daily snapshots retained for 30 days. Continuous WAL archive for Point-in-Time Recovery (PITR) up to 5 minutes ago.
-- **Object Storage (S3):** Versioning enabled with cross-region replication to `us-west-2` bucket.
-
-### 5.2 Point-In-Time Database Restore Procedure (RTO: 30 mins, RPO: 5 mins)
-```bash
-# 1. Restore snapshot to a new temporary RDS instance
-aws rds restore-db-instance-to-point-in-time \
-    --source-db-instance-identifier prod-postgres-db \
-    --target-db-instance-identifier prod-postgres-restored-temp \
-    --restore-time 2026-11-10T11:00:00Z \
-    --db-subnet-group-name prod-db-subnets
-
-# 2. Verify data integrity on the restored instance
-# 3. Swap DNS CNAME endpoint in Route 53 or update AWS Secrets Manager to point to restored instance
-```
-
----
-
-## 6. Incident Troubleshooting Playbooks (Common Failure Scenarios)
-
-### Playbook A: Spiking 502 / 504 Gateway Errors
-1. **Check Container Status:**
-   ```bash
-   kubectl get pods -n production -l app=core-api
-   ```
-   *Look for `OOMKilled` or `CrashLoopBackOff`.*
-2. **Inspect Memory / OOM:**
-   If pods are memory spiking, increase container limit temporarily or scale replicas horizontally:
-   ```bash
-   kubectl scale deployment core-api --replicas=8 -n production
-   ```
-3. **Check Downstream Dependencies:**
-   Verify if the database is locked or third-party payment gateway is timing out.
-
-### Playbook B: Database Connection Pool Starvation
-1. **Identify Long-Running Queries:**
+### Playbook A: Spiking 504 Gateway Timeouts on Bulk SKU Validation
+1. **Identify Slow Queries in PostgreSQL:**
    ```sql
-   SELECT pid, now() - pg_stat_activity.query_start AS duration, query, state
-   FROM pg_stat_activity
-   WHERE state != 'idle' AND (now() - pg_stat_activity.query_start) > interval '10 seconds'
+   SELECT pid, now() - pg_stat_activity.query_start AS duration, query 
+   FROM pg_stat_activity 
+   WHERE state != 'idle' AND (now() - pg_stat_activity.query_start) > interval '5 seconds'
    ORDER BY duration DESC;
    ```
-2. **Terminate Hanging Query Safely:**
+2. **Terminate Hanging Query:**
    ```sql
-   SELECT pg_cancel_backend(<pid>);
-   -- If unresponsive:
    SELECT pg_terminate_backend(<pid>);
    ```
-3. Check application logs for unclosed transactions or missing indexes.
+3. **Scale API Tasks Horizontally:**
+   ```bash
+   aws ecs update-service --cluster quickdistro-prod-cluster --service api-service --desired-count 6
+   ```
 
+### Playbook B: Metro Legacy ERP Webhook Ingress Down
+1. Confirm messages are accumulating in SQS without message loss:
+   ```bash
+   aws sqs get-queue-attributes --queue-url https://sqs.us-east-1.amazonaws.com/12345/quickdistro-erp-webhooks \
+       --attribute-names ApproximateNumberOfMessages
+   ```
+2. Check network connectivity between AWS NAT Gateway and Metro Mainframe IP `198.51.100.42`.
+3. SQS retains messages up to 14 days; once Metro ERP restores, worker tasks automatically drain backlog at 100 msgs/sec.
