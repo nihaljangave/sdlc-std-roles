@@ -1,0 +1,20 @@
+# Configuration for GitHub PR Labeler
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['docs/**', '*.md', 'templates/**']
+
+security:
+  - changed-files:
+      - any-glob-to-any-file: ['docs/security/**', 'templates/SECURITY*']
+
+backend:
+  - changed-files:
+      - any-glob-to-any-file: ['src/**', 'api/**', 'server/**', '*.go', '*.py', '*.ts']
+
+infrastructure:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**', 'infra/**', 'Dockerfile', 'docker-compose*']
+
+testing:
+  - changed-files:
+      - any-glob-to-any-file: ['tests/**', 'automation-and-tooling/testing/**', '*.spec.ts']

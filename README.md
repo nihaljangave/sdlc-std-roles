@@ -101,6 +101,7 @@ flowchart LR
   * `INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md`: Severity tiers, escalations, and post-mortems.
   * `CHANGE_REQUEST_FORM.md`: Scope change request form for client alignment.
   * `CHANGE_ORDER_ESTIMATION_WORKSHEET.md`: Commercial impact and timeline worksheet for change requests.
+  * `DELIVERABLES_SIGN_OFF_MATRIX.md`: Master milestone approval matrix, sign-off registry, and IP transfer terms.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
@@ -127,6 +128,7 @@ flowchart LR
   * [`generate-release-notes.sh`](./scripts/generate-release-notes.sh): Automatic release notes generator from Conventional Commits.
   * [`generate-weekly-report.sh`](./scripts/generate-weekly-report.sh): Client 1-page weekly flash status report generator from Git history.
   * [`setup-git-hooks.sh`](./scripts/setup-git-hooks.sh): Local Git hook installer for secret scanning and Conventional Commits.
+  * [`run-smoke-tests.sh`](./scripts/run-smoke-tests.sh): Synthetic PVT smoke test runner against target endpoints.
   * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
@@ -139,4 +141,5 @@ flowchart LR
   * `pull_request_template.md`: Definition of Done PR checklist.
   * `ISSUE_TEMPLATE/`: Standardized feature request and defect triage issue forms.
   * `workflows/ci-compliance.yml`: Production GitHub Actions CI/CD compliance workflow.
+  * `workflows/pr-labeler.yml`: Automated PR labeling and reviewer assignment based on modified paths.
 

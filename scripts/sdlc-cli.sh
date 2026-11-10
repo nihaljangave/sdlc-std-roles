@@ -34,6 +34,9 @@ Commands:
   package [path] [out] [v]  Bundle all formal project artifacts into a
                             compressed, client-ready handover archive.
                             
+  smoke [url] [timeout]     Execute synthetic PVT smoke test against target
+                            endpoint (verifies health probes and doc ingress).
+                            
   hooks                     Install local git hooks (commit-msg and pre-commit)
                             for secret leak prevention and Conventional Commits.
                             
@@ -85,6 +88,11 @@ case "$CMD" in
         OUT="${3:-./dist}"
         VER="${4:-v1.0.0}"
         "$FRAMEWORK_ROOT/scripts/package-client-handover.sh" "$PROJ" "$OUT" "$VER"
+        ;;
+    smoke)
+        TARGET_URL="${2:-http://localhost:8000}"
+        TIMEOUT="${3:-10}"
+        "$FRAMEWORK_ROOT/scripts/run-smoke-tests.sh" "$TARGET_URL" "$TIMEOUT"
         ;;
     hooks)
         "$FRAMEWORK_ROOT/scripts/setup-git-hooks.sh"
