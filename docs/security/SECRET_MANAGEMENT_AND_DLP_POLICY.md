@@ -87,3 +87,4 @@ If an API key, database credential, or token is accidentally committed to a repo
   git push origin --force --all
   ```
 - Complete a formal [Post-Mortem & CAPA Report](../ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md) to document root cause and strengthen pre-commit barriers.
+
