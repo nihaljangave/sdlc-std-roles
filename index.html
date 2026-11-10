@@ -369,7 +369,7 @@
         <div class="lbl">SDLC Stages</div>
       </div>
       <div class="stat-card">
-        <div class="num">28</div>
+        <div class="num">29</div>
         <div class="lbl">Standard Templates</div>
       </div>
       <div class="stat-card">
@@ -390,7 +390,7 @@
       <button class="tab-btn active" onclick="switchTab('stages')">Lifecycle Stages</button>
       <button class="tab-btn" onclick="switchTab('auditor')">Live Gate Checklist Auditor</button>
       <button class="tab-btn" onclick="switchTab('raci')">RACI Governance Matrix</button>
-      <button class="tab-btn" onclick="switchTab('templates')">Deliverables & Templates (28)</button>
+      <button class="tab-btn" onclick="switchTab('templates')">Deliverables & Templates (29)</button>
       <button class="tab-btn" onclick="switchTab('cli')">CLI & Automation</button>
     </div>
 
@@ -628,13 +628,13 @@
       <div class="auditor-box" style="margin-bottom: 2rem;">
         <h2>Deliverables & Templates Library</h2>
         <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
-          Instant search and copy paths for all 28 production-ready Markdown templates in <code style="color: #818cf8;">templates/</code>:
+          Instant search and copy paths for all 29 production-ready Markdown templates in <code style="color: #818cf8;">templates/</code>:
         </p>
 
         <div class="lib-controls" style="margin-top: 1.25rem;">
           <input type="text" id="tplSearch" class="search-input" placeholder="🔍 Search templates by title, gate, keyword, or filename..." oninput="searchTemplates()">
           <div class="filter-pills">
-            <button class="pill active" onclick="filterTemplates('all', this)">All (28)</button>
+            <button class="pill active" onclick="filterTemplates('all', this)">All (29)</button>
             <button class="pill" onclick="filterTemplates('discovery', this)">Discovery & Scope</button>
             <button class="pill" onclick="filterTemplates('architecture', this)">Architecture & AI</button>
             <button class="pill" onclick="filterTemplates('security', this)">Security & Compliance</button>
@@ -848,6 +848,18 @@
             <div class="t-footer">
               <span class="t-path">templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md</span>
               <button class="action-btn" onclick="copyPath('templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Compliance &bull; Client Assurance</div>
+              <div class="t-title">Client Security Assurance Pack</div>
+              <div class="t-desc">Consolidated enterprise security attestation, sub-processor disclosures, compliance crosswalk, and CISO sign-off dossier.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/CLIENT_SECURITY_ASSURANCE_PACK.md</span>
+              <button class="action-btn" onclick="copyPath('templates/CLIENT_SECURITY_ASSURANCE_PACK.md', this)">Copy Path</button>
             </div>
           </div>
 

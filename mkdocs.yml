@@ -84,6 +84,7 @@ nav:
       - HIPAA & ePHI Protection: docs/compliance/HIPAA_COMPLIANCE_PLAYBOOK.md
       - PCI DSS v4.0 Checklist: docs/compliance/PCI_DSS_SAQ_D_CHECKLIST.md
       - Vendor Risk & Sub-processors: docs/compliance/VENDOR_RISK_MANAGEMENT_AND_SUBPROCESSOR_POLICY.md
+      - Security Questionnaire Playbook: docs/compliance/ENTERPRISE_SECURITY_QUESTIONNAIRE_PLAYBOOK.md
   - Accessibility & Inclusion:
       - WCAG 2.2 AA Standards: docs/accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md
   - AI & Machine Learning:
@@ -131,6 +132,7 @@ nav:
       - Cryptographic Inventory & Key Plan: templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md
       - Vendor Risk Assessment: templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md
       - Business Impact Analysis (BIA): templates/BUSINESS_IMPACT_ANALYSIS_BIA.md
+      - Client Security Assurance Pack: templates/CLIENT_SECURITY_ASSURANCE_PACK.md
   - Client Collateral & Commercial Governance:
       - Scope & Budget Management: docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md

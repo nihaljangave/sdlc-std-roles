@@ -83,6 +83,9 @@ audit_gate_1() {
     if [ -f "$PROJECT_ROOT/docs/security/VENDOR_ASSESSMENT.md" ]; then
         check_file "Third-Party Vendor Security Assessment" "docs/security/VENDOR_ASSESSMENT.md"
     fi
+    if [ -f "$PROJECT_ROOT/docs/security/SECURITY_ASSURANCE_PACK.md" ]; then
+        check_file "Client Security Assurance Pack" "docs/security/SECURITY_ASSURANCE_PACK.md"
+    fi
     check_dir_has_files "Architecture Decision Records (ADRs)" "docs/adr"
     check_dir_has_files "API Contract / Specifications" "docs/api"
     check_file "Security & Data Privacy Checklist" "docs/security/SECURITY_REVIEW.md" "templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md"

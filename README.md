@@ -96,6 +96,7 @@ flowchart LR
   * [`security/CONTAINER_HARDENING_AND_DISTROLESS_STANDARDS.md`](./docs/security/CONTAINER_HARDENING_AND_DISTROLESS_STANDARDS.md): Non-root execution (UID 65532), Distroless base images, read-only root filesystems, and Trivy scans.
   * [`security/CRYPTOGRAPHY_AND_KEY_MANAGEMENT_POLICY.md`](./docs/security/CRYPTOGRAPHY_AND_KEY_MANAGEMENT_POLICY.md): FIPS 140-3 approved ciphers (AES-256-GCM, RSA >=3072, ECC P-384), automated KMS envelope rotation, and Post-Quantum Cryptography (PQC) transition plan.
   * [`compliance/VENDOR_RISK_MANAGEMENT_AND_SUBPROCESSOR_POLICY.md`](./docs/compliance/VENDOR_RISK_MANAGEMENT_AND_SUBPROCESSOR_POLICY.md): Third-party vendor due diligence, sub-processor registry, DPA safeguards, and annual re-assessment cadence.
+  * [`compliance/ENTERPRISE_SECURITY_QUESTIONNAIRE_PLAYBOOK.md`](./docs/compliance/ENTERPRISE_SECURITY_QUESTIONNAIRE_PLAYBOOK.md): Standardized pre-approved answers for SIG Lite, CAIQ, and enterprise client infosec questionnaires.
   * [`accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md`](./docs/accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md): WCAG 2.2 Level AA accessibility standards, automated axe-core testing, and screen reader SOPs.
   * [`ai/AI_LLM_ENGINEERING_GOVERNANCE.md`](./docs/ai/AI_LLM_ENGINEERING_GOVERNANCE.md): Generative AI & LLM engineering standards, OWASP LLM top 10, RAG triad benchmarks, and cost controls.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
@@ -127,6 +128,7 @@ flowchart LR
   * `CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md`: Cryptographic asset register, key rotation schedules, and post-quantum readiness audit log.
   * `THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md`: Standardized vendor risk assessment questionnaire, sub-processor security controls audit, and CISO sign-off.
   * `BUSINESS_IMPACT_ANALYSIS_BIA.md`: Critical business functions register, financial outage loss schedule, and RTO/RPO/MTD justification.
+  * `CLIENT_SECURITY_ASSURANCE_PACK.md`: Consolidated customer security attestation, sub-processor disclosure, and compliance crosswalk.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
