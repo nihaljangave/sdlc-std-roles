@@ -1,0 +1,95 @@
+# Lean-Enterprise SDLC Operating Framework
+## Fast-Paced Product & Prototype Development with Embedded Compliance, Client Deliverables, and Operational Readiness
+
+---
+
+## Executive Summary
+
+When developing fast-paced products and prototypes, teams often fall into one of two traps:
+1. **The Bureaucracy Trap:** Heavy waterfall documentation slows momentum, causing deadlines to slip.
+2. **The Prototype Trap:** Moving fast with zero documentation leads to catastrophic delays during client acceptance, security audits, and production operational handover.
+
+This framework introduces **Embedded Living Documentation (Doc-as-Code & Just-in-Time Deliverables)**. Each SDLC stage produces client-ready and operations-ready artifacts as a *natural byproduct of execution*, rather than an administrative afterthought.
+
+---
+
+## SDLC Lifecycle Stages & Artifact Matrix
+
+```mermaid
+flowchart LR
+    S0["0. Discovery & Scoping"] --> S1["1. Architecture & Security"]
+    S1 --> S2["2. Build & Verification"]
+    S2 --> S3["3. QA & Client UAT"]
+    S3 --> S4["4. Release & Ops Handover"]
+    S4 --> S5["5. Post-Prod & Support"]
+```
+
+| Stage | Primary Goal | Client-Facing Deliverable | Operations/Engineering Deliverable | Gate Check |
+|---|---|---|---|---|
+| **0. Discovery & Scoping** | Align vision, scope, and technical viability | Project Charter / Statement of Work (SOW), High-Level PRD | Scope Baseline, Risk Register, Feasibility Spike | Gate 0: Charter Sign-off |
+| **1. Architecture & Security** | Formulate scalable, compliant system design | System Architecture Overview, Data Flow & Privacy Summary | Architecture Decision Records (ADRs), Security Threat Model, API Contract | Gate 1: Architecture & Sec Review |
+| **2. Build & Continuous QA** | Rapid iterative delivery with automated gates | Sprint Demo Logs, Progress Reports, API Sandbox | Living README, OpenAPI/Swagger Docs, Automated CI/CD, Unit/Int Tests | Gate 2: Code Freeze / Feature Complete |
+| **3. QA, Security & UAT** | Verify non-functional & functional compliance | Client UAT Test Plan & Formal Sign-Off Certificate | Security Scan (SAST/DAST/SCA), Performance Benchmark, QA Summary | Gate 3: Production Readiness (Go/No-Go) |
+| **4. Release & Ops Handover** | Seamless rollout with zero-surprise operations | Release Notes, User Manual / Admin Guide | Operations Runbook, Deployment & Rollback Playbook, Infrastructure as Code | Gate 4: Operational Cutover & Handover |
+| **5. Post-Prod & Warranty** | Guarantee stability, SLA adherence, and support | SLA Performance Report, Warranty Sign-Off | Monitoring & Alerting Dashboards, Incident Post-Mortem SOP, Maintenance Schedule | Gate 5: Steady-State Transition |
+
+---
+
+## RACI Accountability Matrix
+
+* **R** = Responsible (Does the work)
+* **A** = Accountable (Final approval/signer)
+* **C** = Consulted (Provides input)
+* **I** = Informed (Kept updated)
+
+| Artifact / Milestone | Product Owner / PM | Lead Architect / Tech Lead | Engineering Team | QA / Security | Client Stakeholder | DevOps / IT Ops |
+|---|---|---|---|---|---|---|
+| **PRD & Scope Baseline** | **A / R** | C | C | C | **C / Sign-off** | I |
+| **Architecture (HLD/LLD) & ADRs** | C | **A / R** | R | C | I | C |
+| **API Contract & Schemas** | C | A | **R** | C | I | I |
+| **Security & Privacy Review** | I | C | R | **A / R** | I | C |
+| **Definition of Done (DoD)** | C | A | **R** | R | I | I |
+| **Client UAT & Acceptance** | **R** | C | I | R | **A / Sign-off** | I |
+| **Operations Runbook** | I | C | R | I | I | **A / R** |
+| **Deployment & Rollback Plan** | I | C | R | C | I | **A / R** |
+| **Service Transition Sign-off** | **A** | C | C | C | **A** | **A** |
+
+---
+
+## Directory Layout in This Toolkit
+
+* [`docs/`](./docs/): In-depth process workflows for each stage detailing trigger conditions, entry/exit criteria, role interactions, and velocity tips.
+  * [`01_Discovery_and_Scoping.md`](./docs/01_Discovery_and_Scoping.md)
+  * [`02_Architecture_and_Design.md`](./docs/02_Architecture_and_Design.md)
+  * [`03_Development_and_Build.md`](./docs/03_Development_and_Build.md)
+  * [`04_Verification_and_UAT.md`](./docs/04_Verification_and_UAT.md)
+  * [`05_Release_and_Operations_Handover.md`](./docs/05_Release_and_Operations_Handover.md)
+  * [`06_Post_Production_and_Maintenance.md`](./docs/06_Post_Production_and_Maintenance.md)
+* [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
+  * `PRD_TEMPLATE.md`: Product Requirement Document.
+  * `PROJECT_CHARTER_AND_SOW.md`: Scope, milestone, and commercial alignment.
+  * `SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md`: Combined HLD & LLD.
+  * `ARCHITECTURE_DECISION_RECORD_ADR.md`: Lightweight decision tracking.
+  * `SECURITY_AND_DATA_PRIVACY_CHECKLIST.md`: Threat assessment and vulnerability posture.
+  * `API_CONTRACT_AND_INTEGRATION_SPEC.md`: Client & partner integration interface.
+  * `DEFINITION_OF_DONE_AND_CODE_REVIEW.md`: Developer quality guardrails.
+  * `TEST_PLAN_AND_UAT_SIGNOFF.md`: Client acceptance test matrix and sign-off document.
+  * `OPERATIONS_RUNBOOK.md`: Day-2 operations, failover, disaster recovery, and monitoring.
+  * `DEPLOYMENT_AND_ROLLBACK_GUIDE.md`: Zero-downtime release procedures.
+  * `SERVICE_TRANSITION_CHECKLIST.md`: Formal gate between development and ops.
+  * `INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md`: Severity tiers, escalations, and post-mortems.
+* [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
+  * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
+  * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
+  * [`03_SOFTWARE_ENGINEER.md`](./roles/03_SOFTWARE_ENGINEER.md): Software Engineer playbook.
+  * [`04_QA_AND_TEST_ENGINEER.md`](./roles/04_QA_AND_TEST_ENGINEER.md): QA & Test Automation Engineer playbook.
+  * [`05_DEVOPS_SRE_AND_OPS_LEAD.md`](./roles/05_DEVOPS_SRE_AND_OPS_LEAD.md): DevOps, SRE & Operations Lead playbook.
+  * [`06_CLIENT_SPONSOR_AND_STAKEHOLDER.md`](./roles/06_CLIENT_SPONSOR_AND_STAKEHOLDER.md): Client Sponsor & Business Stakeholder playbook.
+* [`ceremonies-and-handshakes/`](./ceremonies-and-handshakes/): Agile operational rhythms and inter-role transitions.
+  * [`SPRINT_AND_RELEASE_CADENCE.md`](./ceremonies-and-handshakes/SPRINT_AND_RELEASE_CADENCE.md): 2-week sprint rhythm, DoR, daily standups, and demos.
+  * [`HANDSHAKE_PROTOCOLS.md`](./ceremonies-and-handshakes/HANDSHAKE_PROTOCOLS.md): The 6 explicit transition protocols between teams.
+* [`checklists/`](./checklists/): Quick-reference gate review checklists for sprint planning and triage.
+  * [`STAGE_GATES_QUICK_REFERENCE.md`](./checklists/STAGE_GATES_QUICK_REFERENCE.md): 15-minute stage gate checklists (Gate 0 to Gate 5).
+* [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks.
+  * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
+
