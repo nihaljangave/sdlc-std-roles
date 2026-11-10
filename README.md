@@ -89,6 +89,7 @@ flowchart LR
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
   * [`security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md`](./docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md): Software Bill of Materials (SBOM) and open-source license governance.
   * [`security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md`](./docs/security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md): Software supply chain security, SLSA Level 1-3 attestation, and Cosign container signing.
+  * [`security/SECRET_MANAGEMENT_AND_DLP_POLICY.md`](./docs/security/SECRET_MANAGEMENT_AND_DLP_POLICY.md): Zero-plaintext commit policy, Gitleaks pre-commit hooks, KMS/Vault rotation, and leaked credential revocation.
   * [`accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md`](./docs/accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md): WCAG 2.2 Level AA accessibility standards, automated axe-core testing, and screen reader SOPs.
   * [`ai/AI_LLM_ENGINEERING_GOVERNANCE.md`](./docs/ai/AI_LLM_ENGINEERING_GOVERNANCE.md): Generative AI & LLM engineering standards, OWASP LLM top 10, RAG triad benchmarks, and cost controls.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
@@ -115,6 +116,7 @@ flowchart LR
   * `MODEL_CARD_AND_AI_RISK_ASSESSMENT.md`: AI model evaluation benchmarks, data lineage, ethical safeguards, and token budget worksheet.
   * `WEEKLY_STEERING_COMMITTEE_SLIDES.md`: 5-slide Marp executive presentation for weekly client steering committees and blocker escalations.
   * `VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md`: VPAT 2.4 WCAG Edition accessibility conformance reporting template.
+  * `VULNERABILITY_ASSESSMENT_AND_REMEDIATION_LOG.md`: CVSS 3.1 security vulnerability tracker, SLA countdown, and CISO sign-off log.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
@@ -158,4 +160,5 @@ flowchart LR
   * `ISSUE_TEMPLATE/`: Standardized feature request and defect triage issue forms.
   * `workflows/ci-compliance.yml`: Production GitHub Actions CI/CD compliance workflow.
   * `workflows/pr-labeler.yml`: Automated PR labeling and reviewer assignment based on modified paths.
+  * `workflows/stage-gate-audit.yml`: Automated Stage-Gate compliance auditing and PR comment bot.
 

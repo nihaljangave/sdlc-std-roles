@@ -1,0 +1,46 @@
+name: SDLC Stage Gate Compliance Audit
+
+on:
+  pull_request:
+    branches: [main, master, release/*]
+    paths:
+      - 'docs/**'
+      - 'templates/**'
+      - '.github/**'
+      - 'scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  audit-stage-gates:
+    name: Verify Stage-Gate Compliance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Ensure Shell Scripts Are Executable
+        run: chmod +x scripts/*.sh
+
+      - name: Run Stage-Gate Auditor
+        id: gate_audit
+        run: |
+          ./scripts/verify-stage-gate.sh all .
+
+      - name: Post Gate Compliance Status
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}' === 'success' ? '✅ **Stage-Gate Audit PASSED**' : '❌ **Stage-Gate Audit BLOCKED**';
+            const body = `${status}\n\nAutomated SDLC Stage-Gate verification completed against commit \`${context.sha.substring(0, 7)}\`.\nRefer to the CI workflow run logs for detailed check outputs.`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });

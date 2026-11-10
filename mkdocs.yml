@@ -73,6 +73,7 @@ nav:
       - Vulnerability Disclosure SOP: docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md
       - SBOM & OSS License Policy: docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md
       - Supply Chain & SLSA Security: docs/security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md
+      - Secrets Management & DLP: docs/security/SECRET_MANAGEMENT_AND_DLP_POLICY.md
       - SOC 2 Type II Readiness: docs/compliance/SOC2_TYPE_II_READINESS_GUIDE.md
       - HIPAA & ePHI Protection: docs/compliance/HIPAA_COMPLIANCE_PLAYBOOK.md
       - PCI DSS v4.0 Checklist: docs/compliance/PCI_DSS_SAQ_D_CHECKLIST.md
@@ -118,6 +119,7 @@ nav:
       - Model Card & AI Risk Assessment: templates/MODEL_CARD_AND_AI_RISK_ASSESSMENT.md
       - Steering Committee Slides: templates/WEEKLY_STEERING_COMMITTEE_SLIDES.md
       - VPAT Accessibility Report: templates/VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md
+      - Vulnerability Remediation Log: templates/VULNERABILITY_ASSESSMENT_AND_REMEDIATION_LOG.md
   - Client Collateral & Commercial Governance:
       - Scope & Budget Management: docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md
