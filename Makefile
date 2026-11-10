@@ -15,8 +15,8 @@ help: ## Show this help menu
 	@echo "================================================================================"
 
 .PHONY: audit
-audit: ## Run Stage-Gate compliance audit on current repo (usage: make audit [GATE=all])
-	@./scripts/sdlc-cli.sh audit $(or $(GATE),all) .
+audit: ## Run Stage-Gate compliance audit on current repo (usage: make audit [GATE=all] [FORMAT=console])
+	@./scripts/sdlc-cli.sh audit $(or $(GATE),all) . $(or $(FORMAT),console)
 
 .PHONY: scaffold
 scaffold: ## Scaffold a new project (usage: make scaffold TARGET=../my-app PROFILE=--standard)

@@ -23,9 +23,10 @@ Commands:
                             --enterprise (VPAT, GLRR, Sign-off Matrix, STRIDE),
                             --ai (Model Card & Risk Assessment), or --all.
                             
-  audit <gate> [path]       Run compliance audit on a project.
+  audit <gate> [path] [fmt] Run compliance audit on a project.
                             <gate>: 0 | 1 | 2 | 3 | 4 | 5 | all
                             [path]: Path to project (defaults to current dir).
+                            [fmt]:  console (default) or json.
                             
   release [from] [to] [tag] Generate structured, client-facing and ops-ready
                             release notes from Conventional Commits.
@@ -82,7 +83,8 @@ case "$CMD" in
     audit|verify)
         GATE="${2:-all}"
         TARGET="${3:-.}"
-        "$FRAMEWORK_ROOT/scripts/verify-stage-gate.sh" "$GATE" "$TARGET"
+        FORMAT="${4:-console}"
+        "$FRAMEWORK_ROOT/scripts/verify-stage-gate.sh" "$GATE" "$TARGET" "$FORMAT"
         ;;
     release)
         FROM="${2:-}"

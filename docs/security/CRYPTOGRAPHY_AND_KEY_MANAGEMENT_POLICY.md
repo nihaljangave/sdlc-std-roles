@@ -84,3 +84,4 @@ When a customer exercises their **Right to be Forgotten (GDPR Art. 17)** or cont
 - [ ] Passwords stored using Argon2id or bcrypt (cost factor ≥ 12); raw MD5/SHA-256 hashing strictly blocked.
 - [ ] Database storage encrypted using customer-managed keys (CMK), not default shared keys.
 - [ ] Encryption keys cataloged in the [Cryptographic Inventory Matrix](../../templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md).
+
