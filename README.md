@@ -152,8 +152,11 @@ flowchart LR
   * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
   * [`generate-signoff-cert.sh`](./scripts/generate-signoff-cert.sh): Client milestone acceptance & sign-off certificate generator.
   * [`demo-walkthrough.sh`](./scripts/demo-walkthrough.sh): Interactive 30-second live simulation of the full SDLC in an ephemeral sandbox.
+  * [`simulate-dr-drill.sh`](./scripts/simulate-dr-drill.sh): Automated Disaster Recovery PITR drill simulator and audit certificate generator.
   * [`build-docs-portal.sh`](./scripts/build-docs-portal.sh): Static HTML documentation portal compiler.
 * [`Makefile`](./Makefile): Master developer automation shortcut menu (`make audit`, `make scaffold`, `make signoff`, etc.).
+* [`Brewfile`](./Brewfile): macOS Homebrew bundle for developer workstation toolchain setup.
+* [`.devcontainer/`](./.devcontainer/): VS Code & GitHub Codespaces zero-install container configuration.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
   * [`EXECUTIVE_HANDOVER_SLIDE_DECK.md`](./client-collateral/EXECUTIVE_HANDOVER_SLIDE_DECK.md): Marp-compatible 16:9 executive presentation slide deck for Gate 4 cutover.

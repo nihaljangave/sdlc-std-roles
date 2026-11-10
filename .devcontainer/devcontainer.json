@@ -1,0 +1,30 @@
+{
+  "name": "Lean-Enterprise SDLC Development Container",
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers-contrib/features/gitleaks:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "files.trimTrailingWhitespace": true,
+        "git.enableSmartCommit": true
+      },
+      "extensions": [
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "bierner.markdown-mermaid",
+        "github.vscode-github-actions",
+        "hashicorp.terraform",
+        "42Crunch.vscode-openapi",
+        "ms-playwright.playwright"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod +x scripts/*.sh && git config --global --add safe.directory ${containerWorkspaceFolder} && ./scripts/setup-git-hooks.sh",
+  "remoteUser": "codespace"
+}

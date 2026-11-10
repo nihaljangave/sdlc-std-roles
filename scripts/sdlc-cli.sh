@@ -51,6 +51,9 @@ Commands:
   demo                      Execute interactive 30-second live simulation of
                             the entire SDLC lifecycle in an ephemeral sandbox.
                             
+  dr-drill [sys] [lead]     Execute Disaster Recovery Point-in-Time Recovery
+                            drill simulation and generate audit certificate.
+                            
   help                      Show this help message.
 
 Examples:
@@ -123,6 +126,11 @@ case "$CMD" in
         ;;
     demo)
         "$FRAMEWORK_ROOT/scripts/demo-walkthrough.sh"
+        ;;
+    dr-drill)
+        SYSTEM="${2:-Core-Transactional-DB}"
+        LEAD="${3:-DevOps / SRE Lead}"
+        "$FRAMEWORK_ROOT/scripts/simulate-dr-drill.sh" "$SYSTEM" "$LEAD"
         ;;
     help|--help|-h)
         show_help

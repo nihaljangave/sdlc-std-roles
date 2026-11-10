@@ -55,6 +55,10 @@ portal: ## Launch documentation portal preview locally
 demo: ## Run 30-second interactive SDLC simulation in ephemeral sandbox
 	@./scripts/sdlc-cli.sh demo
 
+.PHONY: dr-drill
+dr-drill: ## Execute Disaster Recovery PITR drill simulation (usage: make dr-drill SYSTEM="Core-DB")
+	@./scripts/sdlc-cli.sh dr-drill "$(or $(SYSTEM),Core-Transactional-DB)"
+
 .PHONY: test-links
 test-links: ## Verify relative markdown link integrity across all files
 	@python3 -c "\
