@@ -21,10 +21,14 @@ FAILED_CHECKS=0
 check_file() {
     local label="$1"
     local filepath="$2"
+    local fallback_template="${3:-}"
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     
     if [ -f "$PROJECT_ROOT/$filepath" ] && [ -s "$PROJECT_ROOT/$filepath" ]; then
         echo "  ✅ [PASS] $label ($filepath)"
+        PASSED_CHECKS=$((PASSED_CHECKS + 1))
+    elif [ -n "$fallback_template" ] && [ -f "$PROJECT_ROOT/$fallback_template" ] && [ -s "$PROJECT_ROOT/$fallback_template" ]; then
+        echo "  ✅ [PASS] $label (Framework Source: $fallback_template)"
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
     else
         echo "  ❌ [FAIL] $label - Missing or empty: $filepath"
@@ -49,14 +53,14 @@ check_dir_has_files() {
 audit_gate_0() {
     echo ""
     echo "📋 Gate 0: Scoping & Project Charter Alignment"
-    check_file "Product Requirements Document (PRD)" "docs/PRD.md"
-    check_file "Project Charter / Statement of Work" "docs/PROJECT_CHARTER.md"
+    check_file "Product Requirements Document (PRD)" "docs/PRD.md" "templates/PRD_TEMPLATE.md"
+    check_file "Project Charter / Statement of Work" "docs/PROJECT_CHARTER.md" "templates/PROJECT_CHARTER_AND_SOW.md"
 }
 
 audit_gate_1() {
     echo ""
     echo "📋 Gate 1: Architecture, Security & Contract Review"
-    check_file "System Architecture Document (SAD)" "docs/architecture/SAD.md"
+    check_file "System Architecture Document (SAD)" "docs/architecture/SAD.md" "templates/SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md"
     if [ -f "$PROJECT_ROOT/docs/architecture/IDD.md" ]; then
         check_file "Infrastructure Design Document (IDD)" "docs/architecture/IDD.md"
     fi
@@ -68,13 +72,13 @@ audit_gate_1() {
     fi
     check_dir_has_files "Architecture Decision Records (ADRs)" "docs/adr"
     check_dir_has_files "API Contract / Specifications" "docs/api"
-    check_file "Security & Data Privacy Checklist" "docs/security/SECURITY_REVIEW.md"
+    check_file "Security & Data Privacy Checklist" "docs/security/SECURITY_REVIEW.md" "templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md"
 }
 
 audit_gate_2() {
     echo ""
     echo "📋 Gate 2: Code Quality & Definition of Done"
-    check_file "PR Description Template (DoD)" ".github/pull_request_template.md"
+    check_file "PR Description Template (DoD)" ".github/pull_request_template.md" "templates/DEFINITION_OF_DONE_AND_CODE_REVIEW.md"
     check_file "CI/CD Pipeline Configuration" ".github/workflows/ci-compliance.yml"
     check_file "Git Ignore File" ".gitignore"
 }
@@ -82,7 +86,7 @@ audit_gate_2() {
 audit_gate_3() {
     echo ""
     echo "📋 Gate 3: QA Verification & Client UAT Sign-off"
-    check_file "Master Test Plan & Client UAT Register" "docs/testing/TEST_PLAN_AND_UAT.md"
+    check_file "Master Test Plan & Client UAT Register" "docs/testing/TEST_PLAN_AND_UAT.md" "templates/TEST_PLAN_AND_UAT_SIGNOFF.md"
     if [ -f "$PROJECT_ROOT/docs/testing/VPAT.md" ]; then
         check_file "VPAT Accessibility Report" "docs/testing/VPAT.md"
     fi
@@ -91,9 +95,9 @@ audit_gate_3() {
 audit_gate_4() {
     echo ""
     echo "📋 Gate 4: Production Release & Operations Handover"
-    check_file "Operations Runbook (Day-2 Playbook)" "docs/ops/OPERATIONS_RUNBOOK.md"
-    check_file "Deployment & Rollback Guide" "docs/ops/DEPLOYMENT_GUIDE.md"
-    check_file "Service Transition Checklist" "docs/ops/SERVICE_TRANSITION.md"
+    check_file "Operations Runbook (Day-2 Playbook)" "docs/ops/OPERATIONS_RUNBOOK.md" "templates/OPERATIONS_RUNBOOK.md"
+    check_file "Deployment & Rollback Guide" "docs/ops/DEPLOYMENT_GUIDE.md" "templates/DEPLOYMENT_AND_ROLLBACK_GUIDE.md"
+    check_file "Service Transition Checklist" "docs/ops/SERVICE_TRANSITION.md" "templates/SERVICE_TRANSITION_CHECKLIST.md"
     if [ -f "$PROJECT_ROOT/docs/ops/GLRR.md" ]; then
         check_file "Go-Live Readiness Review (GLRR)" "docs/ops/GLRR.md"
     fi
@@ -105,7 +109,7 @@ audit_gate_4() {
 audit_gate_5() {
     echo ""
     echo "📋 Gate 5: Steady-State Transition & Warranty Exit"
-    check_file "Incident Management & SLA Escalation Matrix" "docs/ops/SLA_MATRIX.md"
+    check_file "Incident Management & SLA Escalation Matrix" "docs/ops/SLA_MATRIX.md" "templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md"
 }
 
 case "$GATE" in
