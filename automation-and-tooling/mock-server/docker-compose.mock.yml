@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  prism-mock-server:
+    image: stoplight/prism:5
+    container_name: api-mock-sandbox
+    ports:
+      - "4010:4010"
+    command: mock -h 0.0.0.0 /schema/openapi.yaml --cors
+    volumes:
+      - ../../templates/API_CONTRACT_AND_INTEGRATION_SPEC.md:/schema/spec.md:ro
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=info

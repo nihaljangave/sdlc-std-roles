@@ -71,6 +71,7 @@ flowchart LR
   * [`architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md`](./docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md): The Expand/Contract database migration pattern for zero downtime.
   * [`architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md`](./docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md): GDPR/CCPA erasure workflows and staging data sanitization.
   * [`architecture/ARCHITECTURE_DIAGRAM_CATALOG.md`](./docs/architecture/ARCHITECTURE_DIAGRAM_CATALOG.md): Copy-paste Mermaid visual patterns (BFF, Event-Driven, Multi-Tenant SaaS, OAuth2).
+  * [`adr/README.md`](./docs/adr/README.md): Architecture Decision Record (ADR) living registry and lifecycle index.
   * [`ops/TELEMETRY_AND_MONITORING_STANDARDS.md`](./docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md): JSON logging schemas, RED/USE metrics, health checks, and tracing headers.
   * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
   * [`ops/ON_CALL_OPERATING_PROCEDURE.md`](./docs/ops/ON_CALL_OPERATING_PROCEDURE.md): Sustainable 24/7 on-call rotations, shift handoffs, and rest policies.
@@ -96,6 +97,7 @@ flowchart LR
   * `OPERATIONS_RUNBOOK.md`: Day-2 operations, failover, disaster recovery, and monitoring.
   * `DEPLOYMENT_AND_ROLLBACK_GUIDE.md`: Zero-downtime release procedures.
   * `SERVICE_TRANSITION_CHECKLIST.md`: Formal gate between development and ops.
+  * `GO_LIVE_READINESS_REVIEW_GLRR.md`: Production Go-Live Readiness Review (GLRR) voting and rollback authorization record.
   * `INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md`: Severity tiers, escalations, and post-mortems.
   * `CHANGE_REQUEST_FORM.md`: Scope change request form for client alignment.
   * `CHANGE_ORDER_ESTIMATION_WORKSHEET.md`: Commercial impact and timeline worksheet for change requests.
@@ -114,6 +116,7 @@ flowchart LR
   * [`NFR_STANDARDS_CATALOG.md`](./checklists/NFR_STANDARDS_CATALOG.md): Non-functional requirements benchmarks for Prototype vs MVP vs Enterprise.
 * [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks and testing scaffolds.
   * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
+  * [`mock-server/`](./automation-and-tooling/mock-server/): Instant containerized mock API server (Stoplight Prism) for contract-first parallel development.
   * [`testing/playwright.config.ts`](./automation-and-tooling/testing/playwright.config.ts): CI-ready Playwright end-to-end testing configuration.
   * [`testing/smoke.spec.ts`](./automation-and-tooling/testing/smoke.spec.ts): Synthetic Production Verification Test (PVT) smoke test suite.
   * [`testing/k6-load-test.js`](./automation-and-tooling/testing/k6-load-test.js): k6 load and stress test benchmark script.
