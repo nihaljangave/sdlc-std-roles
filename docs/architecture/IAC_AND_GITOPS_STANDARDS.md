@@ -123,3 +123,4 @@ For containerized microservices running on Kubernetes (EKS / GKE):
   }
   ```
 - **Kubernetes Secret Management:** Use **External Secrets Operator (ESO)** or **Sealed Secrets** to synchronize secrets directly from AWS Secrets Manager or HashiCorp Vault into Kubernetes namespaces.
+

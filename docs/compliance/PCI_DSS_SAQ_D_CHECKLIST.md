@@ -63,3 +63,4 @@ Run through this checklist for any Pull Request touching billing, checkout, or c
 - [ ] **Log Redaction:** All HTTP request headers and body loggers specifically filter `authorization`, `credit_card`, `token`, and `cvv` keys.
 - [ ] **TLS & HTTPS Headers:** HSTS header is configured with a minimum `max-age` of 1 year.
 - [ ] **Content Security Policy (CSP):** `script-src` and `connect-src` headers explicitly whitelist the payment gateway domain only.
+

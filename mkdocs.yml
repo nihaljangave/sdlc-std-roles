@@ -74,6 +74,8 @@ nav:
       - SOC 2 Type II Readiness: docs/compliance/SOC2_TYPE_II_READINESS_GUIDE.md
       - HIPAA & ePHI Protection: docs/compliance/HIPAA_COMPLIANCE_PLAYBOOK.md
       - PCI DSS v4.0 Checklist: docs/compliance/PCI_DSS_SAQ_D_CHECKLIST.md
+  - AI & Machine Learning:
+      - AI / LLM Engineering Governance: docs/ai/AI_LLM_ENGINEERING_GOVERNANCE.md
   - Standard Roles:
       - Product Owner / PM: roles/01_PRODUCT_OWNER_PM.md
       - Tech Lead / Architect: roles/02_TECH_LEAD_ARCHITECT.md
@@ -109,6 +111,7 @@ nav:
       - Incident SLA Matrix: templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md
       - Change Request Form: templates/CHANGE_REQUEST_FORM.md
       - Change Order Estimation: templates/CHANGE_ORDER_ESTIMATION_WORKSHEET.md
+      - Model Card & AI Risk Assessment: templates/MODEL_CARD_AND_AI_RISK_ASSESSMENT.md
   - Client Collateral:
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md
       - Executive Handover Slide Deck: client-collateral/EXECUTIVE_HANDOVER_SLIDE_DECK.md

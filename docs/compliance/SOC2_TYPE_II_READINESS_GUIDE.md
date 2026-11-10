@@ -142,3 +142,4 @@ fi
 tar -czf "$OUTPUT_DIR.tar.gz" -C "$(dirname "$OUTPUT_DIR")" "$(basename "$OUTPUT_DIR")"
 echo "✅ SOC 2 evidence package generated: $OUTPUT_DIR.tar.gz"
 ```
+
