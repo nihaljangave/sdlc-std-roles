@@ -44,6 +44,7 @@ markdown_extensions:
 
 nav:
   - Framework Overview: README.md
+  - Contributing & Governance: CONTRIBUTING.md
   - SDLC Stages:
       - 0. Discovery & Scoping: docs/01_Discovery_and_Scoping.md
       - 1. Architecture & Security: docs/02_Architecture_and_Design.md

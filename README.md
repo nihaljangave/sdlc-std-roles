@@ -164,4 +164,6 @@ flowchart LR
   * `workflows/ci-compliance.yml`: Production GitHub Actions CI/CD compliance workflow.
   * `workflows/pr-labeler.yml`: Automated PR labeling and reviewer assignment based on modified paths.
   * `workflows/stage-gate-audit.yml`: Automated Stage-Gate compliance auditing and PR comment bot.
+* [`CONTRIBUTING.md`](./CONTRIBUTING.md): Standards contribution, Conventional Commits, and PR governance.
+* [`LICENSE`](./LICENSE): Apache 2.0 Open Source & Enterprise License.
 
