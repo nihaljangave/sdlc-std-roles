@@ -86,6 +86,7 @@ flowchart LR
   * [`ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md`](./docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md): War room roles, client broadcast templates, and status updates.
   * [`ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md`](./docs/ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md): Blameless root cause analysis, 5-Whys, and CAPA lifecycle tracking.
   * [`ops/SLO_AND_ERROR_BUDGET_POLICY.md`](./docs/ops/SLO_AND_ERROR_BUDGET_POLICY.md): SLI/SLO/SLA definitions, error budget burn rate alerting, and automated feature freeze rules.
+  * [`ops/BUSINESS_CONTINUITY_AND_BIA_POLICY.md`](./docs/ops/BUSINESS_CONTINUITY_AND_BIA_POLICY.md): ISO 22301 Business Continuity Management System (BCMS), BIA methodology, and Crisis Management Team (CMT) activation.
   * [`governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md`](./docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md): Triple constraint control, 1-in 1-out scope trade-offs, and commercial change guardrails.
   * [`api/API_VERSIONING_AND_SUNSET_POLICY.md`](./docs/api/API_VERSIONING_AND_SUNSET_POLICY.md): URI versioning, breaking change prevention, and RFC 8594 sunset headers.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
@@ -125,6 +126,7 @@ flowchart LR
   * `DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md`: GDPR Art. 30 data processing inventory, classification tiers (Public to Restricted), and DPIA triggers.
   * `CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md`: Cryptographic asset register, key rotation schedules, and post-quantum readiness audit log.
   * `THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md`: Standardized vendor risk assessment questionnaire, sub-processor security controls audit, and CISO sign-off.
+  * `BUSINESS_IMPACT_ANALYSIS_BIA.md`: Critical business functions register, financial outage loss schedule, and RTO/RPO/MTD justification.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.

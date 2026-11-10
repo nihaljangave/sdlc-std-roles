@@ -72,6 +72,7 @@ nav:
       - Incident War Room Comms: docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md
       - Post-Mortem & CAPA Governance: docs/ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md
       - SLO & Error Budget Policy: docs/ops/SLO_AND_ERROR_BUDGET_POLICY.md
+      - Business Continuity & BIA: docs/ops/BUSINESS_CONTINUITY_AND_BIA_POLICY.md
   - Security & Compliance:
       - Vulnerability Disclosure SOP: docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md
       - SBOM & OSS License Policy: docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md
@@ -129,6 +130,7 @@ nav:
       - Data Classification & Inventory: templates/DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md
       - Cryptographic Inventory & Key Plan: templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md
       - Vendor Risk Assessment: templates/THIRD_PARTY_VENDOR_SECURITY_ASSESSMENT.md
+      - Business Impact Analysis (BIA): templates/BUSINESS_IMPACT_ANALYSIS_BIA.md
   - Client Collateral & Commercial Governance:
       - Scope & Budget Management: docs/governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md

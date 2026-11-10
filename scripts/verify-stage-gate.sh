@@ -117,6 +117,9 @@ audit_gate_4() {
     if [ -f "$PROJECT_ROOT/docs/DELIVERABLES_MATRIX.md" ]; then
         check_file "Master Deliverables Sign-off Matrix" "docs/DELIVERABLES_MATRIX.md"
     fi
+    if [ -f "$PROJECT_ROOT/docs/ops/BIA.md" ]; then
+        check_file "Business Impact Analysis (BIA)" "docs/ops/BIA.md"
+    fi
 }
 
 audit_gate_5() {
