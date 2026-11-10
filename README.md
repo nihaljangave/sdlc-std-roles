@@ -88,6 +88,8 @@ flowchart LR
   * [`api/API_VERSIONING_AND_SUNSET_POLICY.md`](./docs/api/API_VERSIONING_AND_SUNSET_POLICY.md): URI versioning, breaking change prevention, and RFC 8594 sunset headers.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
   * [`security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md`](./docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md): Software Bill of Materials (SBOM) and open-source license governance.
+  * [`security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md`](./docs/security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md): Software supply chain security, SLSA Level 1-3 attestation, and Cosign container signing.
+  * [`accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md`](./docs/accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md): WCAG 2.2 Level AA accessibility standards, automated axe-core testing, and screen reader SOPs.
   * [`ai/AI_LLM_ENGINEERING_GOVERNANCE.md`](./docs/ai/AI_LLM_ENGINEERING_GOVERNANCE.md): Generative AI & LLM engineering standards, OWASP LLM top 10, RAG triad benchmarks, and cost controls.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
   * `PRD_TEMPLATE.md`: Product Requirement Document.
@@ -112,6 +114,7 @@ flowchart LR
   * `DELIVERABLES_SIGN_OFF_MATRIX.md`: Master milestone approval matrix, sign-off registry, and IP transfer terms.
   * `MODEL_CARD_AND_AI_RISK_ASSESSMENT.md`: AI model evaluation benchmarks, data lineage, ethical safeguards, and token budget worksheet.
   * `WEEKLY_STEERING_COMMITTEE_SLIDES.md`: 5-slide Marp executive presentation for weekly client steering committees and blocker escalations.
+  * `VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md`: VPAT 2.4 WCAG Edition accessibility conformance reporting template.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
