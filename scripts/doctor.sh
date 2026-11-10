@@ -167,3 +167,4 @@ else
     echo "⚠️  WORKSTATION INCOMPLETE! Resolve the failed dependencies above before proceeding."
     exit 1
 fi
+

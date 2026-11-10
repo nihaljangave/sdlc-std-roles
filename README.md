@@ -1,6 +1,8 @@
 # Lean-Enterprise SDLC Operating Framework
 ## Fast-Paced Product & Prototype Development with Embedded Compliance, Client Deliverables, and Operational Readiness
 
+> 🚀 **New to this repository?** Read the [**Practitioner's Guide: How to Use This Framework for Any New Product**](./HOW_TO_USE_THIS_FRAMEWORK.md) for step-by-step instructions on project scaffolding, day-to-day role workflows, and stage-gate audits.
+
 ---
 
 ## Executive Summary

@@ -44,6 +44,7 @@ markdown_extensions:
 
 nav:
   - Framework Overview: README.md
+  - How to Use This Framework: HOW_TO_USE_THIS_FRAMEWORK.md
   - Contributing & Governance: CONTRIBUTING.md
   - SDLC Stages:
       - 0. Discovery & Scoping: docs/01_Discovery_and_Scoping.md
