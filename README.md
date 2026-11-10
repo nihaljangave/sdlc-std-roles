@@ -66,6 +66,7 @@ flowchart LR
   * [`04_Verification_and_UAT.md`](./docs/04_Verification_and_UAT.md)
   * [`05_Release_and_Operations_Handover.md`](./docs/05_Release_and_Operations_Handover.md)
   * [`06_Post_Production_and_Maintenance.md`](./docs/06_Post_Production_and_Maintenance.md)
+  * [`DEVELOPER_ONBOARDING_AND_LOCAL_SETUP_GUIDE.md`](./docs/DEVELOPER_ONBOARDING_AND_LOCAL_SETUP_GUIDE.md): The "Day-1 First Commit in 4 Hours" local environment bootstrap guide.
   * [`PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md`](./docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md): Architectural roadmap for transitioning prototypes into enterprise production.
   * [`architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md`](./docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md): The Expand/Contract database migration pattern for zero downtime.
   * [`architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md`](./docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md): GDPR/CCPA erasure workflows and staging data sanitization.
@@ -76,6 +77,7 @@ flowchart LR
   * [`ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md`](./docs/ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md): Cloud cost governance, auto-shutdowns, and resource tagging.
   * [`ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md`](./docs/ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md): Controlled fault injection, pod termination, and failover verification.
   * [`ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md`](./docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md): War room roles, client broadcast templates, and status updates.
+  * [`ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md`](./docs/ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md): Blameless root cause analysis, 5-Whys, and CAPA lifecycle tracking.
   * [`api/API_VERSIONING_AND_SUNSET_POLICY.md`](./docs/api/API_VERSIONING_AND_SUNSET_POLICY.md): URI versioning, breaking change prevention, and RFC 8594 sunset headers.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
   * [`security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md`](./docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md): Software Bill of Materials (SBOM) and open-source license governance.
@@ -120,6 +122,7 @@ flowchart LR
   * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.
   * [`verify-stage-gate.sh`](./scripts/verify-stage-gate.sh): Automated audit script to verify whether a project satisfies gate requirements.
   * [`generate-release-notes.sh`](./scripts/generate-release-notes.sh): Automatic release notes generator from Conventional Commits.
+  * [`generate-weekly-report.sh`](./scripts/generate-weekly-report.sh): Client 1-page weekly flash status report generator from Git history.
   * [`setup-git-hooks.sh`](./scripts/setup-git-hooks.sh): Local Git hook installer for secret scanning and Conventional Commits.
   * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.

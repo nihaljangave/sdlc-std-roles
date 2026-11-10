@@ -28,6 +28,9 @@ Commands:
   release [from] [to] [tag] Generate structured, client-facing and ops-ready
                             release notes from Conventional Commits.
                             
+  report [name] [days]      Generate 1-page weekly client delivery flash report
+                            from the past N days of Git commits.
+                            
   package [path] [out] [v]  Bundle all formal project artifacts into a
                             compressed, client-ready handover archive.
                             
@@ -71,6 +74,11 @@ case "$CMD" in
         TO="${3:-HEAD}"
         VERSION="${4:-Release}"
         "$FRAMEWORK_ROOT/scripts/generate-release-notes.sh" "$FROM" "$TO" "$VERSION"
+        ;;
+    report)
+        NAME="${2:-$(basename "$(pwd)")}"
+        DAYS="${3:-7}"
+        "$FRAMEWORK_ROOT/scripts/generate-weekly-report.sh" "$NAME" "$DAYS"
         ;;
     package)
         PROJ="${2:-.}"

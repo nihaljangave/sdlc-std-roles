@@ -78,3 +78,4 @@ echo ""
 echo "✅ Handover package successfully created!"
 echo "📁 Archive Location: $ARCHIVE_PATH"
 echo "📊 Archive Size: $(du -h "$ARCHIVE_PATH" | cut -f1)"
+
