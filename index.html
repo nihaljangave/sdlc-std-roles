@@ -273,7 +273,7 @@
         <div class="lbl">SDLC Stages</div>
       </div>
       <div class="stat-card">
-        <div class="num">14</div>
+        <div class="num">19</div>
         <div class="lbl">Standard Templates</div>
       </div>
       <div class="stat-card">
@@ -535,13 +535,22 @@
 ./scripts/sdlc-cli.sh audit 1 .
 ./scripts/sdlc-cli.sh audit all .
 
-# 3. Generate client-ready and ops-ready release notes from Git commits:
+# 3. Generate client-ready and ops-ready release notes from Conventional Commits:
 ./scripts/sdlc-cli.sh release v0.9.0 HEAD v1.0.0
 
-# 4. Install local git hooks (blocks secret leaks & enforces Conventional Commits):
+# 4. Generate 1-page weekly client delivery flash report:
+./scripts/sdlc-cli.sh report "My Client MVP" 7
+
+# 5. Package all formal deliverables into a signed client handover archive (.tar.gz):
+./scripts/sdlc-cli.sh package . ./dist v1.0.0
+
+# 6. Execute synthetic post-verification (PVT) smoke test against deployment:
+./scripts/sdlc-cli.sh smoke http://localhost:8000 15
+
+# 7. Install local git hooks (blocks secret leaks & enforces Conventional Commits):
 ./scripts/sdlc-cli.sh hooks
 
-# 5. Launch the searchable interactive documentation portal:
+# 8. Launch the searchable interactive documentation portal:
 ./scripts/sdlc-cli.sh portal</code></pre>
       </div>
     </div>

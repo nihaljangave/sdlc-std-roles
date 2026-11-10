@@ -71,7 +71,11 @@ flowchart LR
   * [`architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md`](./docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md): The Expand/Contract database migration pattern for zero downtime.
   * [`architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md`](./docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md): GDPR/CCPA erasure workflows and staging data sanitization.
   * [`architecture/ARCHITECTURE_DIAGRAM_CATALOG.md`](./docs/architecture/ARCHITECTURE_DIAGRAM_CATALOG.md): Copy-paste Mermaid visual patterns (BFF, Event-Driven, Multi-Tenant SaaS, OAuth2).
+  * [`architecture/IAC_AND_GITOPS_STANDARDS.md`](./docs/architecture/IAC_AND_GITOPS_STANDARDS.md): Infrastructure as Code (Terraform/OpenTofu) and GitOps (ArgoCD) state management standards.
   * [`adr/README.md`](./docs/adr/README.md): Architecture Decision Record (ADR) living registry and lifecycle index.
+  * [`compliance/SOC2_TYPE_II_READINESS_GUIDE.md`](./docs/compliance/SOC2_TYPE_II_READINESS_GUIDE.md): Continuous SOC 2 Type II compliance controls, evidence collection, and PR audits.
+  * [`compliance/HIPAA_COMPLIANCE_PLAYBOOK.md`](./docs/compliance/HIPAA_COMPLIANCE_PLAYBOOK.md): Health data (ePHI) security safeguards, 18 identifiers Safe Harbor, and BAA protocols.
+  * [`compliance/PCI_DSS_SAQ_D_CHECKLIST.md`](./docs/compliance/PCI_DSS_SAQ_D_CHECKLIST.md): Cardholder Data Environment (CDE) isolation, tokenization patterns, and v4.0 controls.
   * [`ops/TELEMETRY_AND_MONITORING_STANDARDS.md`](./docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md): JSON logging schemas, RED/USE metrics, health checks, and tracing headers.
   * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
   * [`ops/ON_CALL_OPERATING_PROCEDURE.md`](./docs/ops/ON_CALL_OPERATING_PROCEDURE.md): Sustainable 24/7 on-call rotations, shift handoffs, and rest policies.
@@ -86,6 +90,7 @@ flowchart LR
   * `PRD_TEMPLATE.md`: Product Requirement Document.
   * `PROJECT_CHARTER_AND_SOW.md`: Scope, milestone, and commercial alignment.
   * `SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md`: Combined HLD & LLD.
+  * `INFRASTRUCTURE_DESIGN_DOCUMENT_IDD.md`: Cloud infrastructure topology, VPC subnet planning, and capacity sizing.
   * `ARCHITECTURE_DECISION_RECORD_ADR.md`: Lightweight decision tracking.
   * `STRIDE_THREAT_MODEL_TEMPLATE.md`: Architecture-level STRIDE threat assessment.
   * `SECURITY_AUDIT_REPORT_EXECUTIVE_SUMMARY.md`: Client CISO executive security audit assurance report.

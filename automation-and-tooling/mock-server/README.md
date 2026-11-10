@@ -32,3 +32,4 @@ curl -X POST http://localhost:4010/v1/orders \
 ```
 
 Prism will automatically respond with HTTP 201 Created and realistic mock payloads defined in your OpenAPI examples!
+

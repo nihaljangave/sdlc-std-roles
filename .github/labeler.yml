@@ -18,3 +18,4 @@ infrastructure:
 testing:
   - changed-files:
       - any-glob-to-any-file: ['tests/**', 'automation-and-tooling/testing/**', '*.spec.ts']
+

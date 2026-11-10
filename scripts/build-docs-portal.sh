@@ -21,3 +21,4 @@ else
     echo "💡 To install: pip install mkdocs-material"
     echo "💡 You can also preview the standalone portal by opening: index.html"
 fi
+

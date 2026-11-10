@@ -104,3 +104,4 @@ Your Operations & IT Support teams receive:
 3. **Service Transition Checklist formally executed and signed.**
 
 *Thank you for a successful delivery partnership!*
+

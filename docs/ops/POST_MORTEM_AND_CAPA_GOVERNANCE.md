@@ -47,3 +47,4 @@ Every post-mortem must output concrete, assignable CAPA action items categorized
 - `COMMITTED`: Jira/Linear ticket created and prioritized into the sprint backlog.
 - `VERIFIED_IN_STAGING`: Fix tested under simulated load in staging.
 - `CLOSED_IN_PROD`: Deployed to production and verified in operational telemetry.
+

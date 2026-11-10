@@ -47,3 +47,4 @@ Printed Name: [Client Signatory Name] &nbsp;&nbsp;&nbsp;&nbsp; Title: [VP / C-Le
 **For Delivery Organization:**  
 Signature: ____________________________________ &nbsp;&nbsp;&nbsp;&nbsp; Date: YYYY-MM-DD  
 Printed Name: [Delivery Project Director] &nbsp;&nbsp;&nbsp;&nbsp; Title: [Managing Director / Partner]  
+

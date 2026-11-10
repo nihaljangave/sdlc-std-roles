@@ -57,6 +57,9 @@ audit_gate_1() {
     echo ""
     echo "📋 Gate 1: Architecture, Security & Contract Review"
     check_file "System Architecture Document (SAD)" "docs/architecture/SAD.md"
+    if [ -f "$PROJECT_ROOT/docs/architecture/IDD.md" ]; then
+        check_file "Infrastructure Design Document (IDD)" "docs/architecture/IDD.md"
+    fi
     check_dir_has_files "Architecture Decision Records (ADRs)" "docs/adr"
     check_dir_has_files "API Contract / Specifications" "docs/api"
     check_file "Security & Data Privacy Checklist" "docs/security/SECURITY_REVIEW.md"

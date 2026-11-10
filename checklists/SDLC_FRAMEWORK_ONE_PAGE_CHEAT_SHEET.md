@@ -59,3 +59,4 @@ Stage 5: Post-Prod & Support      ➔ docs/ops/SLA_MATRIX.md & Blameless 5-Whys 
 - **P2 (Major):** Core flow degraded; workaround exists. **Response: < 30m** &bull; **Fix: < 4h**.
 - **P3 (Minor):** Non-critical bug, cosmetic issue. **Response: < 4h** &bull; Resolved in upcoming sprint.
 - **P4 (Trivial):** Typos, minor cosmetic enhancements. **Response: < 24h** &bull; Backlog triage.
+

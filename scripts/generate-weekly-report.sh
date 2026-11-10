@@ -49,3 +49,4 @@ echo ""
 
 echo "---"
 echo "*Generated automatically via \`scripts/generate-weekly-report.sh\`*"
+

@@ -52,8 +52,28 @@ nav:
       - 4. Release & Operations Handover: docs/05_Release_and_Operations_Handover.md
       - 5. Post-Production & Support: docs/06_Post_Production_and_Maintenance.md
       - Prototype Evolution: docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md
-      - Telemetry Standards: docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md
-      - Security SOP: docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md
+      - Developer Onboarding: docs/DEVELOPER_ONBOARDING_AND_LOCAL_SETUP_GUIDE.md
+  - Architecture & Data:
+      - Zero-Downtime Data Migration: docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md
+      - Data Privacy & Retention (GDPR): docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md
+      - Architecture Diagram Catalog: docs/architecture/ARCHITECTURE_DIAGRAM_CATALOG.md
+      - IaC & GitOps Standards: docs/architecture/IAC_AND_GITOPS_STANDARDS.md
+      - ADR Living Registry: docs/adr/README.md
+      - API Versioning & Sunset: docs/api/API_VERSIONING_AND_SUNSET_POLICY.md
+  - Operations & Reliability (SRE):
+      - Telemetry & Monitoring: docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md
+      - Disaster Recovery Drill SOP: docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md
+      - On-Call Operating Procedure: docs/ops/ON_CALL_OPERATING_PROCEDURE.md
+      - Cloud Cost & FinOps: docs/ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md
+      - Chaos Engineering: docs/ops/CHAOS_ENGINEERING_AND_FAILOVER_TESTING.md
+      - Incident War Room Comms: docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md
+      - Post-Mortem & CAPA Governance: docs/ops/POST_MORTEM_AND_CAPA_GOVERNANCE.md
+  - Security & Compliance:
+      - Vulnerability Disclosure SOP: docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md
+      - SBOM & OSS License Policy: docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md
+      - SOC 2 Type II Readiness: docs/compliance/SOC2_TYPE_II_READINESS_GUIDE.md
+      - HIPAA & ePHI Protection: docs/compliance/HIPAA_COMPLIANCE_PLAYBOOK.md
+      - PCI DSS v4.0 Checklist: docs/compliance/PCI_DSS_SAQ_D_CHECKLIST.md
   - Standard Roles:
       - Product Owner / PM: roles/01_PRODUCT_OWNER_PM.md
       - Tech Lead / Architect: roles/02_TECH_LEAD_ARCHITECT.md
@@ -61,30 +81,40 @@ nav:
       - QA Automation Engineer: roles/04_QA_AND_TEST_ENGINEER.md
       - DevOps & SRE Lead: roles/05_DEVOPS_SRE_AND_OPS_LEAD.md
       - Client Sponsor: roles/06_CLIENT_SPONSOR_AND_STAKEHOLDER.md
-  - Agile Handshakes & Cadence:
+  - Agile Ceremonies & Handshakes:
       - Sprint Cadence: ceremonies-and-handshakes/SPRINT_AND_RELEASE_CADENCE.md
       - Handshake Protocols: ceremonies-and-handshakes/HANDSHAKE_PROTOCOLS.md
-  - Checklists & Standards:
+  - Checklists & Reference:
+      - 1-Page Framework Cheat Sheet: checklists/SDLC_FRAMEWORK_ONE_PAGE_CHEAT_SHEET.md
       - Stage Gate Quick Reference: checklists/STAGE_GATES_QUICK_REFERENCE.md
       - NFR Catalog: checklists/NFR_STANDARDS_CATALOG.md
   - Deliverable Templates:
       - Product Requirements (PRD): templates/PRD_TEMPLATE.md
       - Project Charter & SOW: templates/PROJECT_CHARTER_AND_SOW.md
       - System Architecture (SAD): templates/SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md
+      - Infrastructure Design (IDD): templates/INFRASTRUCTURE_DESIGN_DOCUMENT_IDD.md
       - Architecture Decisions (ADR): templates/ARCHITECTURE_DECISION_RECORD_ADR.md
+      - STRIDE Threat Model: templates/STRIDE_THREAT_MODEL_TEMPLATE.md
+      - Security Audit Executive Summary: templates/SECURITY_AUDIT_REPORT_EXECUTIVE_SUMMARY.md
+      - Security & Privacy Review: templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md
       - API Contract Spec: templates/API_CONTRACT_AND_INTEGRATION_SPEC.md
+      - API Integration Test Report: templates/API_INTEGRATION_TEST_REPORT.md
       - Definition of Done (DoD): templates/DEFINITION_OF_DONE_AND_CODE_REVIEW.md
       - QA Plan & UAT Sign-off: templates/TEST_PLAN_AND_UAT_SIGNOFF.md
       - Operations Runbook: templates/OPERATIONS_RUNBOOK.md
       - Deployment & Rollback Guide: templates/DEPLOYMENT_AND_ROLLBACK_GUIDE.md
       - Service Transition Checklist: templates/SERVICE_TRANSITION_CHECKLIST.md
+      - Go-Live Readiness Review (GLRR): templates/GO_LIVE_READINESS_REVIEW_GLRR.md
+      - Deliverables Sign-off Matrix: templates/DELIVERABLES_SIGN_OFF_MATRIX.md
       - Incident SLA Matrix: templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md
       - Change Request Form: templates/CHANGE_REQUEST_FORM.md
-      - Security & Privacy Review: templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md
-  - Client Governance:
+      - Change Order Estimation: templates/CHANGE_ORDER_ESTIMATION_WORKSHEET.md
+  - Client Collateral:
       - Executive Assurance One-Pager: client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md
+      - Executive Handover Slide Deck: client-collateral/EXECUTIVE_HANDOVER_SLIDE_DECK.md
+      - UAT Kickoff Presentation Kit: client-collateral/UAT_KICKOFF_PRESENTATION_KIT.md
       - Handover Workshop Agenda: client-collateral/CLIENT_HANDOVER_WORKSHOP_AGENDA.md
       - Steering Committee Charter: client-collateral/STEERING_COMMITTEE_AND_REPORTING_CHARTER.md
+      - Client Feedback & NPS Survey: client-collateral/CLIENT_FEEDBACK_AND_NPS_SURVEY.md
   - Automation & Tooling:
       - Automation Playbook: automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md
-

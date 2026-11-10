@@ -44,3 +44,4 @@ flowchart LR
 3. Open a Pull Request labeled `adr`.
 4. Review with the Technical Lead during the sprint Architecture Sync.
 5. Once merged, update this registry table with status `Accepted`.
+
