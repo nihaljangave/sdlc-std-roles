@@ -108,3 +108,4 @@ process.on('SIGTERM', async () => {
 
 ### Factor XII: Admin Processes as One-Off Tasks
 - Database migrations (`prisma migrate`, `alembic upgrade`, `flyway migrate`) run as ephemeral, isolated one-off jobs (e.g., Kubernetes `Job`) prior to container rollout, never as startup hooks inside long-running application pods.
+

@@ -77,3 +77,4 @@ EOF
 
 chmod +x "$0"
 echo "📜 Client milestone sign-off certificate generated: $CERT_FILE"
+
