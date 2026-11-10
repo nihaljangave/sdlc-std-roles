@@ -53,3 +53,4 @@ If an unforeseen disagreement arises regarding scope, technical architecture, or
    - Client business priorities take precedence on user-facing trade-offs.
    - Engineering leads maintain authority on non-negotiable security and reliability guardrails.
    - If timeline is constrained, scope is negotiated downward via MoSCoW rather than compromising automated testing or operational documentation.
+

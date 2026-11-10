@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lean-Enterprise SDLC Operating System | Executive Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(18, 26, 43, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(30, 41, 69, 0.85);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.25);
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.2);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --font: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 3rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+    .stat-card .num { font-size: 2rem; font-weight: 800; color: #818cf8; margin-bottom: 0.25rem; }
+    .stat-card .lbl { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.65rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: var(--text); }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Stages Grid */
+    .stages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+    .stage-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+    .stage-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    .stage-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .stage-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+    .stage-card p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .deliverable-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 0.75rem;
+      padding: 0.85rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .deliverable-box strong { color: #cbd5e1; display: block; margin-bottom: 0.25rem; }
+    .deliverable-box span { color: #94a3b8; }
+
+    /* Live Gate Auditor */
+    .auditor-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+    }
+    .auditor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .score-meter {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.75rem;
+    }
+    .gate-section { margin-bottom: 1.75rem; }
+    .gate-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #818cf8;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.35rem;
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+    .checklist-item:hover { background: rgba(255, 255, 255, 0.03); }
+    .checklist-item input[type="checkbox"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .checklist-item label { cursor: pointer; font-size: 0.92rem; color: #e2e8f0; }
+
+    /* RACI Table */
+    .raci-table-wrap {
+      overflow-x: auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th { padding: 1rem 0.75rem; color: #94a3b8; font-weight: 600; border-bottom: 1px solid var(--card-border); }
+    td { padding: 0.85rem 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.04); color: #cbd5e1; }
+    .raci-tag {
+      display: inline-block;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.35rem;
+      font-size: 0.75rem;
+    }
+    .tag-a { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .tag-r { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .tag-c { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .tag-i { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+
+    /* Code block */
+    pre {
+      background: #030712;
+      border: 1px solid var(--card-border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      overflow-x: auto;
+      color: #38bdf8;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Operational Framework v1.2</div>
+      <h1>Lean-Enterprise SDLC Operating System</h1>
+      <p class="subtitle">High-speed prototype delivery with embedded continuous compliance, client-ready formal artifacts, and zero-surprise operational handover.</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num">6</div>
+        <div class="lbl">SDLC Stages</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">14</div>
+        <div class="lbl">Standard Templates</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">6</div>
+        <div class="lbl">Standard Roles</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">&lt; 30m</div>
+        <div class="lbl">Target RTO Disaster Recovery</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">100%</div>
+        <div class="lbl">Doc-as-Code Embedded</div>
+      </div>
+    </div>
+
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('stages')">Lifecycle Stages</button>
+      <button class="tab-btn" onclick="switchTab('auditor')">Live Gate Checklist Auditor</button>
+      <button class="tab-btn" onclick="switchTab('raci')">RACI Governance Matrix</button>
+      <button class="tab-btn" onclick="switchTab('cli')">CLI & Automation</button>
+    </div>
+
+    <!-- TAB 1: STAGES -->
+    <div id="tab-stages" class="tab-content active">
+      <div class="stages-grid">
+        <div class="stage-card">
+          <div class="stage-num">STAGE 0</div>
+          <h3>Discovery & Scoping</h3>
+          <p>Align problem statement, feasibility spike, and MoSCoW boundaries.</p>
+          <div class="deliverable-box">
+            <strong>Client Artifact:</strong>
+            <span>Project Charter & SOW (Scope Baseline)</span>
+          </div>
+          <div class="deliverable-box">
+            <strong>Operations Artifact:</strong>
+            <span>Feasibility Spike Log & Initial Risk Register</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-num">STAGE 1</div>
+          <h3>Architecture & Security</h3>
+          <p>Design modular system, contract-first APIs, and threat models.</p>
+          <div class="deliverable-box">
+            <strong>Client Artifact:</strong>
+            <span>System Architecture Overview & Mock API Portal</span>
+          </div>
+          <div class="deliverable-box">
+            <strong>Operations Artifact:</strong>
+            <span>System Architecture (SAD), ADRs & Threat Model</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-num">STAGE 2</div>
+          <h3>Build & Verification</h3>
+          <p>Rapid sprints with 80%+ test coverage and PR quality gates.</p>
+          <div class="deliverable-box">
+            <strong>Client Artifact:</strong>
+            <span>Bi-weekly Working Demos & Preview Sandbox</span>
+          </div>
+          <div class="deliverable-box">
+            <strong>Operations Artifact:</strong>
+            <span>Auto OpenAPI Schema, SAST/SCA Scan, DoD Compliance</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-num">STAGE 3</div>
+          <h3>QA & Client UAT</h3>
+          <p>E2E regression testing, load testing, and formal client acceptance.</p>
+          <div class="deliverable-box">
+            <strong>Client Artifact:</strong>
+            <span>Client UAT Script Register & Formal Sign-Off Certificate</span>
+          </div>
+          <div class="deliverable-box">
+            <strong>Operations Artifact:</strong>
+            <span>Master Test Summary, DAST Scan & Defect SLA Log</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-num">STAGE 4</div>
+          <h3>Release & Ops Handover</h3>
+          <p>Zero-downtime deployment, automated rollbacks, and runbook handover.</p>
+          <div class="deliverable-box">
+            <strong>Client Artifact:</strong>
+            <span>Release Notes & User Administration Manual</span>
+          </div>
+          <div class="deliverable-box">
+            <strong>Operations Artifact:</strong>
+            <span>Operations Runbook, IaC & Signed Service Transition</span>
+          </div>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-num">STAGE 5</div>
+          <h3>Post-Prod & Support</h3>
+          <p>14-30 day Hypercare, telemetry monitoring, and blameless RCAs.</p>
+          <div class="deliverable-box">
+            <strong>Client Artifact:</strong>
+            <span>Monthly SLA & System Health Reports</span>
+          </div>
+          <div class="deliverable-box">
+            <strong>Operations Artifact:</strong>
+            <span>Incident SLA Matrix & Blameless 5-Whys Post-Mortems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: LIVE GATE AUDITOR -->
+    <div id="tab-auditor" class="tab-content">
+      <div class="auditor-box">
+        <div class="auditor-header">
+          <div>
+            <h2>Interactive Stage-Gate Readiness Checker</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Check off completed items to calculate production release readiness.</p>
+          </div>
+          <div class="score-meter" id="scoreMeter">0% Ready</div>
+        </div>
+
+        <div class="gate-section">
+          <div class="gate-title">Gate 0: Scoping & Project Charter Alignment</div>
+          <div class="checklist-item"><input type="checkbox" id="g0_1" onchange="calcScore()"><label for="g0_1">Product Requirements Document (PRD) with MoSCoW prioritization approved</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g0_2" onchange="calcScore()"><label for="g0_2">Project Charter / SOW signed by Client Sponsor</label></div>
+        </div>
+
+        <div class="gate-section">
+          <div class="gate-title">Gate 1: Architecture, Security & Contract Review</div>
+          <div class="checklist-item"><input type="checkbox" id="g1_1" onchange="calcScore()"><label for="g1_1">System Architecture Document (SAD) with C4 diagrams approved</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g1_2" onchange="calcScore()"><label for="g1_2">API contract (OpenAPI 3.0) and mock sandbox active</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g1_3" onchange="calcScore()"><label for="g1_3">Security & Data Privacy checklist reviewed (zero critical unmitigated risks)</label></div>
+        </div>
+
+        <div class="gate-section">
+          <div class="gate-title">Gate 2: Code Quality & Definition of Done</div>
+          <div class="checklist-item"><input type="checkbox" id="g2_1" onchange="calcScore()"><label for="g2_1">All user stories satisfy Definition of Done (test coverage >= 80%)</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g2_2" onchange="calcScore()"><label for="g2_2">Automated CI/CD security scan (SAST / SCA) passes cleanly</label></div>
+        </div>
+
+        <div class="gate-section">
+          <div class="gate-title">Gate 3: QA Verification & Client Acceptance</div>
+          <div class="checklist-item"><input type="checkbox" id="g3_1" onchange="calcScore()"><label for="g3_1">Zero open Severity 1 (Blocker) or Severity 2 (Major) defects</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g3_2" onchange="calcScore()"><label for="g3_2">Client UAT completed and formal UAT Sign-Off Certificate executed</label></div>
+        </div>
+
+        <div class="gate-section">
+          <div class="gate-title">Gate 4: Production Release & Operations Handover</div>
+          <div class="checklist-item"><input type="checkbox" id="g4_1" onchange="calcScore()"><label for="g4_1">Operations Runbook (Day-2 Playbook) and SOPs validated by Ops</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g4_2" onchange="calcScore()"><label for="g4_2">Production deployment and rollback guide dry-run verified</label></div>
+          <div class="checklist-item"><input type="checkbox" id="g4_3" onchange="calcScore()"><label for="g4_3">Service Transition Checklist formally executed and signed</label></div>
+        </div>
+
+        <div class="gate-section">
+          <div class="gate-title">Gate 5: Steady-State Transition</div>
+          <div class="checklist-item"><input type="checkbox" id="g5_1" onchange="calcScore()"><label for="g5_1">Hypercare period completed with SLA >= 99.9% uptime compliance</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: RACI MATRIX -->
+    <div id="tab-raci" class="tab-content">
+      <div class="raci-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Deliverable / Stage Milestone</th>
+              <th>Product Owner</th>
+              <th>Tech Lead</th>
+              <th>Developers</th>
+              <th>QA / Security</th>
+              <th>Client Sponsor</th>
+              <th>DevOps / SRE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PRD & Scope Baseline</td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-a">Sign-Off</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+            </tr>
+            <tr>
+              <td>Architecture (SAD) & ADRs</td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+            </tr>
+            <tr>
+              <td>API Contract & Schema Mocks</td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+            </tr>
+            <tr>
+              <td>Definition of Done (DoD) & PRs</td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+            </tr>
+            <tr>
+              <td>Client UAT Acceptance Sign-off</td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-a">Sign-Off</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+            </tr>
+            <tr>
+              <td>Operations Runbook & SOPs</td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-r">Responsible</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-i">Informed</span></td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+            </tr>
+            <tr>
+              <td>Service Transition Sign-off</td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-c">Consulted</span></td>
+              <td><span class="raci-tag tag-a">Sign-Off</span></td>
+              <td><span class="raci-tag tag-a">Accountable</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: CLI & AUTOMATION -->
+    <div id="tab-cli" class="tab-content">
+      <div class="auditor-box">
+        <h2>Framework Automation CLI Commands</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+          Use the master CLI helper <code style="color: #818cf8;">./scripts/sdlc-cli.sh</code> to automate compliance in your terminal:
+        </p>
+
+        <pre><code># 1. Scaffold a new client prototype or MVP project in 10 seconds:
+./scripts/sdlc-cli.sh scaffold ../my-new-product
+
+# 2. Audit compliance for a specific stage gate or all gates:
+./scripts/sdlc-cli.sh audit 1 .
+./scripts/sdlc-cli.sh audit all examples/b2b-ordering-mvp
+
+# 3. Generate client-ready and ops-ready release notes from Git commits:
+./scripts/sdlc-cli.sh release v0.9.0 HEAD v1.0.0
+
+# 4. Install local git hooks (blocks secret leaks & enforces Conventional Commits):
+./scripts/sdlc-cli.sh hooks
+
+# 5. Launch the searchable interactive documentation portal:
+./scripts/sdlc-cli.sh portal</code></pre>
+      </div>
+    </div>
+
+    <footer>
+      Lean-Enterprise SDLC Operating System &bull; Production Readiness, Client Deliverables & Operational Governance &bull; 2026
+    </footer>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function calcScore() {
+      const boxes = document.querySelectorAll('#tab-auditor input[type="checkbox"]');
+      let checked = 0;
+      boxes.forEach(b => { if (b.checked) checked++; });
+      
+      const pct = Math.round((checked / boxes.length) * 100);
+      const meter = document.getElementById('scoreMeter');
+      meter.innerText = pct + '% Ready';
+
+      if (pct === 100) {
+        meter.style.color = '#10b981';
+        meter.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        meter.style.background = 'rgba(16, 185, 129, 0.15)';
+      } else if (pct >= 50) {
+        meter.style.color = '#f59e0b';
+        meter.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+        meter.style.background = 'rgba(245, 158, 11, 0.15)';
+      } else {
+        meter.style.color = '#6366f1';
+        meter.style.borderColor = 'rgba(99, 102, 241, 0.4)';
+        meter.style.background = 'rgba(99, 102, 241, 0.15)';
+      }
+    }
+  </script>
+</body>
+</html>

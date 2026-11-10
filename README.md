@@ -58,6 +58,7 @@ flowchart LR
 
 ## Directory Layout in This Toolkit
 
+* [`index.html`](./index.html): Standalone Executive Single-Page Application & Interactive Gate Auditor.
 * [`docs/`](./docs/): In-depth process workflows for each stage detailing trigger conditions, entry/exit criteria, role interactions, and velocity tips.
   * [`01_Discovery_and_Scoping.md`](./docs/01_Discovery_and_Scoping.md)
   * [`02_Architecture_and_Design.md`](./docs/02_Architecture_and_Design.md)
@@ -67,6 +68,7 @@ flowchart LR
   * [`06_Post_Production_and_Maintenance.md`](./docs/06_Post_Production_and_Maintenance.md)
   * [`PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md`](./docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md): Architectural roadmap for transitioning prototypes into enterprise production.
   * [`ops/TELEMETRY_AND_MONITORING_STANDARDS.md`](./docs/ops/TELEMETRY_AND_MONITORING_STANDARDS.md): JSON logging schemas, RED/USE metrics, health checks, and tracing headers.
+  * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
   * `PRD_TEMPLATE.md`: Product Requirement Document.
@@ -98,6 +100,7 @@ flowchart LR
 * [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks.
   * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
 * [`scripts/`](./scripts/): Project scaffolding and automation tooling.
+  * [`sdlc-cli.sh`](./scripts/sdlc-cli.sh): Unified master CLI runner (scaffold, audit, release, hooks, portal).
   * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.
   * [`verify-stage-gate.sh`](./scripts/verify-stage-gate.sh): Automated audit script to verify whether a project satisfies gate requirements.
   * [`generate-release-notes.sh`](./scripts/generate-release-notes.sh): Automatic release notes generator from Conventional Commits.

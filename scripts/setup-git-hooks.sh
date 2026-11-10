@@ -87,3 +87,4 @@ echo "  ✅ Installed: pre-commit hook (Secret leak defense & branch protection)
 
 echo ""
 echo "🎉 SDLC Git Hooks successfully installed! Your local environment is now protected."
+
