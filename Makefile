@@ -51,6 +51,10 @@ hooks: ## Install local Git hooks for secrets scanning and Conventional Commits
 portal: ## Launch documentation portal preview locally
 	@./scripts/sdlc-cli.sh portal
 
+.PHONY: demo
+demo: ## Run 30-second interactive SDLC simulation in ephemeral sandbox
+	@./scripts/sdlc-cli.sh demo
+
 .PHONY: test-links
 test-links: ## Verify relative markdown link integrity across all files
 	@python3 -c "\

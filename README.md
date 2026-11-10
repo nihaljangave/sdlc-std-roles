@@ -151,6 +151,7 @@ flowchart LR
   * [`run-smoke-tests.sh`](./scripts/run-smoke-tests.sh): Synthetic PVT smoke test runner against target endpoints.
   * [`package-client-handover.sh`](./scripts/package-client-handover.sh): Client and operational handover package consolidator & archiver.
   * [`generate-signoff-cert.sh`](./scripts/generate-signoff-cert.sh): Client milestone acceptance & sign-off certificate generator.
+  * [`demo-walkthrough.sh`](./scripts/demo-walkthrough.sh): Interactive 30-second live simulation of the full SDLC in an ephemeral sandbox.
   * [`build-docs-portal.sh`](./scripts/build-docs-portal.sh): Static HTML documentation portal compiler.
 * [`Makefile`](./Makefile): Master developer automation shortcut menu (`make audit`, `make scaffold`, `make signoff`, etc.).
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.

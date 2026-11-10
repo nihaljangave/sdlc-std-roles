@@ -48,6 +48,9 @@ Commands:
   portal                    Preview the interactive documentation portal locally
                             (requires mkdocs or python http server).
                             
+  demo                      Execute interactive 30-second live simulation of
+                            the entire SDLC lifecycle in an ephemeral sandbox.
+                            
   help                      Show this help message.
 
 Examples:
@@ -117,6 +120,9 @@ case "$CMD" in
             echo "🌐 MkDocs not found. Starting Python HTTP preview on http://127.0.0.1:8080..."
             python3 -m http.server 8080
         fi
+        ;;
+    demo)
+        "$FRAMEWORK_ROOT/scripts/demo-walkthrough.sh"
         ;;
     help|--help|-h)
         show_help
