@@ -369,7 +369,7 @@
         <div class="lbl">SDLC Stages</div>
       </div>
       <div class="stat-card">
-        <div class="num">25</div>
+        <div class="num">26</div>
         <div class="lbl">Standard Templates</div>
       </div>
       <div class="stat-card">
@@ -390,7 +390,7 @@
       <button class="tab-btn active" onclick="switchTab('stages')">Lifecycle Stages</button>
       <button class="tab-btn" onclick="switchTab('auditor')">Live Gate Checklist Auditor</button>
       <button class="tab-btn" onclick="switchTab('raci')">RACI Governance Matrix</button>
-      <button class="tab-btn" onclick="switchTab('templates')">Deliverables & Templates (25)</button>
+      <button class="tab-btn" onclick="switchTab('templates')">Deliverables & Templates (26)</button>
       <button class="tab-btn" onclick="switchTab('cli')">CLI & Automation</button>
     </div>
 
@@ -628,13 +628,13 @@
       <div class="auditor-box" style="margin-bottom: 2rem;">
         <h2>Deliverables & Templates Library</h2>
         <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
-          Instant search and copy paths for all 25 production-ready Markdown templates in <code style="color: #818cf8;">templates/</code>:
+          Instant search and copy paths for all 26 production-ready Markdown templates in <code style="color: #818cf8;">templates/</code>:
         </p>
 
         <div class="lib-controls" style="margin-top: 1.25rem;">
           <input type="text" id="tplSearch" class="search-input" placeholder="🔍 Search templates by title, gate, keyword, or filename..." oninput="searchTemplates()">
           <div class="filter-pills">
-            <button class="pill active" onclick="filterTemplates('all', this)">All (25)</button>
+            <button class="pill active" onclick="filterTemplates('all', this)">All (26)</button>
             <button class="pill" onclick="filterTemplates('discovery', this)">Discovery & Scope</button>
             <button class="pill" onclick="filterTemplates('architecture', this)">Architecture & AI</button>
             <button class="pill" onclick="filterTemplates('security', this)">Security & Compliance</button>
@@ -824,6 +824,18 @@
             <div class="t-footer">
               <span class="t-path">templates/DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md</span>
               <button class="action-btn" onclick="copyPath('templates/DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md', this)">Copy Path</button>
+            </div>
+          </div>
+
+          <div class="template-card" data-cat="security">
+            <div>
+              <div class="t-cat">Security &bull; Cryptography</div>
+              <div class="t-title">Cryptographic Inventory & Key Management Plan</div>
+              <div class="t-desc">FIPS 140-3 cryptographic asset inventory, key lifecycle management, rotation schedules, and Post-Quantum Cryptography (PQC) readiness plan.</div>
+            </div>
+            <div class="t-footer">
+              <span class="t-path">templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md</span>
+              <button class="action-btn" onclick="copyPath('templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md', this)">Copy Path</button>
             </div>
           </div>
 

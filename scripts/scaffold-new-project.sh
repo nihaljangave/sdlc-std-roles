@@ -56,6 +56,7 @@ if [[ "$MODE" == *"--enterprise"* ]] || [[ "$MODE" == *"--all"* ]]; then
     cp "$FRAMEWORK_ROOT/templates/VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md" "$TARGET_DIR/docs/testing/VPAT.md"
     cp "$FRAMEWORK_ROOT/templates/GO_LIVE_READINESS_REVIEW_GLRR.md" "$TARGET_DIR/docs/ops/GLRR.md"
     cp "$FRAMEWORK_ROOT/templates/DELIVERABLES_SIGN_OFF_MATRIX.md" "$TARGET_DIR/docs/DELIVERABLES_MATRIX.md"
+    cp "$FRAMEWORK_ROOT/templates/CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md" "$TARGET_DIR/docs/security/KEY_MANAGEMENT_PLAN.md"
 fi
 
 if [[ "$MODE" == *"--ai"* ]] || [[ "$MODE" == *"--all"* ]]; then

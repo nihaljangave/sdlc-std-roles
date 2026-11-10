@@ -9,10 +9,17 @@ set -euo pipefail
 
 GATE="${1:-all}"
 PROJECT_ROOT="${2:-.}"
+FORMAT="${3:-console}"
 
-echo "================================================================================"
-echo "🔍 SDLC Stage-Gate Compliance Check: Gate [${GATE}] in ${PROJECT_ROOT}"
-echo "================================================================================"
+log_msg() {
+    if [ "$FORMAT" != "json" ]; then
+        echo "$@"
+    fi
+}
+
+log_msg "================================================================================"
+log_msg "🔍 SDLC Stage-Gate Compliance Check: Gate [${GATE}] in ${PROJECT_ROOT}"
+log_msg "================================================================================"
 
 TOTAL_CHECKS=0
 PASSED_CHECKS=0
@@ -25,13 +32,13 @@ check_file() {
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     
     if [ -f "$PROJECT_ROOT/$filepath" ] && [ -s "$PROJECT_ROOT/$filepath" ]; then
-        echo "  ✅ [PASS] $label ($filepath)"
+        log_msg "  ✅ [PASS] $label ($filepath)"
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
     elif [ -n "$fallback_template" ] && [ -f "$PROJECT_ROOT/$fallback_template" ] && [ -s "$PROJECT_ROOT/$fallback_template" ]; then
-        echo "  ✅ [PASS] $label (Framework Source: $fallback_template)"
+        log_msg "  ✅ [PASS] $label (Framework Source: $fallback_template)"
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
     else
-        echo "  ❌ [FAIL] $label - Missing or empty: $filepath"
+        log_msg "  ❌ [FAIL] $label - Missing or empty: $filepath"
         FAILED_CHECKS=$((FAILED_CHECKS + 1))
     fi
 }
@@ -42,24 +49,24 @@ check_dir_has_files() {
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
 
     if [ -d "$PROJECT_ROOT/$dirpath" ] && [ "$(ls -A "$PROJECT_ROOT/$dirpath" 2>/dev/null)" ]; then
-        echo "  ✅ [PASS] $label ($dirpath/)"
+        log_msg "  ✅ [PASS] $label ($dirpath/)"
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
     else
-        echo "  ❌ [FAIL] $label - Missing or empty directory: $dirpath/"
+        log_msg "  ❌ [FAIL] $label - Missing or empty directory: $dirpath/"
         FAILED_CHECKS=$((FAILED_CHECKS + 1))
     fi
 }
 
 audit_gate_0() {
-    echo ""
-    echo "📋 Gate 0: Scoping & Project Charter Alignment"
+    log_msg ""
+    log_msg "📋 Gate 0: Scoping & Project Charter Alignment"
     check_file "Product Requirements Document (PRD)" "docs/PRD.md" "templates/PRD_TEMPLATE.md"
     check_file "Project Charter / Statement of Work" "docs/PROJECT_CHARTER.md" "templates/PROJECT_CHARTER_AND_SOW.md"
 }
 
 audit_gate_1() {
-    echo ""
-    echo "📋 Gate 1: Architecture, Security & Contract Review"
+    log_msg ""
+    log_msg "📋 Gate 1: Architecture, Security & Contract Review"
     check_file "System Architecture Document (SAD)" "docs/architecture/SAD.md" "templates/SYSTEM_ARCHITECTURE_DOCUMENT_SAD.md"
     if [ -f "$PROJECT_ROOT/docs/architecture/IDD.md" ]; then
         check_file "Infrastructure Design Document (IDD)" "docs/architecture/IDD.md"
@@ -70,22 +77,25 @@ audit_gate_1() {
     if [ -f "$PROJECT_ROOT/docs/security/THREAT_MODEL.md" ]; then
         check_file "STRIDE Threat Model" "docs/security/THREAT_MODEL.md"
     fi
+    if [ -f "$PROJECT_ROOT/docs/security/KEY_MANAGEMENT_PLAN.md" ]; then
+        check_file "Cryptographic Key Management Plan" "docs/security/KEY_MANAGEMENT_PLAN.md"
+    fi
     check_dir_has_files "Architecture Decision Records (ADRs)" "docs/adr"
     check_dir_has_files "API Contract / Specifications" "docs/api"
     check_file "Security & Data Privacy Checklist" "docs/security/SECURITY_REVIEW.md" "templates/SECURITY_AND_DATA_PRIVACY_CHECKLIST.md"
 }
 
 audit_gate_2() {
-    echo ""
-    echo "📋 Gate 2: Code Quality & Definition of Done"
+    log_msg ""
+    log_msg "📋 Gate 2: Code Quality & Definition of Done"
     check_file "PR Description Template (DoD)" ".github/pull_request_template.md" "templates/DEFINITION_OF_DONE_AND_CODE_REVIEW.md"
     check_file "CI/CD Pipeline Configuration" ".github/workflows/ci-compliance.yml"
     check_file "Git Ignore File" ".gitignore"
 }
 
 audit_gate_3() {
-    echo ""
-    echo "📋 Gate 3: QA Verification & Client UAT Sign-off"
+    log_msg ""
+    log_msg "📋 Gate 3: QA Verification & Client UAT Sign-off"
     check_file "Master Test Plan & Client UAT Register" "docs/testing/TEST_PLAN_AND_UAT.md" "templates/TEST_PLAN_AND_UAT_SIGNOFF.md"
     if [ -f "$PROJECT_ROOT/docs/testing/VPAT.md" ]; then
         check_file "VPAT Accessibility Report" "docs/testing/VPAT.md"
@@ -93,8 +103,8 @@ audit_gate_3() {
 }
 
 audit_gate_4() {
-    echo ""
-    echo "📋 Gate 4: Production Release & Operations Handover"
+    log_msg ""
+    log_msg "📋 Gate 4: Production Release & Operations Handover"
     check_file "Operations Runbook (Day-2 Playbook)" "docs/ops/OPERATIONS_RUNBOOK.md" "templates/OPERATIONS_RUNBOOK.md"
     check_file "Deployment & Rollback Guide" "docs/ops/DEPLOYMENT_GUIDE.md" "templates/DEPLOYMENT_AND_ROLLBACK_GUIDE.md"
     check_file "Service Transition Checklist" "docs/ops/SERVICE_TRANSITION.md" "templates/SERVICE_TRANSITION_CHECKLIST.md"
@@ -107,8 +117,8 @@ audit_gate_4() {
 }
 
 audit_gate_5() {
-    echo ""
-    echo "📋 Gate 5: Steady-State Transition & Warranty Exit"
+    log_msg ""
+    log_msg "📋 Gate 5: Steady-State Transition & Warranty Exit"
     check_file "Incident Management & SLA Escalation Matrix" "docs/ops/SLA_MATRIX.md" "templates/INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md"
 }
 
@@ -133,6 +143,21 @@ case "$GATE" in
         exit 1
         ;;
 esac
+
+if [ "$FORMAT" = "json" ]; then
+    cat << EOF
+{
+  "gate": "${GATE}",
+  "target": "${PROJECT_ROOT}",
+  "total_checks": ${TOTAL_CHECKS},
+  "passed_checks": ${PASSED_CHECKS},
+  "failed_checks": ${FAILED_CHECKS},
+  "clearance_approved": $([ "$FAILED_CHECKS" -eq 0 ] && echo "true" || echo "false"),
+  "timestamp": "$(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+}
+EOF
+    [ "$FAILED_CHECKS" -eq 0 ] && exit 0 || exit 1
+fi
 
 echo ""
 echo "================================================================================"

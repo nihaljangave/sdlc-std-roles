@@ -93,6 +93,7 @@ flowchart LR
   * [`security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md`](./docs/security/SUPPLY_CHAIN_SECURITY_AND_SLSA_STANDARDS.md): Software supply chain security, SLSA Level 1-3 attestation, and Cosign container signing.
   * [`security/SECRET_MANAGEMENT_AND_DLP_POLICY.md`](./docs/security/SECRET_MANAGEMENT_AND_DLP_POLICY.md): Zero-plaintext commit policy, Gitleaks pre-commit hooks, KMS/Vault rotation, and leaked credential revocation.
   * [`security/CONTAINER_HARDENING_AND_DISTROLESS_STANDARDS.md`](./docs/security/CONTAINER_HARDENING_AND_DISTROLESS_STANDARDS.md): Non-root execution (UID 65532), Distroless base images, read-only root filesystems, and Trivy scans.
+  * [`security/CRYPTOGRAPHY_AND_KEY_MANAGEMENT_POLICY.md`](./docs/security/CRYPTOGRAPHY_AND_KEY_MANAGEMENT_POLICY.md): FIPS 140-3 approved ciphers (AES-256-GCM, RSA >=3072, ECC P-384), automated KMS envelope rotation, and Post-Quantum Cryptography (PQC) transition plan.
   * [`accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md`](./docs/accessibility/WCAG_ACCESSIBILITY_AND_INCLUSION_STANDARDS.md): WCAG 2.2 Level AA accessibility standards, automated axe-core testing, and screen reader SOPs.
   * [`ai/AI_LLM_ENGINEERING_GOVERNANCE.md`](./docs/ai/AI_LLM_ENGINEERING_GOVERNANCE.md): Generative AI & LLM engineering standards, OWASP LLM top 10, RAG triad benchmarks, and cost controls.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
@@ -121,6 +122,7 @@ flowchart LR
   * `VPAT_ACCESSIBILITY_CONFORMANCE_REPORT.md`: VPAT 2.4 WCAG Edition accessibility conformance reporting template.
   * `VULNERABILITY_ASSESSMENT_AND_REMEDIATION_LOG.md`: CVSS 3.1 security vulnerability tracker, SLA countdown, and CISO sign-off log.
   * `DATA_CLASSIFICATION_AND_INVENTORY_MATRIX.md`: GDPR Art. 30 data processing inventory, classification tiers (Public to Restricted), and DPIA triggers.
+  * `CRYPTOGRAPHIC_INVENTORY_AND_KEY_MANAGEMENT_PLAN.md`: Cryptographic asset register, key rotation schedules, and post-quantum readiness audit log.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.

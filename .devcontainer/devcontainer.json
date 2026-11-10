@@ -28,3 +28,4 @@
   "postCreateCommand": "chmod +x scripts/*.sh && git config --global --add safe.directory ${containerWorkspaceFolder} && ./scripts/setup-git-hooks.sh",
   "remoteUser": "codespace"
 }
+
