@@ -31,7 +31,7 @@ Every project milestone requires formal sign-off by the designated accountable a
 
 Upon receipt of formal sign-off on Milestone 5 (Production Release) and clearance of associated milestone invoices:
 1. **Source Code Ownership:** All bespoke source code, database migration scripts, infrastructure definitions (Terraform), and system architecture documentation are transferred to the Client.
-2. **Third-Party & Open-Source Clearance:** The delivery team certifies via the [SBOM Policy](../../docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md) that all software libraries comply with permissive commercial licensing (MIT/Apache 2.0) with zero viral copyleft contaminations (GPL/AGPL).
+2. **Third-Party & Open-Source Clearance:** The delivery team certifies via the [SBOM Policy](../docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md) that all software libraries comply with permissive commercial licensing (MIT/Apache 2.0) with zero viral copyleft contaminations (GPL/AGPL).
 3. **Repository Access Transfer:** Administrative control of the GitHub/GitLab repositories and AWS/GCP cloud environments is formally transitioned to the Client Operations team.
 
 ---
