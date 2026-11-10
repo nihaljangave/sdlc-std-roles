@@ -50,3 +50,4 @@ cp "$FRAMEWORK_ROOT/.gitignore" "$TARGET_DIR/.gitignore"
 echo "✅ Project scaffolded successfully!"
 echo "📁 All documentation templates are pre-populated under: $TARGET_DIR/docs/"
 echo "⚙️  GitHub Actions and PR compliance gates configured under: $TARGET_DIR/.github/"
+

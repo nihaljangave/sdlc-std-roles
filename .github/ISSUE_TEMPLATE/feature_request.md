@@ -47,3 +47,4 @@ Scenario: [Error or edge case path]
 - [ ] UI designs / Figma mockups linked (if applicable).
 - [ ] API endpoints and data model changes identified.
 - [ ] Third-party dependencies or client credentials available.
+

@@ -87,3 +87,4 @@ jobs:
           else
             echo "No docs:generate-openapi script found, skipping API schema sync check."
           fi
+

@@ -78,6 +78,7 @@ flowchart LR
   * `DEPLOYMENT_AND_ROLLBACK_GUIDE.md`: Zero-downtime release procedures.
   * `SERVICE_TRANSITION_CHECKLIST.md`: Formal gate between development and ops.
   * `INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md`: Severity tiers, escalations, and post-mortems.
+  * `CHANGE_REQUEST_FORM.md`: Scope change request form for client alignment.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
@@ -88,12 +89,16 @@ flowchart LR
 * [`ceremonies-and-handshakes/`](./ceremonies-and-handshakes/): Agile operational rhythms and inter-role transitions.
   * [`SPRINT_AND_RELEASE_CADENCE.md`](./ceremonies-and-handshakes/SPRINT_AND_RELEASE_CADENCE.md): 2-week sprint rhythm, DoR, daily standups, and demos.
   * [`HANDSHAKE_PROTOCOLS.md`](./ceremonies-and-handshakes/HANDSHAKE_PROTOCOLS.md): The 6 explicit transition protocols between teams.
-* [`checklists/`](./checklists/): Quick-reference gate review checklists for sprint planning and triage.
+* [`checklists/`](./checklists/): Quick-reference gate review checklists and standards.
   * [`STAGE_GATES_QUICK_REFERENCE.md`](./checklists/STAGE_GATES_QUICK_REFERENCE.md): 15-minute stage gate checklists (Gate 0 to Gate 5).
+  * [`NFR_STANDARDS_CATALOG.md`](./checklists/NFR_STANDARDS_CATALOG.md): Non-functional requirements benchmarks for Prototype vs MVP vs Enterprise.
 * [`automation-and-tooling/`](./automation-and-tooling/): Fast-track Doc-as-Code automation playbooks.
   * [`FAST_TRACK_AUTOMATION_PLAYBOOK.md`](./automation-and-tooling/FAST_TRACK_AUTOMATION_PLAYBOOK.md): Automated OpenAPI, ERD diagrams, Conventional Commits, and CI compliance pipelines.
 * [`scripts/`](./scripts/): Project scaffolding and automation tooling.
   * [`scaffold-new-project.sh`](./scripts/scaffold-new-project.sh): CLI script to scaffold a new project with all templates in seconds.
+  * [`verify-stage-gate.sh`](./scripts/verify-stage-gate.sh): Automated audit script to verify whether a project satisfies gate requirements.
+* [`examples/`](./examples/): End-to-end reference projects illustrating completed documentation.
+  * [`b2b-ordering-mvp/`](./examples/b2b-ordering-mvp/): Fully scaffolded reference project with active OpenAPI 3.0 spec.
 * [`client-collateral/`](./client-collateral/): Client-facing governance documentation.
   * [`SDLC_GOVERNANCE_ONE_PAGER.md`](./client-collateral/SDLC_GOVERNANCE_ONE_PAGER.md): Executive assurance overview to present to enterprise clients.
 * [`.github/`](./.github/): GitHub Native PR templates, issue templates, and CI compliance workflows.

@@ -38,3 +38,4 @@ flowchart LR
 2. **Defect SLA Guarantee:** Severity 1 (Critical) defects reported during UAT or Hypercare are responded to within **15 minutes** with a targeted fix or workaround in **< 2 hours**.
 3. **Turnkey Operational Handover:** Your internal IT/Operations team receives complete Infrastructure-as-Code (Terraform), disaster recovery failover procedures, and monitoring dashboards before we exit.
 4. **Contractual Transparency:** All code, documentation, and architectural decisions are version-controlled in Git, providing complete auditability for corporate governance and regulatory compliance.
+
