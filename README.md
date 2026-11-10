@@ -73,7 +73,10 @@ flowchart LR
   * [`ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md`](./docs/ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md): Step-by-step PITR backup drill and DR sign-off certificate.
   * [`ops/ON_CALL_OPERATING_PROCEDURE.md`](./docs/ops/ON_CALL_OPERATING_PROCEDURE.md): Sustainable 24/7 on-call rotations, shift handoffs, and rest policies.
   * [`ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md`](./docs/ops/CLOUD_COST_AND_FINOPS_GOVERNANCE.md): Cloud cost governance, auto-shutdowns, and resource tagging.
+  * [`ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md`](./docs/ops/INCIDENT_WAR_ROOM_COMMUNICATIONS_PLAYBOOK.md): War room roles, client broadcast templates, and status updates.
+  * [`api/API_VERSIONING_AND_SUNSET_POLICY.md`](./docs/api/API_VERSIONING_AND_SUNSET_POLICY.md): URI versioning, breaking change prevention, and RFC 8594 sunset headers.
   * [`security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md`](./docs/security/VULNERABILITY_DISCLOSURE_AND_INCIDENT_SOP.md): Vulnerability response SLAs and disclosure policies.
+  * [`security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md`](./docs/security/SBOM_AND_OPEN_SOURCE_LICENSE_POLICY.md): Software Bill of Materials (SBOM) and open-source license governance.
 * [`templates/`](./templates/): Standardized, fill-in-the-blank markdown templates that can be used immediately in git repositories.
   * `PRD_TEMPLATE.md`: Product Requirement Document.
   * `PROJECT_CHARTER_AND_SOW.md`: Scope, milestone, and commercial alignment.
@@ -89,6 +92,7 @@ flowchart LR
   * `SERVICE_TRANSITION_CHECKLIST.md`: Formal gate between development and ops.
   * `INCIDENT_MANAGEMENT_AND_SLA_MATRIX.md`: Severity tiers, escalations, and post-mortems.
   * `CHANGE_REQUEST_FORM.md`: Scope change request form for client alignment.
+  * `CHANGE_ORDER_ESTIMATION_WORKSHEET.md`: Commercial impact and timeline worksheet for change requests.
 * [`roles/`](./roles/): Detailed standard role playbooks, KPIs, and daily/stage responsibilities.
   * [`01_PRODUCT_OWNER_PM.md`](./roles/01_PRODUCT_OWNER_PM.md): Product Owner / Project Manager playbook.
   * [`02_TECH_LEAD_ARCHITECT.md`](./roles/02_TECH_LEAD_ARCHITECT.md): Technical Lead & System Architect playbook.
