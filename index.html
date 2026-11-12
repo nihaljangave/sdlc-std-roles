@@ -345,6 +345,143 @@
     .t-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); }
     .t-path { font-family: var(--mono); font-size: 0.75rem; color: #94a3b8; }
 
+    /* Gantt & Velocity Styles */
+    .gantt-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--card-border);
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .gantt-table {
+      width: 100%;
+      min-width: 960px;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .gantt-table th {
+      padding: 0.7rem 0.5rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--card-border);
+      border-right: 1px solid rgba(255, 255, 255, 0.04);
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .gantt-table th.col-ws { text-align: left; padding-left: 1rem; width: 180px; color: #cbd5e1; }
+    .gantt-table td {
+      padding: 0.6rem 0.3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      border-right: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+      position: relative;
+    }
+    .gantt-table td.col-ws { padding-left: 1rem; font-weight: 600; color: #e2e8f0; font-size: 0.85rem; }
+    .gantt-bar {
+      border-radius: 6px;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    .bar-purple { background: rgba(99, 102, 241, 0.35); border: 1px solid #818cf8; color: #e0e7ff; }
+    .bar-emerald { background: rgba(16, 185, 129, 0.35); border: 1px solid #34d399; color: #d1fae5; }
+    .bar-blue { background: rgba(56, 189, 248, 0.35); border: 1px solid #38bdf8; color: #e0f2fe; }
+    .bar-amber { background: rgba(245, 158, 11, 0.35); border: 1px solid #fbbf24; color: #fef3c7; }
+    .bar-rose { background: rgba(244, 63, 94, 0.35); border: 1px solid #fb7185; color: #ffe4e6; }
+    .gantt-milestone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(239, 68, 68, 0.25);
+      border: 1px solid #f87171;
+      color: #fecaca;
+      border-radius: 9999px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .gantt-milestone.done {
+      background: rgba(16, 185, 129, 0.25);
+      border-color: #34d399;
+      color: #a7f3d0;
+    }
+    .day-col-active {
+      background: rgba(99, 102, 241, 0.12) !important;
+      outline: 2px solid #818cf8;
+      outline-offset: -2px;
+    }
+    .pace-meter-card {
+      background: rgba(18, 26, 43, 0.85);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    .pace-meter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .day-selector-pills {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .day-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .day-pill:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+    .day-pill.active {
+      background: #6366f1;
+      border-color: #818cf8;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    }
+    .progress-track {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 9999px;
+      height: 10px;
+      overflow: hidden;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #10b981);
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .health-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .health-green { background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34d399; }
+    .health-yellow { background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; color: #fbbf24; }
+    .health-red { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #f87171; }
+
     footer {
       text-align: center;
       margin-top: 4rem;
@@ -397,6 +534,7 @@
     <div class="nav-tabs">
       <button class="tab-btn active" onclick="switchTab('stages')">Lifecycle Stages</button>
       <button class="tab-btn" onclick="switchTab('auditor')">Live Gate Checklist Auditor</button>
+      <button class="tab-btn" onclick="switchTab('gantt')">⚡ 2-Week Fast-Track Gantt</button>
       <button class="tab-btn" onclick="switchTab('raci')">RACI Governance Matrix</button>
       <button class="tab-btn" onclick="switchTab('templates')">Deliverables & Templates (30)</button>
       <button class="tab-btn" onclick="switchTab('cli')">CLI & Automation</button>
@@ -543,6 +681,146 @@
         <div class="gate-section">
           <div class="gate-title">Gate 5: Steady-State Transition</div>
           <div class="checklist-item"><input type="checkbox" id="g5_1" onchange="calcScore()"><label for="g5_1">Hypercare period completed with SLA >= 99.9% uptime compliance</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2.5: 2-WEEK FAST-TRACK GANTT -->
+    <div id="tab-gantt" class="tab-content">
+      <div class="auditor-box" style="margin-bottom: 2rem;">
+        <div class="auditor-header">
+          <div>
+            <h2>⚡ 2-Week Fast-Track Execution Gantt & Velocity Tracker</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+              Interactive 10-day execution timeline with critical path highlights, gate milestones, and daily velocity healthchecks ($0 initial cloud stack).
+            </p>
+          </div>
+          <a href="docs/playbooks/TWO_WEEK_FAST_TRACK_PRODUCT_PLAYBOOK.md" style="color: #818cf8; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.4rem 0.9rem; border-radius: 8px;">
+            📖 Full Playbook &rarr;
+          </a>
+        </div>
+
+        <!-- Dynamic Velocity Gauge Card -->
+        <div class="pace-meter-card">
+          <div class="pace-meter-header">
+            <div>
+              <span id="ganttDayNum" style="font-size: 1.25rem; font-weight: 800; color: #fff;">Day 1 (Mon): Gate 0 — Scope & Charter Lock</span>
+              <div id="ganttGateDesc" style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.2rem;">Gate 0: Scoping & Project Charter Alignment</div>
+            </div>
+            <div id="ganttHealthBadge" class="health-badge health-green">🟢 On Track</div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">
+            <span id="ganttProgressLabel">Timeline Progress: 10% Elapsed (Day 1 of 10)</span>
+            <span id="ganttRemainingLabel">9 Days Remaining to Launch</span>
+          </div>
+
+          <div class="progress-track">
+            <div id="ganttProgressBar" class="progress-fill" style="width: 10%;"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.85rem 1rem;">
+              <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: #f59e0b; letter-spacing: 0.05em; margin-bottom: 0.3rem;">17:00 Daily Gatekeeper Rule</div>
+              <div id="ganttGatekeeperRule" style="font-size: 0.85rem; color: #e2e8f0; line-height: 1.4;">Strictly limit scope to 1 core value loop. Cut secondary features to Phase 2.</div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.85rem 1rem;">
+              <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: #38bdf8; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Required Daily Deliverable</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;">
+                <span id="ganttDeliverableText" style="font-size: 0.85rem; color: #e2e8f0; font-family: var(--mono); text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">templates/PRD_TEMPLATE.md</span>
+                <button id="ganttCopyBtn" class="action-btn" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="copyPath('templates/PRD_TEMPLATE.md', this)">Copy Path</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem;">
+            <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Select Day to Inspect Timeline & Pace:</div>
+            <div class="day-selector-pills">
+              <button class="day-pill active" onclick="selectGanttDay(1)">Day 1 (Mon)</button>
+              <button class="day-pill" onclick="selectGanttDay(2)">Day 2 (Tue)</button>
+              <button class="day-pill" onclick="selectGanttDay(3)">Day 3 (Wed)</button>
+              <button class="day-pill" onclick="selectGanttDay(4)">Day 4 (Thu)</button>
+              <button class="day-pill" onclick="selectGanttDay(5)">Day 5 (Fri)</button>
+              <button class="day-pill" onclick="selectGanttDay(6)">Day 6 (Mon)</button>
+              <button class="day-pill" onclick="selectGanttDay(7)">Day 7 (Tue)</button>
+              <button class="day-pill" onclick="selectGanttDay(8)">Day 8 (Wed)</button>
+              <button class="day-pill" onclick="selectGanttDay(9)">Day 9 (Thu)</button>
+              <button class="day-pill" onclick="selectGanttDay(10)">Day 10 (Fri)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Gantt Table -->
+        <h3 style="font-size: 1.1rem; color: #fff; margin: 1.5rem 0 0.5rem;">Master Execution Gantt (Critical Path)</h3>
+        <div class="gantt-wrapper">
+          <table class="gantt-table">
+            <thead>
+              <tr>
+                <th class="col-ws">Workstream Track</th>
+                <th class="g-col-1">D1 Mon</th>
+                <th class="g-col-2">D2 Tue</th>
+                <th class="g-col-3">D3 Wed</th>
+                <th class="g-col-4">D4 Thu</th>
+                <th class="g-col-5">D5 Fri</th>
+                <th class="g-col-6">D6 Mon</th>
+                <th class="g-col-7">D7 Tue</th>
+                <th class="g-col-8">D8 Wed</th>
+                <th class="g-col-9">D9 Thu</th>
+                <th class="g-col-10">D10 Fri</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1: Gates -->
+              <tr>
+                <td class="col-ws">Stage-Gates</td>
+                <td class="g-col-1"><span class="gantt-milestone done">Gate 0</span></td>
+                <td class="g-col-2"><span class="gantt-milestone done">Gate 1</span></td>
+                <td class="g-col-3"></td>
+                <td class="g-col-4"></td>
+                <td class="g-col-5"></td>
+                <td class="g-col-6"></td>
+                <td class="g-col-7"><span class="gantt-milestone">Gate 2</span></td>
+                <td class="g-col-8"><span class="gantt-milestone done">Gate 3</span></td>
+                <td class="g-col-9"><span class="gantt-milestone">Gate 4</span></td>
+                <td class="g-col-10"><span class="gantt-milestone done">Gate 5</span></td>
+              </tr>
+              <!-- Row 2: Architecture & Scope -->
+              <tr>
+                <td class="col-ws">Architecture & Scope</td>
+                <td colspan="2" class="g-col-1 g-col-2">
+                  <div class="gantt-bar bar-purple">PRD &bull; Charter &bull; SAD &bull; Threat Model</div>
+                </td>
+                <td colspan="8"></td>
+              </tr>
+              <!-- Row 3: Core Engineering -->
+              <tr>
+                <td class="col-ws">Core SaaS Engineering</td>
+                <td colspan="2"></td>
+                <td colspan="3" class="g-col-3 g-col-4 g-col-5">
+                  <div class="gantt-bar bar-emerald">Scaffold &bull; Supabase DB/RLS &bull; Auth &bull; Stripe</div>
+                </td>
+                <td colspan="5"></td>
+              </tr>
+              <!-- Row 4: Polish & Verification -->
+              <tr>
+                <td class="col-ws">Polish & QA Tests</td>
+                <td colspan="5"></td>
+                <td colspan="2" class="g-col-6 g-col-7">
+                  <div class="gantt-bar bar-blue">Resend Emails &bull; shadcn/ui &bull; Playwright E2E</div>
+                </td>
+                <td colspan="3"></td>
+              </tr>
+              <!-- Row 5: Handover & Ops -->
+              <tr>
+                <td class="col-ws">Handover & Live Ops</td>
+                <td colspan="7"></td>
+                <td colspan="3" class="g-col-8 g-col-9 g-col-10">
+                  <div class="gantt-bar bar-amber">Client UAT &bull; DR Drill &bull; SBOM &bull; DNS Cutover</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1080,9 +1358,160 @@
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
       
-      event.target.classList.add('active');
-      document.getElementById('tab-' + tabId).classList.add('active');
+      if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+      } else {
+        const btn = document.querySelector(`.tab-btn[onclick*="'${tabId}'"]`);
+        if (btn) btn.classList.add('active');
+      }
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
     }
+
+    const GANTT_DAYS = {
+      1: {
+        title: "Day 1 (Mon): Gate 0 — Scope & Charter Lock",
+        gateDesc: "Gate 0: Scoping & Project Charter Alignment",
+        pct: 10,
+        remaining: "9 Days Remaining to Launch",
+        health: "🟢 On Track",
+        healthClass: "health-green",
+        rule: "Strictly limit scope to 1 core value loop. Cut secondary features to Phase 2.",
+        deliverable: "templates/PRD_TEMPLATE.md"
+      },
+      2: {
+        title: "Day 2 (Tue): Gate 1 — Architecture, Security & Contract Review",
+        gateDesc: "Gate 1: Architecture, Security & Contract Review",
+        pct: 20,
+        remaining: "8 Days Remaining to Launch",
+        health: "🟢 On Track",
+        healthClass: "health-green",
+        rule: "Zero unmigrated DB models or unvetted external APIs permitted after 17:00.",
+        deliverable: "templates/SAD_TEMPLATE.md"
+      },
+      3: {
+        title: "Day 3 (Wed): Scaffolding, Supabase DB & Cloud Plumbing",
+        gateDesc: "Infrastructure & Local Developer Tooling Activation",
+        pct: 30,
+        remaining: "7 Days Remaining to Launch",
+        health: "🟢 On Track",
+        healthClass: "health-green",
+        rule: "Scaffolding compiles clean. Supabase local emulator and Vercel project linked.",
+        deliverable: "templates/SECURITY_PRIVACY_CHECKLIST.md"
+      },
+      4: {
+        title: "Day 4 (Thu): Auth Integration & Core Feature Workflow",
+        gateDesc: "Identity & Transaction Data Path Validation",
+        pct: 40,
+        remaining: "6 Days Remaining to Launch",
+        health: "🟢 On Track",
+        healthClass: "health-green",
+        rule: "Zero unauthenticated routes. RLS policies active on all transactional tables.",
+        deliverable: "templates/DEFINITION_OF_DONE.md"
+      },
+      5: {
+        title: "Day 5 (Fri): Stripe Checkout, Webhooks & Mid-Point Executive Report",
+        gateDesc: "Revenue Loop Closure & Week 1 Handover Checkpoint",
+        pct: 50,
+        remaining: "5 Days Remaining to Launch",
+        health: "🟢 Halfway Milestone",
+        healthClass: "health-green",
+        rule: "End-to-end sandbox purchase generates signed webhook and provisioned DB record.",
+        deliverable: "templates/E2E_SMOKE_TEST_SCRIPT.md"
+      },
+      6: {
+        title: "Day 6 (Mon): Resend Transactional Email & shadcn/ui Polish",
+        gateDesc: "User Experience Polish & System Event Notifications",
+        pct: 60,
+        remaining: "4 Days Remaining to Launch",
+        health: "🟢 On Track",
+        healthClass: "health-green",
+        rule: "All primary transactional alerts and critical error boundary fallbacks styled.",
+        deliverable: "templates/OPERATIONS_RUNBOOK_TEMPLATE.md"
+      },
+      7: {
+        title: "Day 7 (Tue): Gate 2 — Feature Freeze & Automated Testing",
+        gateDesc: "Gate 2: Code Quality & Definition of Done",
+        pct: 70,
+        remaining: "3 Days Remaining to Launch",
+        health: "🟡 Feature Freeze",
+        healthClass: "health-amber",
+        rule: "STRICT FEATURE FREEZE: Zero new feature code allowed after 17:00. Defect remediation only.",
+        deliverable: "templates/QA_TEST_PLAN_TEMPLATE.md"
+      },
+      8: {
+        title: "Day 8 (Wed): Gate 3 — Client UAT Walkthrough & Formal Acceptance",
+        gateDesc: "Gate 3: QA Verification & Client Acceptance",
+        pct: 80,
+        remaining: "2 Days Remaining to Launch",
+        health: "🟢 Gate 3 Clearance",
+        healthClass: "health-green",
+        rule: "No outstanding blocker or major defects permitted. Formal UAT Certificate signed.",
+        deliverable: "templates/UAT_SIGNOFF_CERTIFICATE.md"
+      },
+      9: {
+        title: "Day 9 (Thu): Gate 4 — Production Hardening, DR Drill & Handover Bundle",
+        gateDesc: "Gate 4: Production Release & Operations Handover",
+        pct: 90,
+        remaining: "1 Day Remaining to Launch",
+        health: "🟢 Ops Ready",
+        healthClass: "health-green",
+        rule: "PITR automated drill success < 15m. SBOM generated. Zero critical vulnerabilities.",
+        deliverable: "templates/DR_BACKUP_VERIFICATION_RECORD.md"
+      },
+      10: {
+        title: "Day 10 (Fri): Gate 5 — Live DNS Cutover, Smoke Test & Steady-State",
+        gateDesc: "Gate 5: Steady-State Transition & Public Launch",
+        pct: 100,
+        remaining: "🚀 Launch Day!",
+        health: "🎉 Production Live",
+        healthClass: "health-green",
+        rule: "Production synthetic smoke check PASS. Hypercare runbook active.",
+        deliverable: "templates/SERVICE_TRANSITION_CHECKLIST.md"
+      }
+    };
+
+    function selectGanttDay(day) {
+      const data = GANTT_DAYS[day];
+      if (!data) return;
+
+      document.getElementById('ganttDayNum').innerText = data.title;
+      document.getElementById('ganttGateDesc').innerText = data.gateDesc;
+      document.getElementById('ganttProgressLabel').innerText = `Timeline Progress: ${data.pct}% Elapsed (Day ${day} of 10)`;
+      document.getElementById('ganttRemainingLabel').innerText = data.remaining;
+      document.getElementById('ganttProgressBar').style.width = data.pct + '%';
+      
+      const badge = document.getElementById('ganttHealthBadge');
+      badge.innerText = data.health;
+      badge.className = `health-badge ${data.healthClass}`;
+
+      document.getElementById('ganttGatekeeperRule').innerText = data.rule;
+      document.getElementById('ganttDeliverableText').innerText = data.deliverable;
+      
+      const copyBtn = document.getElementById('ganttCopyBtn');
+      if (copyBtn) {
+        copyBtn.setAttribute('onclick', `copyPath('${data.deliverable}', this)`);
+      }
+
+      const pills = document.querySelectorAll('.day-selector-pills .day-pill');
+      pills.forEach((p, idx) => {
+        if (idx + 1 === day) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.gantt-table th, .gantt-table td').forEach(cell => {
+        cell.classList.remove('day-col-active');
+      });
+      document.querySelectorAll(`.gantt-table .g-col-${day}`).forEach(cell => {
+        cell.classList.add('day-col-active');
+      });
+    }
+
+    // Initialize Gantt to Day 1
+    selectGanttDay(1);
 
     function calcScore() {
       const boxes = document.querySelectorAll('#tab-auditor input[type="checkbox"]');

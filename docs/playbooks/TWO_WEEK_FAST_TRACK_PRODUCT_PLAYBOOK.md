@@ -66,24 +66,63 @@ flowchart TD
 
 ```mermaid
 gantt
-    title 2-Week Fast-Track Execution Timeline
+    title 2-Week Fast-Track Execution Timeline & Critical Path
     dateFormat  X
     axisFormat Day %s
 
-    section Week 1: Inception & Build
-    Gate 0 (PRD & Scope Lock)         :milestone, m0, 1, 1
-    Gate 1 (Architecture & Security)   :milestone, m1, 2, 2
-    Repo Scaffolding & Cloud Plumbing :active, 3, 3
-    Auth & Database Schema (RLS)       :active, 4, 4
-    Payments & Core Feature Workflow   :active, 5, 5
+    section 1. Governance & Gates
+    Gate 0 Lock (Scope & PRD)         :milestone, g0, 1, 1
+    Gate 1 Review (Arch & Security)   :milestone, g1, 2, 2
+    Gate 2 Freeze (DoD & Unit Tests)  :milestone, g2, 7, 7
+    Gate 3 Sign-Off (Client UAT)      :milestone, g3, 8, 8
+    Gate 4 Handover (DR & Package)    :milestone, g4, 9, 9
+    Gate 5 Cutover (Production Live)  :milestone, g5, 10, 10
 
-    section Week 2: Polish & Cutover
-    Transactional Email & UI Polish    :active, 6, 6
-    Gate 2 (Feature Freeze & Testing)  :crit, 7, 7
-    Gate 3 (Client UAT & Sign-Off)     :milestone, m3, 8, 8
-    Gate 4 (DR Drill, SBOM, Handover)  :crit, 9, 9
-    Gate 5 (DNS Cutover & Live Launch) :milestone, m5, 10, 10
+    section 2. Architecture & Design
+    PRD & User Journey Mapping        :active, prd, 1, 1
+    SAD & C4 Diagramming              :arch, 1, 2
+    OpenAPI Specification             :api, 2, 2
+    STRIDE Threat Model & Data Flow   :crit, sec, 2, 2
+
+    section 3. Core SaaS Engineering
+    Repo Scaffolding & Free Tiers     :scaff, 3, 3
+    Supabase DB Schema & RLS Policies :crit, db, 3, 4
+    Auth Integration (OAuth + JWT)    :auth, 4, 4
+    Core Revenue/Value Feature        :crit, feat, 4, 5
+    Stripe Checkout & Webhooks        :pay, 5, 5
+    Resend Email & shadcn/ui Polish   :ui, 6, 6
+
+    section 4. Security & QA
+    CI Compliance Workflow (.github)  :ci, 3, 3
+    Playwright E2E Test Suite         :crit, e2e, 6, 7
+    Client Staging Walkthrough & UAT  :crit, uat, 7, 8
+    Milestone Acceptance Certificate  :cert, 8, 8
+
+    section 5. Operations & Handover
+    Automated DR Restoration Drill    :dr, 8, 9
+    CycloneDX SBOM Manifest (make sbom):sbom, 9, 9
+    Handover Bundle (make package)    :pkg, 9, 9
+    Production DNS Cutover & Smoke    :crit, live, 10, 10
 ```
+
+### 3.1 Velocity Tracker: "Where Are We & How Fast Must We Go?"
+
+Use this milestone burn-up table at your daily 09:30 standup to track progress against the 10-day invariant launch date:
+
+| Day | Timeline Elapsed | Target Gate Milestone | Required Daily Deliverable | 17:00 Daily Gatekeeper Rule & Velocity Action |
+|:---:|:---:|:---:|:---|:---|
+| **Day 1** | **10%** | **Gate 0 Lock** | `docs/PRD.md` & `PROJECT_CHARTER.md` | ⚠️ **Red Alert if scope exceeds 1 core workflow.** Cut all secondary features to Phase 2 immediately. |
+| **Day 2** | **20%** | **Gate 1 Clearance** | `SAD.md`, `IDD.md`, `THREAT_MODEL.md` | ⚠️ **Red Alert if database schema is undefined.** Freeze schema design by 17:00 so coding begins unblocked on Day 3. |
+| **Day 3** | **30%** | **Infra Connected** | Scaffolding complete, Vercel/Supabase linked | 🟡 **Yellow Alert if free tiers aren't provisioned.** Verify `make doctor` passes with zero failures. |
+| **Day 4** | **40%** | **Data & Auth Ready** | Tables live, RLS active, Auth functional | ⚠️ **Red Alert if Auth isn't working.** Fall back to basic Supabase Email/Password; defer secondary OAuth providers. |
+| **Day 5** | **50%** | **Value Loop Complete** | Core workflow functional + Stripe Checkout | 🟢 **Halfway Milestone:** Generate `make report DAYS=5` for executive/client review before the weekend. |
+| **Day 6** | **60%** | **Polish & Emails** | Resend templates live, UI responsive | 🟡 **Yellow Alert if UI has custom CSS bugs.** Revert to standard `@shadcn/ui` pre-styled primitives. |
+| **Day 7** | **70%** | **Gate 2 Feature Freeze** | 100% code frozen, E2E tests passing | 🛑 **STRICT FEATURE FREEZE:** No new feature code permitted after 17:00. Only defect remediation allowed. |
+| **Day 8** | **80%** | **Gate 3 UAT Sign-Off** | `TEST_PLAN_AND_UAT.md` signed by client | ⚠️ **Red Alert if client reports P1 bugs.** Mobilize war room; execute `make signoff` the moment acceptance is granted. |
+| **Day 9** | **90%** | **Gate 4 Ops Handover** | DR drill certificate, SBOM, handover tarball | 🟡 **Verify Handover Package:** Ensure `make package` bundles all 30 formal documents without errors. |
+| **Day 10** | **100%** | **Gate 5 Live Launch** | Custom domain live on Cloudflare, `make smoke` | 🎉 **100% COMPLETE:** Run `make audit GATE=all`. Hand over runbook to Day-2 support team. |
+
+---
 
 ### Day 1 (Monday): Gate 0 — Scope & Charter Lock
 - **Objective:** Freeze the product scope. Identify the **Single Core Value Loop** (1 primary user journey). Strictly relegate all other feature requests to "Post-MVP / Phase 2".
@@ -296,3 +335,4 @@ To protect the launch deadline, enforce the **1-In, 1-Out Rule** per [`docs/gove
 - [Scope Creep & Budget Management Playbook](../governance/SCOPE_CREEP_AND_BUDGET_MANAGEMENT_PLAYBOOK.md)
 - [Disaster Recovery & Backup Drill SOP](../ops/DISASTER_RECOVERY_AND_BACKUP_DRILL_SOP.md)
 - [Enterprise Security Questionnaire Playbook](../compliance/ENTERPRISE_SECURITY_QUESTIONNAIRE_PLAYBOOK.md)
+
