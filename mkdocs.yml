@@ -55,6 +55,7 @@ nav:
       - 5. Post-Production & Support: docs/06_Post_Production_and_Maintenance.md
       - Prototype Evolution: docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md
       - Developer Onboarding: docs/DEVELOPER_ONBOARDING_AND_LOCAL_SETUP_GUIDE.md
+      - 2-Week Fast-Track Playbook: docs/playbooks/TWO_WEEK_FAST_TRACK_PRODUCT_PLAYBOOK.md
   - Architecture & Data:
       - Twelve-Factor App & Config: docs/architecture/TWELVE_FACTOR_APP_AND_CONFIG_STANDARDS.md
       - Zero-Downtime Data Migration: docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md

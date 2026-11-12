@@ -1,7 +1,7 @@
 # Lean-Enterprise SDLC Operating Framework
 ## Fast-Paced Product & Prototype Development with Embedded Compliance, Client Deliverables, and Operational Readiness
 
-> 🚀 **New to this repository?** Read the [**Practitioner's Guide: How to Use This Framework for Any New Product**](./HOW_TO_USE_THIS_FRAMEWORK.md) for step-by-step instructions on project scaffolding, day-to-day role workflows, and stage-gate audits.
+> 🚀 **New to this repository?** Read the [**Practitioner's Guide: How to Use This Framework for Any New Product**](./HOW_TO_USE_THIS_FRAMEWORK.md) or execute a full build with the [**2-Week Fast-Track Playbook ($0 Initial Stack)**](./docs/playbooks/TWO_WEEK_FAST_TRACK_PRODUCT_PLAYBOOK.md).
 
 ---
 
@@ -69,6 +69,7 @@ flowchart LR
   * [`05_Release_and_Operations_Handover.md`](./docs/05_Release_and_Operations_Handover.md)
   * [`06_Post_Production_and_Maintenance.md`](./docs/06_Post_Production_and_Maintenance.md)
   * [`DEVELOPER_ONBOARDING_AND_LOCAL_SETUP_GUIDE.md`](./docs/DEVELOPER_ONBOARDING_AND_LOCAL_SETUP_GUIDE.md): The "Day-1 First Commit in 4 Hours" local environment bootstrap guide.
+  * [`playbooks/TWO_WEEK_FAST_TRACK_PRODUCT_PLAYBOOK.md`](./docs/playbooks/TWO_WEEK_FAST_TRACK_PRODUCT_PLAYBOOK.md): Turnkey 10-day MVP sprint blueprint with a pre-formalized $0-upfront stack (Next.js, Vercel, Supabase, Cloudflare R2, Resend, Stripe).
   * [`PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md`](./docs/PROTOTYPE_TO_PRODUCTION_MIGRATION_PLAYBOOK.md): Architectural roadmap for transitioning prototypes into enterprise production.
   * [`architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md`](./docs/architecture/ZERO_DOWNTIME_DATA_MIGRATION_PLAYBOOK.md): The Expand/Contract database migration pattern for zero downtime.
   * [`architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md`](./docs/architecture/DATA_PRIVACY_AND_RETENTION_PLAYBOOK.md): GDPR/CCPA erasure workflows and staging data sanitization.

@@ -49,6 +49,9 @@ In ~2 seconds, `make demo`:
 
 ## 3. Scenario A: Bootstrapping a Brand New Product (0 to 1)
 
+> ⚡ **Need to launch in 2 weeks with $0 infrastructure costs?**  
+> Read the [**2-Week Fast-Track Product Delivery Playbook**](./docs/playbooks/TWO_WEEK_FAST_TRACK_PRODUCT_PLAYBOOK.md) for a pre-formalized stack (Next.js, Supabase, Cloudflare R2, Resend, Stripe) mapped day-by-day to all 30 SDLC deliverables.
+
 Follow these exact steps when starting a brand new project, client engagement, or SaaS platform.
 
 ### Step 3.1: Choose a Scaffolding Profile & Initialize
